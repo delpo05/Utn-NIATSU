@@ -7,7 +7,7 @@
 
 int main()
 {
-/// COMENTARIO DE PRUEba
+/// COMENTARIO DE PRUEba prueba
     /// Inicializacion de la ventanta
     sf::RenderWindow window(sf::VideoMode(800, 600), "NIATSU");
     window.setFramerateLimit(60);
