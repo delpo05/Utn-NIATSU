@@ -16,7 +16,7 @@ class Colis: public sf::Drawable{
        Colis();
        void update ();
        void respawn ();
-       const std::vector<disparo>& getDisparos() const;
+       //const std::vector<disparo>& getDisparos() const;
        sf::FloatRect getBounds () const;
        void disparar ();
        void golpeado ();

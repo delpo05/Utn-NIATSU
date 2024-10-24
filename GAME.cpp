@@ -35,7 +35,9 @@ void Game::iniciar_partida() {
 
         // Actualizar estado del juego
         niatsu.update();
-        colis.update ();
+        coli1.update ();
+        coli2.update ();
+        coli3.update ();
 
         // Limpiar ventana
         window.clear();
@@ -48,7 +50,9 @@ void Game::iniciar_partida() {
         for (auto& disparo : niatsu.getDisparos()) {
             disparo.draw(window, sf::RenderStates::Default);  // Pasando los estados por defecto
         }
-        window.draw(colis);
+        window.draw(coli1);
+        window.draw(coli2);
+        window.draw(coli3);
         window.draw(niatsu);
 
         // Actualizar pantalla
@@ -58,7 +62,9 @@ void Game::iniciar_partida() {
 
 void Game::update() {
     niatsu.update();
-    colis.update();
+    coli1.update();
+    coli2.update();
+    coli3.update();
 }
 
 void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {

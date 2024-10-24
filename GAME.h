@@ -4,7 +4,7 @@
 
 class Game : public sf::Drawable {
     Nave niatsu;   // Instancia de la nave
-    Colis colis;
+    Colis coli1, coli2, coli3;
     sf::RenderWindow window; // Ventana del juego
     sf::Sprite imagen;       // Fondo del juego
     sf::Texture tex;         // Textura del fondo
