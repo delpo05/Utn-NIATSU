@@ -38,10 +38,14 @@
 			<Add library="sfml-system" />
 			<Add directory="SFML/lib" />
 		</Linker>
+		<Unit filename="GAME.cpp" />
+		<Unit filename="GAME.h" />
 		<Unit filename="Nave.cpp" />
 		<Unit filename="Nave.h" />
 		<Unit filename="colision.cpp" />
 		<Unit filename="colision.h" />
+		<Unit filename="disparo.cpp" />
+		<Unit filename="disparo.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>

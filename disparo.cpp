@@ -1,5 +1,5 @@
 #include "disparo.h"
-
+//lore
 // Constructor del disparo
 disparo::disparo(float x, float y) {
     texture = new sf::Texture;
