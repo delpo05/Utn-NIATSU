@@ -1,8 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include "Nave.h"
+#include "Colis.h"
 
 class Game : public sf::Drawable {
-    Nave niatsu;             // Instancia de la nave
+    Nave niatsu;   // Instancia de la nave
+    Colis colis;
     sf::RenderWindow window; // Ventana del juego
     sf::Sprite imagen;       // Fondo del juego
     sf::Texture tex;         // Textura del fondo

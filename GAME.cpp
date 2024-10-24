@@ -35,6 +35,7 @@ void Game::iniciar_partida() {
 
         // Actualizar estado del juego
         niatsu.update();
+        colis.update ();
 
         // Limpiar ventana
         window.clear();
@@ -42,11 +43,12 @@ void Game::iniciar_partida() {
         // Dibujar fondo y nave
         window.draw(imagen);
 
+
         // Dibujar disparos
         for (auto& disparo : niatsu.getDisparos()) {
             disparo.draw(window, sf::RenderStates::Default);  // Pasando los estados por defecto
         }
-
+        window.draw(colis);
         window.draw(niatsu);
 
         // Actualizar pantalla
@@ -56,6 +58,7 @@ void Game::iniciar_partida() {
 
 void Game::update() {
     niatsu.update();
+    colis.update();
 }
 
 void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {

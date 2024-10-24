@@ -38,6 +38,8 @@
 			<Add library="sfml-system" />
 			<Add directory="SFML/lib" />
 		</Linker>
+		<Unit filename="Colis.cpp" />
+		<Unit filename="Colis.h" />
 		<Unit filename="GAME.cpp" />
 		<Unit filename="GAME.h" />
 		<Unit filename="Nave.cpp" />
