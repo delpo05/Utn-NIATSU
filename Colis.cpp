@@ -6,8 +6,9 @@
 
 Colis::Colis ()
 {
-     _texture.loadFromFile("nave.png");
+     _texture.loadFromFile("disparo.png");
      _sprite.setTexture (_texture);
+     _sprite.setTextureRect({32,1073,51,44});
      _sprite.setOrigin(_sprite.getGlobalBounds().width/2, _sprite.getGlobalBounds().height/2);
      ///_sprite.setPosition(rand()% 800, 0);
      ///_velocidad = 8;
