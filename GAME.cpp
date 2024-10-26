@@ -9,6 +9,7 @@
 // Constructor
 Game::Game() {
     inicializacion_ventana();  // Inicializa la ventana y carga los elementos
+    iniciar_partida(); //Inicia la partida
 }
 
 // Inicialización de la ventana y elementos gráficos
@@ -16,7 +17,7 @@ void Game::inicializacion_ventana() {
     window.create(sf::VideoMode(800, 600), "NIATSU");
     window.setFramerateLimit(60);
     tex.loadFromFile("fondo espacio.jpg");
-    imagen.setTexture(tex);
+    fondo.setTexture(tex);
 }
 
 // Método principal que ejecuta el juego (game loop)
@@ -43,13 +44,17 @@ void Game::iniciar_partida() {
         window.clear();
 
         // Dibujar fondo y nave
-        window.draw(imagen);
+        window.draw(fondo);
 
 
         // Dibujar disparos
         for (auto& disparo : niatsu.getDisparos()) {
             disparo.draw(window, sf::RenderStates::Default);  // Pasando los estados por defecto
         }
+
+
+
+
         window.draw(coli1);
         window.draw(coli2);
         window.draw(coli3);
@@ -60,12 +65,7 @@ void Game::iniciar_partida() {
     }
 }
 
-void Game::update() {
-    niatsu.update();
-    coli1.update();
-    coli2.update();
-    coli3.update();
-}
+
 
 void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     // Dibujar elementos adicionales si es necesario

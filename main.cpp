@@ -9,8 +9,8 @@
 int main()
 {
 Game game;
-game.inicializacion_ventana();
-game.iniciar_partida();
+
+//game;
 
 
 return 0;

@@ -41,9 +41,9 @@ void Nave::update()
         }
 
                 // Eliminar disparos fuera de la pantalla
-        disparos.erase(std::remove_if(disparos.begin(), disparos.end(), [](disparo& d) {
+        /*disparos.erase(std::remove_if(disparos.begin(), disparos.end(), [](disparo& d) {
             return d.sprite.getPosition().y < 0;  // Si sale de la pantalla
-            }), disparos.end());
+            }), disparos.end());*/
 
 
 
