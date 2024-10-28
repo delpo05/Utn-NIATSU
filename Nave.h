@@ -1,9 +1,9 @@
 #pragma once
 #include <SFML\Graphics.hpp>
-#include <vector>
 #include "disparo.h"
+#include "colision.h"
 
-class Nave: public sf::Drawable
+class Nave: public sf::Drawable, public collisionable
 {
         sf::Sprite _sprite;
         sf::Texture _texture;
@@ -14,6 +14,7 @@ public:
     void update();
     void disparar();
     const std::vector<disparo>& getDisparos() const;
+    sf::FloatRect getBounds() const;
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 };

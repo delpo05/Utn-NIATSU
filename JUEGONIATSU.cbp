@@ -36,10 +36,13 @@
 			<Add library="sfml-graphics" />
 			<Add library="sfml-window" />
 			<Add library="sfml-system" />
+			<Add library="sfml-audio" />
 			<Add directory="SFML/lib" />
 		</Linker>
 		<Unit filename="Colis.cpp" />
 		<Unit filename="Colis.h" />
+		<Unit filename="Disparo_enemigo.cpp" />
+		<Unit filename="Disparo_enemigo.h" />
 		<Unit filename="GAME.cpp" />
 		<Unit filename="GAME.h" />
 		<Unit filename="Nave.cpp" />

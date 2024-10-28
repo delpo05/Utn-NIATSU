@@ -2,13 +2,19 @@
 #include "Nave.h"
 #include "Colis.h"
 #include "disparo.h"
+#include <SFML/Audio.hpp>
 
-class Game : public sf::Drawable {
+
+class Game : public sf::Drawable
+{
     Nave niatsu;   // Instancia de la nave
     Colis coli1, coli2, coli3;
     sf::RenderWindow window; // Ventana del juego
     sf::Sprite fondo;       // Fondo del juego
     sf::Texture tex;         // Textura del fondo
+    sf::Music Musica;
+
+
 
 public:
     Game();  // Constructor
