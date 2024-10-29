@@ -1,4 +1,4 @@
-#include "Game.h"
+#include "GAME.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <ctime>
@@ -27,6 +27,7 @@ void Game::iniciar_partida() {
     Musica.setLoop(true);
     Musica.setVolume(5);
     Musica.play();
+    tiempoDeGracia = 60*1;
 
 
     Letra.loadFromFile("Letra.ttf");
@@ -71,13 +72,43 @@ void Game::iniciar_partida() {
 ///CHEQUEO COLISIONES DISPARO ENEMIGO
 
 
-
+if (banderaGolpe == false){
 for (auto& Disparo_enemigo : coli1.getDisparos()) {
     if (Disparo_enemigo.isCollision(niatsu)) {
-
+        banderaGolpe = true;
         niatsu.setVida_nave(niatsu.getVida_nave()-1);
     }
+}}
+
+
+if (banderaGolpe == false){
+for (auto& Disparo_enemigo : coli2.getDisparos()) {
+    if (Disparo_enemigo.isCollision(niatsu)) {
+        banderaGolpe = true;
+        niatsu.setVida_nave(niatsu.getVida_nave()-1);
+    }
+}}
+
+
+if (banderaGolpe == false){
+for (auto& Disparo_enemigo : coli3.getDisparos()) {
+    if (Disparo_enemigo.isCollision(niatsu)) {
+        banderaGolpe = true;
+        niatsu.setVida_nave(niatsu.getVida_nave()-1);
+    }
+}}
+
+
+if(banderaGolpe==true){
+    tiempoDeGracia--;
 }
+
+if(tiempoDeGracia<=0){
+    tiempoDeGracia=60*1;
+    banderaGolpe=false;
+}
+
+
 
 /*if(niatsu.isCollision(coli1)){
     niatsu.setVida_nave(niatsu.getVida_nave() - 1);

@@ -2554,8 +2554,8 @@
 	<stdlib.h>
 	"disparo.h"
 
-1730204833 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
-	"Game.h"
+1730209038 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
+	"GAME.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<ctime>
@@ -2563,7 +2563,7 @@
 	"disparo.h"
 	"Nave.h"
 
-1730203567 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
+1730208971 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
@@ -3163,10 +3163,10 @@
 	"Disparo_enemigo.h"
 	"colision.h"
 
-1730122762 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_enemigo.h
+1730207281 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_enemigo.h
 	<SFML/Graphics.hpp>
 	"colision.h"
 
-1730120489 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_enemigo.cpp
+1730207281 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_enemigo.cpp
 	"Disparo_enemigo.h"
 

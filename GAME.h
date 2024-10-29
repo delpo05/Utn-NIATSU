@@ -15,6 +15,8 @@ class Game : public sf::Drawable
     sf::Music Musica;
     sf::Font Letra;
     sf::Text texvidas;
+    bool banderaGolpe = false;
+    int tiempoDeGracia;
 
 
 
