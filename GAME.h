@@ -25,14 +25,10 @@ class Game : public sf::Drawable
     float tiempoUltimoDisparo;
     float intervaloDisparo;
     int puntos;
-
-
     sf::Sound choque;
     sf::SoundBuffer audiochoque;
-
     sf::Sound shoot;
     sf::SoundBuffer audioshoot;
-
     sf::Sound tiro;
     sf::SoundBuffer audiotiro;
 

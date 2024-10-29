@@ -6,11 +6,12 @@
 #include "Disparo_enemigo.h"
 
 Colis::Colis() {
-
     _texture.loadFromFile("disparo.png");
     _sprite.setTexture(_texture);
     _sprite.setTextureRect({32, 1073, 51, 44});
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
+    audiotiroColi.loadFromFile("audiochoque.wav");
+    tiroColi.setBuffer (audiotiroColi);
 
 
 
@@ -26,17 +27,9 @@ Colis::Colis() {
     vida_coli=1;
 
     sf::SoundBuffer explosion;
-    _explosion.loadFromFile("explosion.wav");
-    _canal.setBuffer(_explosion);
-    _canal.setVolume(10);
-
-
-    cantidadDeApariciones = 0;
-
-
-
-
-
+    audiotiroColi.loadFromFile("Disparocolis.wav");
+    tiroColi.setBuffer(audiotiroColi);
+    tiroColi.setVolume(1);
 }
 
 void Colis::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -47,8 +40,8 @@ void Colis::update() {
     // Ajuste aleatorio en la velocidad X para un movimiento horizontal más impredecible
     if (std::rand() % 20 == 0) {  // 1 en 20 posibilidad de cambiar aleatoriamente cada ciclo
         _velocidadX += (std::rand() % 3 - 1);  // Añade -1, 0 o 1 a _velocidadX
-        if (_velocidadX > 5.0f) _velocidadX = 5.0f; // Límite superior
-        if (_velocidadX < -5.0f) _velocidadX = -5.0f; // Límite inferior
+        if (_velocidadX > 5.0) _velocidadX = 5.0; // Límite superior
+        if (_velocidadX < -5.0) _velocidadX = -5.0; // Límite inferior
     }
 
     // Movimiento
@@ -60,15 +53,15 @@ void Colis::update() {
     }
 
     // Desaparece y vuelve a la parte superior si se mueve fuera de la pantalla hacia abajo
-    if(cantidadDeApariciones<9){// en ronda 0 hay 3, en 1 hay 6...
+
     if (_sprite.getPosition().y > 600 || vida_coli <= 0) {
         respawn();
-        cantidadDeApariciones++;
-    }}
+    }
 
     // Control de disparo
     if (disparoTimer <= 0 && vida_coli>=1) {
         disparar();
+        tiroColi.play();
         intervaloDisparo = float(std::rand() % 700 + 100);
         disparoTimer = intervaloDisparo;
     } else {

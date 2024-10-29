@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 #include "colision.h"
 
 class disparo :public sf::Drawable, public collisionable {

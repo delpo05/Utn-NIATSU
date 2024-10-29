@@ -9,18 +9,17 @@ class Colis : public sf::Drawable, public collisionable {
     private:
     sf::Sprite _sprite;
     sf::Texture _texture;
-    ///
     sf::Sound _canal;
     sf::SoundBuffer _explosion;
-
-    ///
     float _velocidadX;
     float _velocidadY;
     std::vector<Disparo_enemigo> disparos;
     float disparoTimer;            // Temporizador para controlar el disparo
     float intervaloDisparo;         // Intervalo aleatorio para disparar
     int vida_coli;
-    int cantidadDeApariciones;
+
+    sf::Sound tiroColi;
+    sf::SoundBuffer audiotiroColi;
 
 
 

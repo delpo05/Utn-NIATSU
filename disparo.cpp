@@ -1,6 +1,5 @@
 #include "disparo.h"
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+
 //lore
 // Constructor del disparo
 disparo::disparo(float x, float y) {

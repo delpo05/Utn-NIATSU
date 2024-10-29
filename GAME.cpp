@@ -26,29 +26,24 @@ void Game::inicializacion_ventana() {
 void Game::iniciar_partida() {
     Musica.openFromFile("Musica.ogg");
     Musica.setLoop(true);
-    Musica.setVolume(3);
+    Musica.setVolume(5);
     Musica.play();
     tiempoDeGracia = 60*1;
     tiempoUltimoDisparo = 0.0;
     intervaloDisparo = 0.2;
     puntos = 0;
-
-
     Letra.loadFromFile("Letra.ttf");
     texPuntos.setFont(Letra);
     texPuntos.setCharacterSize(20);
     texvidas.setCharacterSize(20);
     texvidas.setFont(Letra);
-
     audiochoque.loadFromFile("audiochoque.wav");
     choque.setBuffer(audiochoque);
-
-
     audioshoot.loadFromFile("shoot.wav");
     shoot.setBuffer (audioshoot);
-
-     audiotiro.loadFromFile("audiochoque.wav");
-     tiro.setBuffer (audiotiro);
+    audiotiro.loadFromFile("audiochoque.wav");
+    tiro.setBuffer (audiotiro);
+    shoot.setVolume(15);
 
 
 
@@ -66,14 +61,11 @@ void Game::iniciar_partida() {
 
         // Detectar disparo
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-
-        if(tiempoUltimoDisparo>=intervaloDisparo){
+            if(tiempoUltimoDisparo>=intervaloDisparo){
             niatsu.disparar();
             tiempoUltimoDisparo=0.0f;
 
             shoot.play();
-            shoot.setVolume(15);
-
         }
         }
 
