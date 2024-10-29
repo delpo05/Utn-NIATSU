@@ -31,6 +31,9 @@ Colis::Colis() {
     _canal.setVolume(10);
 
 
+    cantidadDeApariciones = 0;
+
+
 
 
 
@@ -57,9 +60,11 @@ void Colis::update() {
     }
 
     // Desaparece y vuelve a la parte superior si se mueve fuera de la pantalla hacia abajo
+    if(cantidadDeApariciones<9){// en ronda 0 hay 3, en 1 hay 6...
     if (_sprite.getPosition().y > 600 || vida_coli <= 0) {
         respawn();
-    }
+        cantidadDeApariciones++;
+    }}
 
     // Control de disparo
     if (disparoTimer <= 0 && vida_coli>=1) {
@@ -87,6 +92,7 @@ void Colis::respawn() {
     _sprite.setPosition(std::rand() % 700 + _sprite.getGlobalBounds().width, -_sprite.getGlobalBounds().height);
     _velocidadX = (std::rand() % 2 == 0) ? 3.5 : -3.5;
     _velocidadY = 1.5 + float(std::rand() % 200) / 100.0;
+
 }
 
 void Colis::disparar() {

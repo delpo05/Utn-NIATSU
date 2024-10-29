@@ -15,8 +15,12 @@ class Game : public sf::Drawable
     sf::Music Musica;
     sf::Font Letra;
     sf::Text texvidas;
+    sf::Text texPuntos;
     bool banderaGolpe = false;
     int tiempoDeGracia;
+    float tiempoUltimoDisparo;
+    float intervaloDisparo;
+    int puntos;
 
 
 

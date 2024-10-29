@@ -20,6 +20,7 @@ class Colis : public sf::Drawable, public collisionable {
     float disparoTimer;            // Temporizador para controlar el disparo
     float intervaloDisparo;         // Intervalo aleatorio para disparar
     int vida_coli;
+    int cantidadDeApariciones;
 
 
 

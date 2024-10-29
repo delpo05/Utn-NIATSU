@@ -17,7 +17,7 @@ Game::Game() {
 void Game::inicializacion_ventana() {
     window.create(sf::VideoMode(800, 600), "NIATSU");
     window.setFramerateLimit(60);
-    tex.loadFromFile("Fondojuego.jpg");
+    tex.loadFromFile("fondo espacio.jpg");
     fondo.setTexture(tex);
 }
 
@@ -28,13 +28,20 @@ void Game::iniciar_partida() {
     Musica.setVolume(5);
     Musica.play();
     tiempoDeGracia = 60*1;
+    tiempoUltimoDisparo = 0.0;
+    intervaloDisparo = 0.2;
+    puntos = 0;
 
 
     Letra.loadFromFile("Letra.ttf");
-    //text.setFont(Letra);
+    texPuntos.setFont(Letra);
+    texPuntos.setCharacterSize(20);
+    texvidas.setCharacterSize(20);
     texvidas.setFont(Letra);
-    //texvidas.setPosition({0, 50});
-    //text.setString("PUNTOS: " +std::to_string(puntos));
+
+
+
+
 
 
 
@@ -47,24 +54,28 @@ void Game::iniciar_partida() {
 
         // Detectar disparo
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-            niatsu.disparar();
 
+        if(tiempoUltimoDisparo>=intervaloDisparo){
+            niatsu.disparar();
+            tiempoUltimoDisparo=0.0f;
+        }
         }
 
-
-
-
+        tiempoUltimoDisparo += 1.0 / 60.0;
 
 ///for de colisiones de vector disparo de colis hacia niatsu
     for (auto& disparo : niatsu.getDisparos()) {
     if (disparo.isCollision(coli1)) {
         coli1.setVida_coli(coli1.getVida() - 1);
+        puntos+=100;
     }
     if (disparo.isCollision(coli2)) {
         coli2.setVida_coli(coli2.getVida() - 1);
+        puntos+=100;
     }
     if (disparo.isCollision(coli3)) {
         coli3.setVida_coli(coli3.getVida() - 1);
+        puntos+=100;
     }
 
 }
@@ -127,8 +138,11 @@ if(tiempoDeGracia<=0){
 
         // Dibujar fondo y nave
         window.draw(fondo);
+        texPuntos.setPosition({800- texPuntos.getGlobalBounds().width,0});
+        texPuntos.setString("PUNTOS: " +std::to_string(puntos));
         texvidas.setString("VIDAS: "+std::to_string(niatsu.getVida_nave()));
         window.draw(texvidas);
+        window.draw(texPuntos);
 
 
         // Dibujar disparos
