@@ -12,7 +12,8 @@ Nave::Nave()
     _texture.loadFromFile("Nave.png");
     _sprite.setTexture(_texture);
     _sprite.setOrigin(_sprite.getGlobalBounds().width/2, _sprite.getGlobalBounds().height);
-    vida_nave = 10;
+    vida_nave = 10000;
+    _sprite.setPosition (400, 550);
 
 
 }

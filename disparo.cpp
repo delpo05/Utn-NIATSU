@@ -1,4 +1,6 @@
 #include "disparo.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 //lore
 // Constructor del disparo
 disparo::disparo(float x, float y) {
@@ -9,6 +11,10 @@ disparo::disparo(float x, float y) {
     sprite.setOrigin(sprite.getGlobalBounds().width/2, sprite.getGlobalBounds().height);
     sprite.setPosition(x, y);
     velocidad = 10.0; // Velocidad de movimiento del disparo
+
+
+
+
 }
 
 

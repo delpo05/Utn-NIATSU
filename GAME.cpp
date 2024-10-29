@@ -19,13 +19,14 @@ void Game::inicializacion_ventana() {
     window.setFramerateLimit(60);
     tex.loadFromFile("fondo espacio.jpg");
     fondo.setTexture(tex);
+
 }
 
 // Método principal que ejecuta el juego (game loop)
 void Game::iniciar_partida() {
     Musica.openFromFile("Musica.ogg");
     Musica.setLoop(true);
-    Musica.setVolume(5);
+    Musica.setVolume(3);
     Musica.play();
     tiempoDeGracia = 60*1;
     tiempoUltimoDisparo = 0.0;
@@ -38,6 +39,17 @@ void Game::iniciar_partida() {
     texPuntos.setCharacterSize(20);
     texvidas.setCharacterSize(20);
     texvidas.setFont(Letra);
+
+    audiochoque.loadFromFile("audiochoque.wav");
+    choque.setBuffer(audiochoque);
+
+
+    audioshoot.loadFromFile("shoot.wav");
+    shoot.setBuffer (audioshoot);
+
+     audiotiro.loadFromFile("audiochoque.wav");
+     tiro.setBuffer (audiotiro);
+
 
 
 
@@ -58,6 +70,10 @@ void Game::iniciar_partida() {
         if(tiempoUltimoDisparo>=intervaloDisparo){
             niatsu.disparar();
             tiempoUltimoDisparo=0.0f;
+
+            shoot.play();
+            shoot.setVolume(15);
+
         }
         }
 
@@ -65,6 +81,7 @@ void Game::iniciar_partida() {
 
 ///for de colisiones de vector disparo de colis hacia niatsu
     for (auto& disparo : niatsu.getDisparos()) {
+
     if (disparo.isCollision(coli1)) {
         coli1.setVida_coli(coli1.getVida() - 1);
         puntos+=100;
@@ -88,6 +105,9 @@ for (auto& Disparo_enemigo : coli1.getDisparos()) {
     if (Disparo_enemigo.isCollision(niatsu)) {
         banderaGolpe = true;
         niatsu.setVida_nave(niatsu.getVida_nave()-1);
+        tiro.play();
+
+
     }
 }}
 
@@ -97,6 +117,7 @@ for (auto& Disparo_enemigo : coli2.getDisparos()) {
     if (Disparo_enemigo.isCollision(niatsu)) {
         banderaGolpe = true;
         niatsu.setVida_nave(niatsu.getVida_nave()-1);
+        tiro.play();
     }
 }}
 
@@ -106,6 +127,7 @@ for (auto& Disparo_enemigo : coli3.getDisparos()) {
     if (Disparo_enemigo.isCollision(niatsu)) {
         banderaGolpe = true;
         niatsu.setVida_nave(niatsu.getVida_nave()-1);
+        tiro.play();
     }
 }}
 
@@ -119,11 +141,56 @@ if(tiempoDeGracia<=0){
     banderaGolpe=false;
 }
 
+/// CHOQUES
+if (bandeChoque == false) { /// COLI 1
+    if (niatsu.isCollision(coli1)) {
+        niatsu.setVida_nave(niatsu.getVida_nave() - 1);
+        choque.play();
+        choque.setVolume(10);
+        bandeChoque = true;
+        coli1.setVida_coli(coli1.getVida()-1);
 
+    }
+}
+    else {
+    if (!niatsu.isCollision(coli1)) {
+        bandeChoque = false;
+    }
+}
 
-/*if(niatsu.isCollision(coli1)){
-    niatsu.setVida_nave(niatsu.getVida_nave() - 1);
-}*/
+if (bandeChoque == false) {   /// COLI 2
+    if (niatsu.isCollision(coli2)) {
+        niatsu.setVida_nave(niatsu.getVida_nave() - 1);
+        choque.play();
+        choque.setVolume(10);
+        bandeChoque = true;
+        coli2.setVida_coli(coli2.getVida()-1);
+
+    }
+}
+    else {
+    if (!niatsu.isCollision(coli2)) {
+        bandeChoque = false;
+    }
+}
+
+if (bandeChoque == false) {  /// COLI 3
+    if (niatsu.isCollision(coli3)) {
+        niatsu.setVida_nave(niatsu.getVida_nave() - 1);
+        choque.play();
+        choque.setVolume(10);
+        bandeChoque = true;
+        coli3.setVida_coli(coli3.getVida()-1);
+
+    }
+}
+    else {
+    if (!niatsu.isCollision(coli3)) {
+        bandeChoque = false;
+    }
+}
+
+/// FIN DE CHOQUES
 
 
 

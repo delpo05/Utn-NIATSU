@@ -15,13 +15,26 @@ class Game : public sf::Drawable
     sf::Music Musica;
     sf::Font Letra;
     sf::Text texvidas;
+
+
+
     sf::Text texPuntos;
     bool banderaGolpe = false;
+    bool bandeChoque = false;
     int tiempoDeGracia;
     float tiempoUltimoDisparo;
     float intervaloDisparo;
     int puntos;
 
+
+    sf::Sound choque;
+    sf::SoundBuffer audiochoque;
+
+    sf::Sound shoot;
+    sf::SoundBuffer audioshoot;
+
+    sf::Sound tiro;
+    sf::SoundBuffer audiotiro;
 
 
 

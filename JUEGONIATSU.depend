@@ -2992,14 +2992,18 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1729782877 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\disparo.cpp
+1730232414 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\disparo.cpp
 	"disparo.h"
-
-1729782877 c:\users\usuario\documents\nueva carpeta\utn-niatsu\disparo.h
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 
-1729798081 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\game.cpp
-	"Game.h"
+1730232366 c:\users\usuario\documents\nueva carpeta\utn-niatsu\disparo.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"colision.h"
+
+1730232714 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\game.cpp
+	"GAME.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<ctime>
@@ -3007,15 +3011,17 @@
 	"disparo.h"
 	"Nave.h"
 
-1729796459 c:\users\usuario\documents\nueva carpeta\utn-niatsu\game.h
+1730234428 c:\users\usuario\documents\nueva carpeta\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
-
-1729782877 c:\users\usuario\documents\nueva carpeta\utn-niatsu\nave.h
-	<SFML\Graphics.hpp>
-	<vector>
 	"disparo.h"
+	<SFML/Audio.hpp>
+
+1730209715 c:\users\usuario\documents\nueva carpeta\utn-niatsu\nave.h
+	<SFML\Graphics.hpp>
+	"disparo.h"
+	"colision.h"
 
 1729690142 c:\users\usuario\documents\nueva carpeta\utn-niatsu\sfml\include\sfml\audio.hpp
 	<SFML/System.hpp>
@@ -3121,7 +3127,7 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1729782877 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\main.cpp
+1730129017 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\main.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -3129,7 +3135,7 @@
 	<stdlib.h>
 	"GAME.h"
 
-1729782877 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\nave.cpp
+1730225580 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\nave.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -3137,16 +3143,20 @@
 	<stdlib.h>
 	"disparo.h"
 
-1729797966 c:\users\usuario\documents\nueva carpeta\utn-niatsu\colis.h
+1730214932 c:\users\usuario\documents\nueva carpeta\utn-niatsu\colis.h
 	<SFML/Graphics.hpp>
-	"disparo.h"
+	<SFML/Audio.hpp>
+	<vector>
+	"Disparo_enemigo.h"
+	"colision.h"
 
-1729797750 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\colis.cpp
+1730214932 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\colis.cpp
 	"Colis.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<ctime>
 	<stdlib.h>
+	"Disparo_enemigo.h"
 
 1730214690 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.cpp
 	"Colis.h"
@@ -3754,4 +3764,11 @@
 	<ctime>
 	<stdlib.h>
 	"disparo.h"
+
+1730234428 c:\users\usuario\documents\nueva carpeta\utn-niatsu\disparo_enemigo.h
+	<SFML/Graphics.hpp>
+	"colision.h"
+
+1730129017 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\disparo_enemigo.cpp
+	"Disparo_enemigo.h"
 
