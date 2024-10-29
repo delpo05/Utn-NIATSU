@@ -17,7 +17,7 @@ Game::Game() {
 void Game::inicializacion_ventana() {
     window.create(sf::VideoMode(800, 600), "NIATSU");
     window.setFramerateLimit(60);
-    tex.loadFromFile("fondo espacio.jpg");
+    tex.loadFromFile("Fondojuego.jpg");
     fondo.setTexture(tex);
 }
 
