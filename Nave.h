@@ -9,6 +9,7 @@ class Nave: public sf::Drawable, public collisionable
         sf::Texture _texture;
         float _velocidad;
         std::vector <disparo> disparos;
+        int vida_nave;
 public:
     Nave();
     void update();
@@ -16,6 +17,8 @@ public:
     const std::vector<disparo>& getDisparos() const;
     sf::FloatRect getBounds() const;
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    void setVida_nave(int vida){vida_nave=vida;}
+    int getVida_nave(){return vida_nave;}
 
 };
 

@@ -13,6 +13,9 @@ class Game : public sf::Drawable
     sf::Sprite fondo;       // Fondo del juego
     sf::Texture tex;         // Textura del fondo
     sf::Music Musica;
+    sf::Font Letra;
+    sf::Text texvidas;
+
 
 
 

@@ -98,6 +98,9 @@ const std::vector<Disparo_enemigo>& Colis::getDisparos() const {
     return disparos;
 }
 
+
+
+
 sf::FloatRect Colis::getBounds() const {
     return _sprite.getGlobalBounds();
 }

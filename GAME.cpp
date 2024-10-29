@@ -29,6 +29,14 @@ void Game::iniciar_partida() {
     Musica.play();
 
 
+    Letra.loadFromFile("Letra.ttf");
+    //text.setFont(Letra);
+    texvidas.setFont(Letra);
+    //texvidas.setPosition({0, 50});
+    //text.setString("PUNTOS: " +std::to_string(puntos));
+
+
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -46,7 +54,7 @@ void Game::iniciar_partida() {
 
 
 
-
+///for de colisiones de vector disparo de colis hacia niatsu
     for (auto& disparo : niatsu.getDisparos()) {
     if (disparo.isCollision(coli1)) {
         coli1.setVida_coli(coli1.getVida() - 1);
@@ -57,11 +65,23 @@ void Game::iniciar_partida() {
     if (disparo.isCollision(coli3)) {
         coli3.setVida_coli(coli3.getVida() - 1);
     }
+
 }
 
+///CHEQUEO COLISIONES DISPARO ENEMIGO
 
 
 
+for (auto& Disparo_enemigo : coli1.getDisparos()) {
+    if (Disparo_enemigo.isCollision(niatsu)) {
+
+        niatsu.setVida_nave(niatsu.getVida_nave()-1);
+    }
+}
+
+/*if(niatsu.isCollision(coli1)){
+    niatsu.setVida_nave(niatsu.getVida_nave() - 1);
+}*/
 
 
 
@@ -76,6 +96,8 @@ void Game::iniciar_partida() {
 
         // Dibujar fondo y nave
         window.draw(fondo);
+        texvidas.setString("VIDAS: "+std::to_string(niatsu.getVida_nave()));
+        window.draw(texvidas);
 
 
         // Dibujar disparos

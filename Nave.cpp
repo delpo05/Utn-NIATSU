@@ -12,12 +12,15 @@ Nave::Nave()
     _texture.loadFromFile("Nave.png");
     _sprite.setTexture(_texture);
     _sprite.setOrigin(_sprite.getGlobalBounds().width/2, _sprite.getGlobalBounds().height);
+    vida_nave = 1000;
 
 
 }
 
 void Nave::update()
 {
+
+    if(vida_nave > 0){
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             _sprite.move(0,-_velocidad);
@@ -64,6 +67,10 @@ void Nave::update()
             _sprite.setPosition(800- (_sprite.getGlobalBounds().width - _sprite.getOrigin().x), _sprite.getPosition().y);
             //_velocidad.x = -_velocidad.x;
         }
+
+    }
+
+
 
 
 
