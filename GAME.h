@@ -29,8 +29,10 @@ class Game : public sf::Drawable
     sf::SoundBuffer audiochoque;
     sf::Sound shoot;
     sf::SoundBuffer audioshoot;
-    sf::Sound tiro;
-    sf::SoundBuffer audiotiro;
+    sf::Sound tiroRecibido;
+    sf::SoundBuffer audioRecibetiro;
+
+
 
 
 

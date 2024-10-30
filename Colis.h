@@ -9,17 +9,16 @@ class Colis : public sf::Drawable, public collisionable {
     private:
     sf::Sprite _sprite;
     sf::Texture _texture;
-    sf::Sound _canal;
-    sf::SoundBuffer _explosion;
+
     float _velocidadX;
     float _velocidadY;
     std::vector<Disparo_enemigo> disparos;
     float disparoTimer;            // Temporizador para controlar el disparo
     float intervaloDisparo;         // Intervalo aleatorio para disparar
     int vida_coli;
-
     sf::Sound tiroColi;
     sf::SoundBuffer audiotiroColi;
+    int _CantidadColis;
 
 
 
@@ -33,5 +32,7 @@ public:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     void setVida_coli(int vida){vida_coli=vida;}
     int getVida(){return vida_coli;}
+    int getCantidadColis(){return _CantidadColis;}
+    void setCantidadColis(int cant){_CantidadColis = cant;}
 
 };

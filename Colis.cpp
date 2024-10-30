@@ -6,30 +6,27 @@
 #include "Disparo_enemigo.h"
 
 Colis::Colis() {
-    _texture.loadFromFile("disparo.png");
+    _texture.loadFromFile("disparo_enemigo.png");
     _sprite.setTexture(_texture);
-    _sprite.setTextureRect({32, 1073, 51, 44});
+    _sprite.setTextureRect({145, 382, 55, 45});
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
-    audiotiroColi.loadFromFile("audiochoque.wav");
-    tiroColi.setBuffer (audiotiroColi);
-
-
-
     // Establece la posición inicial en una coordenada aleatoria en la parte superior de la pantalla
     _sprite.setPosition(std::rand() % 700 + _sprite.getGlobalBounds().width, -_sprite.getGlobalBounds().height);
 
+
+
     // Velocidades iniciales aleatorias en X y Y
     _velocidadX = (std::rand() % 2 == 0) ? 3.5 : -3.5;
-    _velocidadY = 1.5 + float(std::rand() % 200) / 100.0f;
+    _velocidadY = 1.5 + float(std::rand() % 200) / 100.0;
 
     disparoTimer = 0;
     intervaloDisparo = float(std::rand() % 2000 + 1000);  // entre 1 y 3 segundos
     vida_coli=1;
 
-    sf::SoundBuffer explosion;
     audiotiroColi.loadFromFile("Disparocolis.wav");
     tiroColi.setBuffer(audiotiroColi);
     tiroColi.setVolume(1);
+    _CantidadColis = 0;
 }
 
 void Colis::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -54,8 +51,10 @@ void Colis::update() {
 
     // Desaparece y vuelve a la parte superior si se mueve fuera de la pantalla hacia abajo
 
+
     if (_sprite.getPosition().y > 600 || vida_coli <= 0) {
         respawn();
+        _CantidadColis++;
     }
 
     // Control de disparo
@@ -73,11 +72,6 @@ void Colis::update() {
         disparo.update();
     }
 
-    if(vida_coli<1){
-        _canal.play();
-        vida_coli=1;
-        }
-
 
 }
 
@@ -85,7 +79,7 @@ void Colis::respawn() {
     _sprite.setPosition(std::rand() % 700 + _sprite.getGlobalBounds().width, -_sprite.getGlobalBounds().height);
     _velocidadX = (std::rand() % 2 == 0) ? 3.5 : -3.5;
     _velocidadY = 1.5 + float(std::rand() % 200) / 100.0;
-
+    vida_coli=1;
 }
 
 void Colis::disparar() {

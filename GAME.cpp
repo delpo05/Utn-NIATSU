@@ -11,6 +11,7 @@ Game::Game() {
     inicializacion_ventana();  // Inicializa la ventana y carga los elementos
     iniciar_partida(); //Inicia la partida
 
+
 }
 
 // Inicialización de la ventana y elementos gráficos
@@ -39,11 +40,13 @@ void Game::iniciar_partida() {
     texvidas.setFont(Letra);
     audiochoque.loadFromFile("audiochoque.wav");
     choque.setBuffer(audiochoque);
+    choque.setVolume(10);
     audioshoot.loadFromFile("shoot.wav");
     shoot.setBuffer (audioshoot);
-    audiotiro.loadFromFile("audiochoque.wav");
-    tiro.setBuffer (audiotiro);
-    shoot.setVolume(15);
+    audioRecibetiro.loadFromFile("RecibeTiro.wav");
+    tiroRecibido.setBuffer (audioRecibetiro);
+    tiroRecibido.setVolume(7);
+    shoot.setVolume(10);
 
 
 
@@ -52,6 +55,7 @@ void Game::iniciar_partida() {
 
 
 
+    ///INCIO DE BUCLE
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -59,7 +63,7 @@ void Game::iniciar_partida() {
                 window.close();
         }
 
-        // Detectar disparo
+        /// DISPARO INTERMITENTE CON EL ESPACIO
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
             if(tiempoUltimoDisparo>=intervaloDisparo){
             niatsu.disparar();
@@ -71,25 +75,30 @@ void Game::iniciar_partida() {
 
         tiempoUltimoDisparo += 1.0 / 60.0;
 
-///for de colisiones de vector disparo de colis hacia niatsu
+///for de colisiones de vector disparos hacia colis
     for (auto& disparo : niatsu.getDisparos()) {
 
     if (disparo.isCollision(coli1)) {
         coli1.setVida_coli(coli1.getVida() - 1);
         puntos+=100;
+
     }
     if (disparo.isCollision(coli2)) {
         coli2.setVida_coli(coli2.getVida() - 1);
         puntos+=100;
+
     }
     if (disparo.isCollision(coli3)) {
         coli3.setVida_coli(coli3.getVida() - 1);
         puntos+=100;
+
     }
 
 }
 
-///CHEQUEO COLISIONES DISPARO ENEMIGO
+///FIN de for de colisiones de vector disparos hacia colis
+
+///CHEQUEO COLISIONES DISPARO ENEMIGO HACIA NIATSU
 
 
 if (banderaGolpe == false){
@@ -97,7 +106,7 @@ for (auto& Disparo_enemigo : coli1.getDisparos()) {
     if (Disparo_enemigo.isCollision(niatsu)) {
         banderaGolpe = true;
         niatsu.setVida_nave(niatsu.getVida_nave()-1);
-        tiro.play();
+        tiroRecibido.play();
 
 
     }
@@ -109,7 +118,7 @@ for (auto& Disparo_enemigo : coli2.getDisparos()) {
     if (Disparo_enemigo.isCollision(niatsu)) {
         banderaGolpe = true;
         niatsu.setVida_nave(niatsu.getVida_nave()-1);
-        tiro.play();
+        tiroRecibido.play();
     }
 }}
 
@@ -119,7 +128,7 @@ for (auto& Disparo_enemigo : coli3.getDisparos()) {
     if (Disparo_enemigo.isCollision(niatsu)) {
         banderaGolpe = true;
         niatsu.setVida_nave(niatsu.getVida_nave()-1);
-        tiro.play();
+        tiroRecibido.play();
     }
 }}
 
@@ -133,12 +142,14 @@ if(tiempoDeGracia<=0){
     banderaGolpe=false;
 }
 
+/// FIN DE CHEQUEO COLISIONES DISPARO ENEMIGO HACIA NIATSU
+
+
 /// CHOQUES
 if (bandeChoque == false) { /// COLI 1
     if (niatsu.isCollision(coli1)) {
         niatsu.setVida_nave(niatsu.getVida_nave() - 1);
         choque.play();
-        choque.setVolume(10);
         bandeChoque = true;
         coli1.setVida_coli(coli1.getVida()-1);
 
@@ -154,7 +165,6 @@ if (bandeChoque == false) {   /// COLI 2
     if (niatsu.isCollision(coli2)) {
         niatsu.setVida_nave(niatsu.getVida_nave() - 1);
         choque.play();
-        choque.setVolume(10);
         bandeChoque = true;
         coli2.setVida_coli(coli2.getVida()-1);
 
@@ -170,7 +180,6 @@ if (bandeChoque == false) {  /// COLI 3
     if (niatsu.isCollision(coli3)) {
         niatsu.setVida_nave(niatsu.getVida_nave() - 1);
         choque.play();
-        choque.setVolume(10);
         bandeChoque = true;
         coli3.setVida_coli(coli3.getVida()-1);
 
@@ -186,11 +195,17 @@ if (bandeChoque == false) {  /// COLI 3
 
 
 
+
+
+
+/// INICIO DE UPDEATES
+
         // Actualizar estado del juego
         niatsu.update();
         coli1.update ();
         coli2.update ();
         coli3.update ();
+
 
         // Limpiar ventana
         window.clear();
@@ -219,7 +234,7 @@ if (bandeChoque == false) {  /// COLI 3
         for (auto& disparo : coli3.getDisparos()) {
             disparo.draw(window, sf::RenderStates::Default);  // Pasando los estados por defecto
         }
-
+    //FIN DE DINUJO DE DISPAROS
 
 
 

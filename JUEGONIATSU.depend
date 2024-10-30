@@ -2554,7 +2554,7 @@
 	<stdlib.h>
 	"disparo.h"
 
-1730238208 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
+1730296252 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
 	"GAME.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2563,7 +2563,7 @@
 	"disparo.h"
 	"Nave.h"
 
-1730236147 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
+1730292181 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
@@ -3158,7 +3158,7 @@
 	<stdlib.h>
 	"Disparo_enemigo.h"
 
-1730238596 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.cpp
+1730296501 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.cpp
 	"Colis.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -3166,7 +3166,7 @@
 	<stdlib.h>
 	"Disparo_enemigo.h"
 
-1730238457 c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.h
+1730294558 c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
