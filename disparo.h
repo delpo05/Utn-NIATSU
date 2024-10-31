@@ -2,25 +2,15 @@
 #include <SFML/Graphics.hpp>
 #include "colision.h"
 
-class disparo :public sf::Drawable, public collisionable {
+// La clase disparo representa cada proyectil disparado por la nave
+class disparo : public sf::Drawable, public collisionable {
 public:
     sf::Sprite sprite;      // Sprite del proyectil
-    sf::Texture *texture;    // Textura del proyectil
-    float velocidad;        // Velocidad a la que se mueve el proyectil
+    sf::Texture* texture;   // Textura del proyectil (memoria dinámica)
+    float velocidad;        // Velocidad de movimiento del proyectil
 
-
-
-    // Constructor del proyectil
-    disparo(float x, float y);
-
-    // Actualiza la posición del proyectil
-    void update();
-
-    // Dibuja el proyectil en la ventana
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-
-    // Obtiene los límites (bounds) del proyectil
-    sf::FloatRect getBounds() const;
-
-
+    disparo(float x, float y);  // Constructor
+    void update();              // Actualiza la posición
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const;  // Dibuja el proyectil
+    sf::FloatRect getBounds() const; // Obtiene límites para colisiones
 };

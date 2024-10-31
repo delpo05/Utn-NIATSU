@@ -27,6 +27,7 @@ Colis::Colis() {
     tiroColi.setBuffer(audiotiroColi);
     tiroColi.setVolume(1);
     _CantidadColis = 0;
+
 }
 
 void Colis::draw(sf::RenderTarget& target, sf::RenderStates states) const {

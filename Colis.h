@@ -19,6 +19,7 @@ class Colis : public sf::Drawable, public collisionable {
     sf::Sound tiroColi;
     sf::SoundBuffer audiotiroColi;
     int _CantidadColis;
+    int TimerRespawn;
 
 
 
