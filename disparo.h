@@ -6,7 +6,7 @@
 class disparo : public sf::Drawable, public collisionable {
 public:
     sf::Sprite sprite;      // Sprite del proyectil
-    sf::Texture* texture;   // Textura del proyectil (memoria dinámica)
+    sf::Texture* textureDisparo;   // Textura del proyectil (memoria dinámica)
     float velocidad;        // Velocidad de movimiento del proyectil
 
     disparo(float x, float y);  // Constructor

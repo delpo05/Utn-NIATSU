@@ -8,8 +8,7 @@
 class Colis : public sf::Drawable, public collisionable {
     private:
     sf::Sprite _sprite;
-    sf::Texture _texture;
-
+    sf::Texture* _texture;
     float _velocidadX;
     float _velocidadY;
     std::vector<Disparo_enemigo> disparos;

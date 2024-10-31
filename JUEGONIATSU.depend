@@ -2554,7 +2554,7 @@
 	<stdlib.h>
 	"disparo.h"
 
-1730297017 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
+1730387963 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
 	"GAME.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2563,18 +2563,19 @@
 	"disparo.h"
 	"Nave.h"
 
-1730292181 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
+1730386424 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
 	"disparo.h"
 	<SFML/Audio.hpp>
+	<vector>
 
-1730331651 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo.h
+1730382079 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo.h
 	<SFML/Graphics.hpp>
 	"colision.h"
 
-1730331660 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo.cpp
+1730382078 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo.cpp
 	"disparo.h"
 
 1729690142 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\colision.cpp
@@ -3158,7 +3159,7 @@
 	<stdlib.h>
 	"Disparo_enemigo.h"
 
-1730328389 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.cpp
+1730386977 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.cpp
 	"Colis.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -3166,7 +3167,7 @@
 	<stdlib.h>
 	"Disparo_enemigo.h"
 
-1730328389 c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.h
+1730386731 c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>

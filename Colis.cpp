@@ -6,8 +6,9 @@
 #include "Disparo_enemigo.h"
 
 Colis::Colis() {
-    _texture.loadFromFile("disparo_enemigo.png");
-    _sprite.setTexture(_texture);
+    _texture = new sf::Texture;
+    _texture -> loadFromFile("disparo_enemigo.png");
+    _sprite.setTexture(*_texture);
     _sprite.setTextureRect({145, 382, 55, 45});
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     // Establece la posición inicial en una coordenada aleatoria en la parte superior de la pantalla
@@ -53,9 +54,9 @@ void Colis::update() {
     // Desaparece y vuelve a la parte superior si se mueve fuera de la pantalla hacia abajo
 
 
-    if (_sprite.getPosition().y > 600 || vida_coli <= 0) {
-        respawn();
-        _CantidadColis++;
+        if (_sprite.getPosition().y > 600 || vida_coli <= 0) {
+            respawn();
+            _CantidadColis++;
     }
 
     // Control de disparo
