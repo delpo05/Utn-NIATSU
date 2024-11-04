@@ -44,15 +44,18 @@ void Game::iniciar_partida() {
     shoot.setBuffer(audioshoot);
     audioRecibetiro.loadFromFile("RecibeTiro.wav");
     tiroRecibido.setBuffer(audioRecibetiro);
+    bufferExplosionColi.loadFromFile("explosion_coli.wav");
+    explosionColi.setBuffer(bufferExplosionColi);
     tiroRecibido.setVolume(7);
     shoot.setVolume(10);
+    explosionColi.setVolume(10);
     bandera_ejemplo = true;
 
     // Temporizador para controlar la aparición de enemigos
     timerAparicion.restart();
 
     // Inicialización de enemigos antes del bucle
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 1; ++i) {
         colis.emplace_back();
     }
 
@@ -82,12 +85,14 @@ void Game::iniciar_partida() {
         tiempoUltimoDisparo += 1.0 / 60.0;
 
         // Actualizar colisiones de disparos con enemigos si bandera_ejemplo es verdadera
-        if (bandera_ejemplo == true) {
+        if (bandera_ejemplo == true && banderaGolpe == false) {
             for (auto& disparo : niatsu.getDisparos()) {
                 for (auto& coli : colis) {
                     if (disparo.isCollision(coli)) {
+                        banderaGolpe = true;
                         coli.setVida_coli(coli.getVida() - 1);
                         puntos += 100;
+                        explosionColi.play();
                     }
                 }
             }
@@ -113,7 +118,7 @@ void Game::iniciar_partida() {
 
 
         if (tiempoDeGracia <= 0) {
-            tiempoDeGracia = 60 * 0.3;
+            tiempoDeGracia = 60 * 0.4;
             banderaGolpe = false;
         }
 

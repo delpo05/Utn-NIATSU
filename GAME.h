@@ -20,6 +20,7 @@ class Game : public sf::Drawable {
 
     bool banderaGolpe = false;
     bool bandeChoque = false;
+    bool banderaGolpeColi = false;
     int tiempoDeGracia;
     int tiempoDeGracia2;
     float tiempoUltimoDisparo;
@@ -31,6 +32,8 @@ class Game : public sf::Drawable {
     sf::SoundBuffer audioshoot;
     sf::Sound tiroRecibido;
     sf::SoundBuffer audioRecibetiro;
+    sf::Sound explosionColi;
+    sf::SoundBuffer bufferExplosionColi;
     sf::Clock timerAparicion;
     sf::Time tiempo_transcurrido;
     bool bandera_ejemplo;

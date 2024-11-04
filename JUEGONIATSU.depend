@@ -2554,7 +2554,7 @@
 	<stdlib.h>
 	"disparo.h"
 
-1730730118 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
+1730731363 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2564,7 +2564,7 @@
 	"Nave.h"
 	"Fondo.h"
 
-1730729106 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
+1730730724 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
@@ -3780,4 +3780,8 @@
 
 1730724505 c:\users\felid\onedrive\documentos\github\utn-niatsu\fondo.h
 	<SFML/Graphics.hpp>
+
+1730730154 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparos_primer_jefe.cpp
+
+1730730154 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\primer_jefe.cpp
 
