@@ -1,12 +1,13 @@
 // game.cpp
 
-#include "GAME.h"
+#include "Game.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <ctime>
 #include <stdlib.h>
 #include "disparo.h"
 #include "Nave.h"
+#include "Fondo.h" // Incluye el archivo de la clase Fondo
 
 // Constructor
 Game::Game() {
@@ -18,8 +19,6 @@ Game::Game() {
 void Game::inicializacion_ventana() {
     window.create(sf::VideoMode(800, 600), "NIATSU");
     window.setFramerateLimit(60);
-    tex.loadFromFile("fondo espacio.jpg");
-    fondo.setTexture(tex);
 }
 
 // Método principal que ejecuta el juego (game loop)
@@ -29,6 +28,7 @@ void Game::iniciar_partida() {
     Musica.setVolume(5);
     Musica.play();
     tiempoDeGracia = 60 * 0.3;
+    tiempoDeGracia2 = 60 * 0.5;
     tiempoUltimoDisparo = 0.0;
     intervaloDisparo = 0.2;
     puntos = 0;
@@ -110,10 +110,26 @@ void Game::iniciar_partida() {
             tiempoDeGracia--;
         }
 
+
+
         if (tiempoDeGracia <= 0) {
             tiempoDeGracia = 60 * 0.3;
             banderaGolpe = false;
         }
+
+        if (bandeChoque == true) {
+            tiempoDeGracia2--;
+        }
+
+
+
+        if (tiempoDeGracia2 <= 0) {
+            tiempoDeGracia2 = 60 * 0.5;
+            bandeChoque = false;
+        }
+
+
+
 
         // CHOQUES
         if (bandera_ejemplo == true && bandeChoque == false) {
@@ -123,45 +139,35 @@ void Game::iniciar_partida() {
                     choque.play();
                     bandeChoque = true;
                     coli.setVida_coli(coli.getVida() - 1);
-                    tiroRecibido.play();
-                }
-            }
-        } else {
-            for (auto& coli : colis) {
-                if (!niatsu.isCollision(coli)) {
-                    bandeChoque = false;
+
                 }
             }
         }
 
         // INICIO DE UPDATES
-        // Actualizar estado del juego
         niatsu.update();
+        fondo.update(1.0 / 60.0f); // Actualiza el fondo con deltaTime
 
-        // Actualizar enemigos solo si bandera_ejemplo es verdadera
         if (bandera_ejemplo == true) {
             for (auto& coli : colis) {
                 coli.update();
             }
         }
 
-        // Limpiar ventana
         window.clear();
 
-        // Dibujar fondo y nave
-        window.draw(fondo);
+        fondo.draw(window); // Renderiza el fondo
+
         texPuntos.setPosition({800 - texPuntos.getGlobalBounds().width, 0});
         texPuntos.setString("PUNTOS: " + std::to_string(puntos));
         texvidas.setString("VIDAS: " + std::to_string(niatsu.getVida_nave()));
         window.draw(texvidas);
         window.draw(texPuntos);
 
-        // Dibujar disparos de niatsu
         for (auto& disparo : niatsu.getDisparos()) {
             disparo.draw(window, sf::RenderStates::Default);
         }
 
-        // Dibujar disparos de cada Colis solo si bandera_ejemplo es verdadera
         if (bandera_ejemplo == true) {
             for (auto& coli : colis) {
                 for (auto& disparo : coli.getDisparos()) {
@@ -170,17 +176,13 @@ void Game::iniciar_partida() {
             }
         }
 
-        // Dibujar enemigos solo si bandera_ejemplo es verdadera
         if (bandera_ejemplo == true) {
             for (const auto& coli : colis) {
                 window.draw(coli);
             }
         }
 
-        // Dibujar nave
         window.draw(niatsu);
-
-        // Actualizar pantalla
         window.display();
     }
 }
@@ -188,3 +190,4 @@ void Game::iniciar_partida() {
 void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     // Dibujar elementos adicionales si es necesario
 }
+

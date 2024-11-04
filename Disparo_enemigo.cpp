@@ -3,7 +3,7 @@
 // Constructor del disparo
 Disparo_enemigo::Disparo_enemigo(float x, float y) {
     texture = new sf::Texture;
-    texture->loadFromFile("disparo_enemigo.png");
+    texture->loadFromFile("disparo_enemigo.azul.png");
     sprite.setTexture(*texture);
     sprite.setTextureRect({50,360,15,30});
     sprite.setOrigin(sprite.getGlobalBounds().width/2, sprite.getGlobalBounds().height-10);

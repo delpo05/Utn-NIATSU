@@ -2554,20 +2554,22 @@
 	<stdlib.h>
 	"disparo.h"
 
-1730722091 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
-	"GAME.h"
+1730730118 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
+	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<ctime>
 	<stdlib.h>
 	"disparo.h"
 	"Nave.h"
+	"Fondo.h"
 
-1730722091 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
+1730729106 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
 	"disparo.h"
+	"fondo.h"
 	<SFML/Audio.hpp>
 	<vector>
 
@@ -2575,7 +2577,7 @@
 	<SFML/Graphics.hpp>
 	"colision.h"
 
-1730382078 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo.cpp
+1730726512 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo.cpp
 	"disparo.h"
 
 1729690142 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\colision.cpp
@@ -3159,7 +3161,7 @@
 	<stdlib.h>
 	"Disparo_enemigo.h"
 
-1730681086 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.cpp
+1730728392 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.cpp
 	"Colis.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -3167,7 +3169,7 @@
 	<stdlib.h>
 	"Disparo_enemigo.h"
 
-1730681086 c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.h
+1730727270 c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
@@ -3178,7 +3180,7 @@
 	<SFML/Graphics.hpp>
 	"colision.h"
 
-1730207281 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_enemigo.cpp
+1730725644 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_enemigo.cpp
 	"Disparo_enemigo.h"
 
 1730209335 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\colis.cpp
@@ -3773,9 +3775,9 @@
 1730129017 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\disparo_enemigo.cpp
 	"Disparo_enemigo.h"
 
-1730722460 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\fondo.cpp
+1730724505 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\fondo.cpp
 	"Fondo.h"
 
-1730721653 c:\users\felid\onedrive\documentos\github\utn-niatsu\fondo.h
+1730724505 c:\users\felid\onedrive\documentos\github\utn-niatsu\fondo.h
 	<SFML/Graphics.hpp>
 

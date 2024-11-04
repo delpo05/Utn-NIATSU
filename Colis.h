@@ -21,6 +21,7 @@ class Colis : public sf::Drawable, public collisionable {
     sf::Time tiempo_transcurrido;
     int _CantidadColis;
     int TimerRespawn;
+    float _frame;
 
 
 
@@ -36,5 +37,6 @@ public:
     int getVida(){return vida_coli;}
     int getCantidadColis(){return _CantidadColis;}
     void setCantidadColis(int cant){_CantidadColis = cant;}
+    void explosion();
 
 };

@@ -7,7 +7,7 @@ class Fondo {
 public:
     Fondo();
     void update(float deltaTime);
-    void render(sf::RenderWindow& window);
+    void draw(sf::RenderWindow& window);
 
 private:
     sf::Texture texturaFondo;

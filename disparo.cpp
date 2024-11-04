@@ -13,6 +13,9 @@ disparo::disparo(float x, float y) {
 
 void disparo::update() {
     sprite.move(0, -velocidad); // Movimiento hacia arriba
+
+
+    sprite.setTextureRect({140, 183, 65, 40}); // Rectángulo de textura
 }
 
 void disparo::draw(sf::RenderTarget& target, sf::RenderStates states) const {

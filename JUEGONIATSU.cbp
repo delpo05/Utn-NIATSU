@@ -51,9 +51,13 @@
 		<Unit filename="colision.h" />
 		<Unit filename="disparo.cpp" />
 		<Unit filename="disparo.h" />
+		<Unit filename="disparos_primer_jefe.cpp" />
+		<Unit filename="disparos_primer_jefe.h" />
 		<Unit filename="fondo.cpp" />
 		<Unit filename="fondo.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="primer_jefe.cpp" />
+		<Unit filename="primer_jefe.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
