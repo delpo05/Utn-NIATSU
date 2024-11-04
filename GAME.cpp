@@ -9,6 +9,7 @@
 #include "Nave.h"
 #include "Fondo.h" // Incluye el archivo de la clase Fondo
 
+
 // Constructor
 Game::Game() {
     inicializacion_ventana();  // Inicializa la ventana y carga los elementos
@@ -29,6 +30,7 @@ void Game::iniciar_partida() {
     Musica.play();
     tiempoDeGracia = 60 * 0.3;
     tiempoDeGracia2 = 60 * 0.5;
+    tiempoDeGracia3 = 60 * 0.4;
     tiempoUltimoDisparo = 0.0;
     intervaloDisparo = 0.2;
     puntos = 0;
@@ -69,9 +71,11 @@ void Game::iniciar_partida() {
 
         // Verificar tiempo transcurrido y actualizar bandera para aparición de enemigos
         tiempo_transcurrido = timerAparicion.getElapsedTime();
-        if (tiempo_transcurrido.asSeconds() > 20) {
+        if (tiempo_transcurrido.asSeconds() > 5) {
             bandera_ejemplo = false;
         }
+        ///APARICION DE JEFE
+
 
         // DISPARO INTERMITENTE CON EL ESPACIO
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
@@ -85,11 +89,11 @@ void Game::iniciar_partida() {
         tiempoUltimoDisparo += 1.0 / 60.0;
 
         // Actualizar colisiones de disparos con enemigos si bandera_ejemplo es verdadera
-        if (bandera_ejemplo == true && banderaGolpe == false) {
+        if (bandera_ejemplo == true && banderaGolpeColi == false) {
             for (auto& disparo : niatsu.getDisparos()) {
                 for (auto& coli : colis) {
                     if (disparo.isCollision(coli)) {
-                        banderaGolpe = true;
+                        banderaGolpeColi = true;
                         coli.setVida_coli(coli.getVida() - 1);
                         puntos += 100;
                         explosionColi.play();
@@ -134,6 +138,20 @@ void Game::iniciar_partida() {
         }
 
 
+        if (banderaGolpeColi == true) {
+            tiempoDeGracia3--;
+        }
+
+
+
+        if (tiempoDeGracia3 <= 0) {
+            tiempoDeGracia3 = 60 * 0.4;
+            banderaGolpeColi = false;
+        }
+
+
+
+
 
 
         // CHOQUES
@@ -158,6 +176,11 @@ void Game::iniciar_partida() {
                 coli.update();
             }
         }
+
+         if (bandera_ejemplo == false){
+
+            jefe1.update();
+            }
 
         window.clear();
 
@@ -186,6 +209,9 @@ void Game::iniciar_partida() {
                 window.draw(coli);
             }
         }
+         if (bandera_ejemplo == false){
+                window.draw(jefe1);
+            }
 
         window.draw(niatsu);
         window.display();

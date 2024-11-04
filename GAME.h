@@ -4,11 +4,13 @@
 #include "Colis.h"
 #include "disparo.h"
 #include "fondo.h"
+#include "primer_jefe.h"
 #include <SFML/Audio.hpp>
 #include <vector>
 
 class Game : public sf::Drawable {
     Nave niatsu;   // Instancia de la nave
+    primer_jefe jefe1;
     std::vector<Colis> colis;  // Vector para almacenar enemigos
     sf::RenderWindow window; // Ventana del juego
     //sf::Sprite fondo;       // Fondo del juego
@@ -21,8 +23,10 @@ class Game : public sf::Drawable {
     bool banderaGolpe = false;
     bool bandeChoque = false;
     bool banderaGolpeColi = false;
+
     int tiempoDeGracia;
     int tiempoDeGracia2;
+    int tiempoDeGracia3;
     float tiempoUltimoDisparo;
     float intervaloDisparo;
     int puntos;
