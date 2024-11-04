@@ -1,3 +1,5 @@
+// game.cpp
+
 #include "GAME.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -44,10 +46,14 @@ void Game::iniciar_partida() {
     tiroRecibido.setBuffer(audioRecibetiro);
     tiroRecibido.setVolume(7);
     shoot.setVolume(10);
+    bandera_ejemplo = true;
 
-    // Inicialización de los enemigos
+    // Temporizador para controlar la aparición de enemigos
+    timerAparicion.restart();
+
+    // Inicialización de enemigos antes del bucle
     for (int i = 0; i < 3; ++i) {
-        colis.emplace_back(); // Agregar un nuevo enemigo al vector
+        colis.emplace_back();
     }
 
     // INICIO DE BUCLE
@@ -58,7 +64,13 @@ void Game::iniciar_partida() {
                 window.close();
         }
 
-        /// DISPARO INTERMITENTE CON EL ESPACIO
+        // Verificar tiempo transcurrido y actualizar bandera para aparición de enemigos
+        tiempo_transcurrido = timerAparicion.getElapsedTime();
+        if (tiempo_transcurrido.asSeconds() > 20) {
+            bandera_ejemplo = false;
+        }
+
+        // DISPARO INTERMITENTE CON EL ESPACIO
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
             if (tiempoUltimoDisparo >= intervaloDisparo) {
                 niatsu.disparar();
@@ -69,19 +81,21 @@ void Game::iniciar_partida() {
 
         tiempoUltimoDisparo += 1.0 / 60.0;
 
-        /// for de colisiones de vector disparos hacia colis
-        for (auto& disparo : niatsu.getDisparos()) {
-            for (auto& coli : colis) {  // Iterar sobre cada Colis
-                if (disparo.isCollision(coli)) {
-                    coli.setVida_coli(coli.getVida() - 1);
-                    puntos += 100;
+        // Actualizar colisiones de disparos con enemigos si bandera_ejemplo es verdadera
+        if (bandera_ejemplo == true) {
+            for (auto& disparo : niatsu.getDisparos()) {
+                for (auto& coli : colis) {
+                    if (disparo.isCollision(coli)) {
+                        coli.setVida_coli(coli.getVida() - 1);
+                        puntos += 100;
+                    }
                 }
             }
         }
 
         // CHEQUEO COLISIONES DISPARO ENEMIGO HACIA NIATSU
-        if (banderaGolpe == false) {
-            for (auto& coli : colis) {  // Iterar sobre cada Colis
+        if (bandera_ejemplo == true && banderaGolpe == false) {
+            for (auto& coli : colis) {
                 for (auto& Disparo_enemigo : coli.getDisparos()) {
                     if (Disparo_enemigo.isCollision(niatsu)) {
                         banderaGolpe = true;
@@ -92,7 +106,7 @@ void Game::iniciar_partida() {
             }
         }
 
-        if (banderaGolpe) {
+        if (banderaGolpe == true) {
             tiempoDeGracia--;
         }
 
@@ -102,8 +116,8 @@ void Game::iniciar_partida() {
         }
 
         // CHOQUES
-        if (bandeChoque == false) {
-            for (auto& coli : colis) {  // Iterar sobre cada Colis
+        if (bandera_ejemplo == true && bandeChoque == false) {
+            for (auto& coli : colis) {
                 if (niatsu.isCollision(coli)) {
                     niatsu.setVida_nave(niatsu.getVida_nave() - 1);
                     choque.play();
@@ -123,8 +137,12 @@ void Game::iniciar_partida() {
         // INICIO DE UPDATES
         // Actualizar estado del juego
         niatsu.update();
-        for (auto& coli : colis) {  // Actualizar cada Colis
-            coli.update();
+
+        // Actualizar enemigos solo si bandera_ejemplo es verdadera
+        if (bandera_ejemplo == true) {
+            for (auto& coli : colis) {
+                coli.update();
+            }
         }
 
         // Limpiar ventana
@@ -138,20 +156,25 @@ void Game::iniciar_partida() {
         window.draw(texvidas);
         window.draw(texPuntos);
 
-        // Dibujar disparos
+        // Dibujar disparos de niatsu
         for (auto& disparo : niatsu.getDisparos()) {
-            disparo.draw(window, sf::RenderStates::Default);  // Pasando los estados por defecto
+            disparo.draw(window, sf::RenderStates::Default);
         }
 
-        for (auto& coli : colis) {  // Dibujar disparos de cada Colis
-            for (auto& disparo : coli.getDisparos()) {
-                disparo.draw(window, sf::RenderStates::Default);  // Pasando los estados por defecto
+        // Dibujar disparos de cada Colis solo si bandera_ejemplo es verdadera
+        if (bandera_ejemplo == true) {
+            for (auto& coli : colis) {
+                for (auto& disparo : coli.getDisparos()) {
+                    disparo.draw(window, sf::RenderStates::Default);
+                }
             }
         }
 
-        // Dibujar enemigos
-        for (const auto& coli : colis) {  // Dibujar cada Colis
-            window.draw(coli);
+        // Dibujar enemigos solo si bandera_ejemplo es verdadera
+        if (bandera_ejemplo == true) {
+            for (const auto& coli : colis) {
+                window.draw(coli);
+            }
         }
 
         // Dibujar nave
@@ -165,4 +188,3 @@ void Game::iniciar_partida() {
 void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     // Dibujar elementos adicionales si es necesario
 }
-

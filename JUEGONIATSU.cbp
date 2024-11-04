@@ -51,6 +51,8 @@
 		<Unit filename="colision.h" />
 		<Unit filename="disparo.cpp" />
 		<Unit filename="disparo.h" />
+		<Unit filename="fondo.cpp" />
+		<Unit filename="fondo.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>

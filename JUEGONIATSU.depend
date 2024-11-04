@@ -2554,7 +2554,7 @@
 	<stdlib.h>
 	"disparo.h"
 
-1730387963 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
+1730722091 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
 	"GAME.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2563,7 +2563,7 @@
 	"disparo.h"
 	"Nave.h"
 
-1730386424 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
+1730722091 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
@@ -3159,7 +3159,7 @@
 	<stdlib.h>
 	"Disparo_enemigo.h"
 
-1730386977 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.cpp
+1730681086 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.cpp
 	"Colis.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -3167,7 +3167,7 @@
 	<stdlib.h>
 	"Disparo_enemigo.h"
 
-1730386731 c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.h
+1730681086 c:\users\felid\onedrive\documentos\github\utn-niatsu\colis.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
@@ -3772,4 +3772,10 @@
 
 1730129017 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\disparo_enemigo.cpp
 	"Disparo_enemigo.h"
+
+1730722460 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\fondo.cpp
+	"Fondo.h"
+
+1730721653 c:\users\felid\onedrive\documentos\github\utn-niatsu\fondo.h
+	<SFML/Graphics.hpp>
 

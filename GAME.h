@@ -1,3 +1,4 @@
+// game.h
 #include <SFML/Graphics.hpp>
 #include "Nave.h"
 #include "Colis.h"
@@ -10,7 +11,7 @@ class Game : public sf::Drawable {
     std::vector<Colis> colis;  // Vector para almacenar enemigos
     sf::RenderWindow window; // Ventana del juego
     sf::Sprite fondo;       // Fondo del juego
-    sf::Texture tex;         // Textura del fondo
+    sf::Texture tex;        // Textura del fondo
     sf::Music Musica;
     sf::Font Letra;
     sf::Text texvidas;
@@ -28,6 +29,10 @@ class Game : public sf::Drawable {
     sf::SoundBuffer audioshoot;
     sf::Sound tiroRecibido;
     sf::SoundBuffer audioRecibetiro;
+    sf::Clock timerAparicion;
+    sf::Time tiempo_transcurrido;
+    bool bandera_ejemplo;
+    int movimiento_de_fondo;
 
 public:
     Game();  // Constructor

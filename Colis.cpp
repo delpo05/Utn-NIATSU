@@ -27,7 +27,8 @@ Colis::Colis() {
     audiotiroColi.loadFromFile("Disparocolis.wav");
     tiroColi.setBuffer(audiotiroColi);
     tiroColi.setVolume(1);
-    _CantidadColis = 0;
+    _CantidadColis =0;
+
 
 }
 
@@ -36,6 +37,8 @@ void Colis::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 }
 
 void Colis::update() {
+
+
     // Ajuste aleatorio en la velocidad X para un movimiento horizontal más impredecible
     if (std::rand() % 20 == 0) {  // 1 en 20 posibilidad de cambiar aleatoriamente cada ciclo
         _velocidadX += (std::rand() % 3 - 1);  // Añade -1, 0 o 1 a _velocidadX
@@ -56,8 +59,7 @@ void Colis::update() {
 
         if (_sprite.getPosition().y > 600 || vida_coli <= 0) {
             respawn();
-            _CantidadColis++;
-    }
+            }
 
     // Control de disparo
     if (disparoTimer <= 0 && vida_coli>=1) {
