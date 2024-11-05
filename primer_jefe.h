@@ -23,6 +23,8 @@ class primer_jefe : public sf::Drawable, public collisionable {
 
     int TimerRespawn;
     float _frame;
+    int _contador;
+    bool bandera_jefe_muerto;
 
 
 

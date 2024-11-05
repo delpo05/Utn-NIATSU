@@ -20,13 +20,15 @@ primer_jefe::primer_jefe() {
 
     disparoTimer = 0;
     intervaloDisparo = float(std::rand() % 2000 + 1000);  // entre 1 y 3 segundos
-    vida_primer_jefe = 1;
+    vida_primer_jefe = 5;
 
     audiotiroColi.loadFromFile("Disparocolis.wav");
     tiroColi.setBuffer(audiotiroColi);
     tiroColi.setVolume(1);
 
     _frame = 0;
+    _contador = 0;
+    bandera_jefe_muerto = false;
 }
 
 void primer_jefe::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -34,11 +36,15 @@ void primer_jefe::draw(sf::RenderTarget& target, sf::RenderStates states) const 
 }
 
 void primer_jefe::update() {
+
+    if(bandera_jefe_muerto == false){
+
     // Si el enemigo no tiene vida, ejecutar la animación de explosión
     if (vida_primer_jefe <= 0) {
         explosion();
          // Detener la actualización si está explotando
     }
+
 
     // Ajuste aleatorio en la velocidad X para un movimiento horizontal más impredecible
     if (std::rand() % 20 == 0) {  // 1 en 20 posibilidad de cambiar aleatoriamente cada ciclo
@@ -79,6 +85,7 @@ void primer_jefe::update() {
         disparo.update();
     }
 }
+}
 
 /*void Colis::respawn() {
     _sprite.setPosition(std::rand() % 700 + _sprite.getGlobalBounds().width, -_sprite.getGlobalBounds().height);
@@ -105,10 +112,13 @@ void primer_jefe::explosion() {
     _frame += 0.2;
 
     // Cambia el rectángulo de textura para la animación de explosión
-    _sprite.setTextureRect({145 + int(_frame) * 55, 382, 55, 45});
+    _sprite.setTextureRect({232 + int(_frame) * 57, 943, 57, 87});
 
-    if (_frame > 6) {
+    if (_frame > 6 && _contador <= 3) {
         _frame = 0;
+        _contador++;
     }
+
+
 }
 

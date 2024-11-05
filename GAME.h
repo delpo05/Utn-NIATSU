@@ -40,7 +40,7 @@ class Game : public sf::Drawable {
     sf::SoundBuffer bufferExplosionColi;
     sf::Clock timerAparicion;
     sf::Time tiempo_transcurrido;
-    bool bandera_ejemplo;
+    bool bandera_oleada;
     int movimiento_de_fondo;
     Fondo fondo;
 

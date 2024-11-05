@@ -51,7 +51,7 @@ void Game::iniciar_partida() {
     tiroRecibido.setVolume(7);
     shoot.setVolume(10);
     explosionColi.setVolume(10);
-    bandera_ejemplo = true;
+    bandera_oleada = true;
 
     // Temporizador para controlar la aparición de enemigos
     timerAparicion.restart();
@@ -72,7 +72,7 @@ void Game::iniciar_partida() {
         // Verificar tiempo transcurrido y actualizar bandera para aparición de enemigos
         tiempo_transcurrido = timerAparicion.getElapsedTime();
         if (tiempo_transcurrido.asSeconds() > 5) {
-            bandera_ejemplo = false;
+            bandera_oleada = false;
         }
         ///APARICION DE JEFE
 
@@ -88,8 +88,31 @@ void Game::iniciar_partida() {
 
         tiempoUltimoDisparo += 1.0 / 60.0;
 
+        //COLISIONES VS PRIMER JEFE
+    for(auto& disparo : niatsu.getDisparos()){
+        if(disparo.isCollision(jefe1) && banderaGolpeColi == false ){
+                        banderaGolpeColi = true;
+                        jefe1.setVida_primer_jefe(jefe1.getVida() - 1);
+                        explosionColi.play();
+        }}
+
+
+    for(auto& disparo_primer_jefe : jefe1.getDisparos()){
+        if(disparo_primer_jefe.isCollision(niatsu)&& banderaGolpe==false){
+                        banderaGolpe = true;
+                        niatsu.setVida_nave(niatsu.getVida_nave() - 1);
+                        tiroRecibido.play();
+        }
+    }
+
+
+
+
+
+        //FIN DE COLISIONES PRIMER JEFE
+
         // Actualizar colisiones de disparos con enemigos si bandera_ejemplo es verdadera
-        if (bandera_ejemplo == true && banderaGolpeColi == false) {
+        if (bandera_oleada == true && banderaGolpeColi == false) {
             for (auto& disparo : niatsu.getDisparos()) {
                 for (auto& coli : colis) {
                     if (disparo.isCollision(coli)) {
@@ -103,7 +126,7 @@ void Game::iniciar_partida() {
         }
 
         // CHEQUEO COLISIONES DISPARO ENEMIGO HACIA NIATSU
-        if (bandera_ejemplo == true && banderaGolpe == false) {
+        if (bandera_oleada == true && banderaGolpe == false) {
             for (auto& coli : colis) {
                 for (auto& Disparo_enemigo : coli.getDisparos()) {
                     if (Disparo_enemigo.isCollision(niatsu)) {
@@ -155,7 +178,7 @@ void Game::iniciar_partida() {
 
 
         // CHOQUES
-        if (bandera_ejemplo == true && bandeChoque == false) {
+        if (bandera_oleada == true && bandeChoque == false) {
             for (auto& coli : colis) {
                 if (niatsu.isCollision(coli)) {
                     niatsu.setVida_nave(niatsu.getVida_nave() - 1);
@@ -169,15 +192,18 @@ void Game::iniciar_partida() {
 
         // INICIO DE UPDATES
         niatsu.update();
-        fondo.update(1.0 / 60.0f); // Actualiza el fondo con deltaTime
 
-        if (bandera_ejemplo == true) {
+        if (bandera_oleada == true){
+        fondo.update(1.0 / 60.0f); // Actualiza el fondo con deltaTime
+        }
+
+        if (bandera_oleada == true) {
             for (auto& coli : colis) {
                 coli.update();
             }
         }
 
-         if (bandera_ejemplo == false){
+         if (bandera_oleada == false){
 
             jefe1.update();
             }
@@ -196,7 +222,7 @@ void Game::iniciar_partida() {
             disparo.draw(window, sf::RenderStates::Default);
         }
 
-        if (bandera_ejemplo == true) {
+        if (bandera_oleada == true) {
             for (auto& coli : colis) {
                 for (auto& disparo : coli.getDisparos()) {
                     disparo.draw(window, sf::RenderStates::Default);
@@ -204,20 +230,20 @@ void Game::iniciar_partida() {
             }
         }
 
-        if (bandera_ejemplo == true) {
+        if (bandera_oleada == true) {
             for (const auto& coli : colis) {
                 window.draw(coli);
             }
         }
 
-                if (bandera_ejemplo == false) {
+                if (bandera_oleada == false && jefe1.getVida()>0) {
                 for (auto& disparo : jefe1.getDisparos()) {
                     disparo.draw(window, sf::RenderStates::Default);
                 }
         }
 
 
-         if (bandera_ejemplo == false){
+         if (bandera_oleada == false){
                 window.draw(jefe1);
             }
 
