@@ -28,6 +28,7 @@ class primer_jefe : public sf::Drawable, public collisionable {
 
 
 
+
 public:
     primer_jefe ();
     void update();
@@ -38,7 +39,7 @@ public:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     void setVida_primer_jefe (int vida){vida_primer_jefe=vida;}
     int getVida(){return vida_primer_jefe;}
-
     void explosion();
+    bool getbandera_jefe_muerto(){return bandera_jefe_muerto;}
 
 };

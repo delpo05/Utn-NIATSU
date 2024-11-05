@@ -36,9 +36,11 @@ void Game::iniciar_partida() {
     puntos = 0;
     Letra.loadFromFile("Letra.ttf");
     texPuntos.setFont(Letra);
+    texvidas.setFont(Letra);
+    texVidaJefe1.setFont(Letra);
     texPuntos.setCharacterSize(20);
     texvidas.setCharacterSize(20);
-    texvidas.setFont(Letra);
+    texVidaJefe1.setCharacterSize(15);
     audiochoque.loadFromFile("audiochoque.wav");
     choque.setBuffer(audiochoque);
     choque.setVolume(10);
@@ -74,7 +76,7 @@ void Game::iniciar_partida() {
         if (tiempo_transcurrido.asSeconds() > 5) {
             bandera_oleada = false;
         }
-        ///APARICION DE JEFE
+        // APARICION DE JEFE
 
 
         // DISPARO INTERMITENTE CON EL ESPACIO
@@ -90,7 +92,7 @@ void Game::iniciar_partida() {
 
         //COLISIONES VS PRIMER JEFE
     for(auto& disparo : niatsu.getDisparos()){
-        if(disparo.isCollision(jefe1) && banderaGolpeColi == false ){
+        if(disparo.isCollision(jefe1) && banderaGolpeColi == false && jefe1.getbandera_jefe_muerto()==false) {
                         banderaGolpeColi = true;
                         jefe1.setVida_primer_jefe(jefe1.getVida() - 1);
                         explosionColi.play();
@@ -98,7 +100,7 @@ void Game::iniciar_partida() {
 
 
     for(auto& disparo_primer_jefe : jefe1.getDisparos()){
-        if(disparo_primer_jefe.isCollision(niatsu)&& banderaGolpe==false){
+        if(disparo_primer_jefe.isCollision(niatsu)&& banderaGolpe==false && jefe1.getbandera_jefe_muerto()==false){
                         banderaGolpe = true;
                         niatsu.setVida_nave(niatsu.getVida_nave() - 1);
                         tiroRecibido.play();
@@ -203,7 +205,7 @@ void Game::iniciar_partida() {
             }
         }
 
-         if (bandera_oleada == false){
+         if (bandera_oleada == false && jefe1.getbandera_jefe_muerto()==false){
 
             jefe1.update();
             }
@@ -213,8 +215,16 @@ void Game::iniciar_partida() {
         fondo.draw(window); // Renderiza el fondo
 
         texPuntos.setPosition({800 - texPuntos.getGlobalBounds().width, 0});
+        texVidaJefe1.setPosition({400- texVidaJefe1.getGlobalBounds().width/2 ,0});
         texPuntos.setString("PUNTOS: " + std::to_string(puntos));
         texvidas.setString("VIDAS: " + std::to_string(niatsu.getVida_nave()));
+        texVidaJefe1.setString("VIDAS JEFE: " + std::to_string(jefe1.getVida()));
+
+        if(bandera_oleada == false && jefe1.getbandera_jefe_muerto()==false){
+            window.draw(texVidaJefe1);
+        }
+
+
         window.draw(texvidas);
         window.draw(texPuntos);
 

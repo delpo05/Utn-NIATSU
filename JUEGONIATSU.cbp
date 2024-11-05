@@ -56,6 +56,8 @@
 		<Unit filename="fondo.cpp" />
 		<Unit filename="fondo.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="menu.cpp" />
+		<Unit filename="menu.h" />
 		<Unit filename="primer_jefe.cpp" />
 		<Unit filename="primer_jefe.h" />
 		<Extensions />

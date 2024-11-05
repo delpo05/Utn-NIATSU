@@ -8,6 +8,7 @@
 #include <SFML/Audio.hpp>
 #include <vector>
 
+
 class Game : public sf::Drawable {
     Nave niatsu;   // Instancia de la nave
     primer_jefe jefe1;
@@ -19,6 +20,7 @@ class Game : public sf::Drawable {
     sf::Font Letra;
     sf::Text texvidas;
     sf::Text texPuntos;
+    sf::Text texVidaJefe1;
 
     bool banderaGolpe = false;
     bool bandeChoque = false;

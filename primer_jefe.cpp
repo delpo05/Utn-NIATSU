@@ -116,7 +116,7 @@ void primer_jefe::explosion() {
 
     if (_frame > 6 && _contador <= 3) {
         _frame = 0;
-        _contador++;
+        bandera_jefe_muerto=true;
     }
 
 
