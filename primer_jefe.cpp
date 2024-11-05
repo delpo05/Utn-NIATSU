@@ -1,4 +1,4 @@
-#include "primer_jefe.h"¡
+#include "primer_jefe.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <ctime>
@@ -16,7 +16,7 @@ primer_jefe::primer_jefe() {
 
     // Velocidades iniciales aleatorias en X y Y
     _velocidadX = (std::rand() % 2 == 0) ? 3.5 : -3.5;
-    _velocidadY = 0;
+    _velocidadY = 2;
 
     disparoTimer = 0;
     intervaloDisparo = float(std::rand() % 2000 + 1000);  // entre 1 y 3 segundos
@@ -55,16 +55,20 @@ void primer_jefe::update() {
         _velocidadX = -_velocidadX; // Invierte la dirección en X
     }
 
+    if(_sprite.getPosition().y > _sprite.getGlobalBounds().height){
+        _velocidadY = 0;
+    }
+
     // Desaparece y vuelve a la parte superior si se mueve fuera de la pantalla hacia abajo
     /*if (_sprite.getPosition().y > 600) {
         respawn();
     }*/
 
     // Control de disparo
-    if (disparoTimer <= 0 && vida_primer_jefe >= 1) {
+    if (disparoTimer <= 0 && vida_primer_jefe >= 1 && _velocidadY == 0) {
         disparar();
-       // tiroColi.play();
-        intervaloDisparo = float(std::rand() % 700 + 100);
+        tiroColi.play();
+        intervaloDisparo = float(std::rand() % 500 + 100);
         disparoTimer = intervaloDisparo;
     } else {
         disparoTimer -= 10;

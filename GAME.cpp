@@ -57,7 +57,7 @@ void Game::iniciar_partida() {
     timerAparicion.restart();
 
     // Inicialización de enemigos antes del bucle
-    for (int i = 0; i < 1; ++i) {
+    for (int i = 0; i < 3; ++i) {
         colis.emplace_back();
     }
 
@@ -209,6 +209,14 @@ void Game::iniciar_partida() {
                 window.draw(coli);
             }
         }
+
+                if (bandera_ejemplo == false) {
+                for (auto& disparo : jefe1.getDisparos()) {
+                    disparo.draw(window, sf::RenderStates::Default);
+                }
+        }
+
+
          if (bandera_ejemplo == false){
                 window.draw(jefe1);
             }
