@@ -8,7 +8,7 @@
 #include "disparo.h"
 #include "Nave.h"
 #include "Fondo.h" // Incluye el archivo de la clase Fondo
-
+#include "primer_jefe.h"
 
 // Constructor
 Game::Game() {

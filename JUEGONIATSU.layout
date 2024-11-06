@@ -2,24 +2,14 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="Disparo_enemigo.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Nave.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="199" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="disparo.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="525" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Colis.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1225" topLine="8" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="menu.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="339" topLine="4" />
+			<Cursor1 position="339" topLine="3" />
 		</Cursor>
 	</File>
 	<File name="Disparo_enemigo.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -27,9 +17,29 @@
 			<Cursor1 position="384" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+	<File name="menu.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="343" topLine="11" />
+			<Cursor1 position="1912" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="Colis.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="591" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="Colis.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="187" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="colision.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="127" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="disparo.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="525" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="disparo.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -42,29 +52,9 @@
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="fondo.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="GAME.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="152" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Nave.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2341" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="GAME.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1239" topLine="35" />
-		</Cursor>
-	</File>
-	<File name="primer_jefe.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="778" topLine="21" />
-		</Cursor>
-	</File>
-	<File name="Colis.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3742" topLine="93" />
+			<Cursor1 position="3202" topLine="85" />
 		</Cursor>
 	</File>
 	<File name="fondo.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -72,34 +62,44 @@
 			<Cursor1 position="336" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="GAME.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+	<File name="Disparo_enemigo.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="7065" topLine="223" />
+			<Cursor1 position="199" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="primer_jefe.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Nave.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="881" topLine="15" />
+			<Cursor1 position="2341" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Nave.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="fondo.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="0" />
+			<Cursor1 position="152" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="colision.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="primer_jefe.cpp" open="1" top="1" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="127" topLine="0" />
+			<Cursor1 position="1172" topLine="15" />
 		</Cursor>
 	</File>
-	<File name="menu.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="main.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1912" topLine="45" />
+			<Cursor1 position="343" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="GAME.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="949" topLine="27" />
 		</Cursor>
 	</File>
 	<File name="colision.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="140" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="primer_jefe.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="703" topLine="9" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

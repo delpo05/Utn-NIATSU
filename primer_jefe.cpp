@@ -22,9 +22,15 @@ primer_jefe::primer_jefe() {
     intervaloDisparo = float(std::rand() % 2000 + 1000);  // entre 1 y 3 segundos
     vida_primer_jefe = 20;
 
-    audiotiroColi.loadFromFile("Disparocolis.wav");
-    tiroColi.setBuffer(audiotiroColi);
-    tiroColi.setVolume(1);
+    audiodisparoJefe.loadFromFile("disparoJefe.wav");
+    disparoJefe.setBuffer(audiodisparoJefe);
+    disparoJefe.setVolume(10);
+
+    audioexplosionJefe.loadFromFile("explosionjefelarga2.wav");
+    explosionJefe.setBuffer(audioexplosionJefe);
+    explosionJefe.setVolume(10);
+
+
 
     _frame = 0;
     _contador = 0;
@@ -41,7 +47,9 @@ void primer_jefe::update() {
 
     // Si el enemigo no tiene vida, ejecutar la animación de explosión
     if (vida_primer_jefe <= 0) {
+        explosionJefe.play();
         explosion();
+
          // Detener la actualización si está explotando
     }
 
@@ -73,7 +81,7 @@ void primer_jefe::update() {
     // Control de disparo
     if (disparoTimer <= 0 && vida_primer_jefe >= 1 && _velocidadY == 0) {
         disparar();
-        tiroColi.play();
+        disparoJefe.play();
         intervaloDisparo = float(std::rand() % 500 + 100);
         disparoTimer = intervaloDisparo;
     } else {

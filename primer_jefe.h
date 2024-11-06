@@ -16,8 +16,15 @@ class primer_jefe : public sf::Drawable, public collisionable {
     float disparoTimer;            // Temporizador para controlar el disparo
     float intervaloDisparo;         // Intervalo aleatorio para disparar
     int vida_primer_jefe;
-    sf::Sound tiroColi;
-    sf::SoundBuffer audiotiroColi;
+
+    sf::Sound disparoJefe;
+    sf::SoundBuffer audiodisparoJefe;
+
+    sf::Sound explosionJefe;
+    sf::SoundBuffer audioexplosionJefe;
+
+
+
     sf::Clock timerAparicion;
     sf::Time tiempo_transcurrido;
 
