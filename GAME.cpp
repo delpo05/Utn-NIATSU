@@ -232,6 +232,8 @@ void Game::iniciar_partida() {
             disparo.draw(window, sf::RenderStates::Default);
         }
 
+
+
         if (bandera_oleada == true) {
             for (auto& coli : colis) {
                 for (auto& disparo : coli.getDisparos()) {

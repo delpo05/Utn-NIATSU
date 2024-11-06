@@ -1,30 +1,26 @@
-// Menu.h
-
-#pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <string>
 
 class Menu {
 public:
-    // Constructor que toma la ventana y configura las opciones del menú
     Menu(sf::RenderWindow& window);
-
-    // Métodos para mostrar el menú principal y manejar opciones
     void mostrarMenuPrincipal();
+    void draw();
     size_t getOpcionSeleccionada() const;
+    std::string getNombreJugador() const; // Nueva función para obtener el nombre del jugador
+    void Nombre();
 
 private:
+    void inicializarOpciones();
     sf::RenderWindow& window;
     sf::Font font;
+    std::vector<sf::Text> opcionesMenu;
     sf::Texture texturaFondoMenu;
     sf::Sprite spriteFondoMenu;
-    float velocidad;
-    float posicionY;
-    std::vector<sf::Text> opcionesMenu;
     size_t opcionSeleccionada;
 
-    // Métodos para inicializar y dibujar las opciones del menú
-    void inicializarOpciones();
-    void draw();
+    sf::Text nombreText; // Texto para mostrar el nombre ingresado
+    std::string nombreJugador; // String para almacenar el nombre
+    bool ingresarNombre; // Bandera para determinar si se está ingresando el nombre
 };

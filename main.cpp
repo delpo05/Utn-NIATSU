@@ -5,27 +5,27 @@
 #include <stdlib.h>
 #include "GAME.h"
 #include "menu.h"
+#include <iostream>
 
+using namespace std;
 
 int main()
 {
-sf::RenderWindow window(sf::VideoMode(800, 600), "NIATSU - Menu");
-
-    // Crear e iniciar el menú
+    sf::RenderWindow window(sf::VideoMode(800, 600), "NIATSU - Menu");
     Menu menu(window);
     menu.mostrarMenuPrincipal();
 
 
-    // Verificar la opción seleccionada
+
     int opcion = menu.getOpcionSeleccionada();
     if (opcion == 0) {
-        Game game;    // Inicia el juego si se selecciona "Iniciar juego"
+        Game game;
+        // Puedes pasar `nombreJugador` a la clase `Game` si deseas usarlo dentro del juego
     } else if (opcion == 1) {
-        // Mostrar el ranking (puedes implementar esta sección para mostrar un ranking)
+        // Mostrar el ranking
     } else if (opcion == 2) {
-        window.close();   // Cierra la ventana si se selecciona "Salir"
+        window.close();
     }
 
-
-return 0;
+    return 0;
 }

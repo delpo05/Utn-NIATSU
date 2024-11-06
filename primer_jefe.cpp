@@ -20,7 +20,7 @@ primer_jefe::primer_jefe() {
 
     disparoTimer = 0;
     intervaloDisparo = float(std::rand() % 2000 + 1000);  // entre 1 y 3 segundos
-    vida_primer_jefe = 5;
+    vida_primer_jefe = 20;
 
     audiotiroColi.loadFromFile("Disparocolis.wav");
     tiroColi.setBuffer(audiotiroColi);
