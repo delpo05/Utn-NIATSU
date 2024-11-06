@@ -2,21 +2,23 @@
 
 #include "Menu.h"
 
-Menu::Menu(sf::RenderWindow& window) : window(window), opcionSeleccionada(0) {
-    // Cargar fuente
-    font.loadFromFile("Letra.ttf");
+Menu::Menu(sf::RenderWindow& window) : window(window){
+    font.loadFromFile("Letra.ttf");  // Cargar la fuente
+    opcionSeleccionada = 0;          // Configurar las opciones del menú
     inicializarOpciones();
+
 }
 
+
 void Menu::inicializarOpciones() {
-    std::vector<std::string> opciones = {"Iniciar Partida", "Opciones", "Salir"};
+    std::vector<std::string> opciones = {"INICIAR JUEGO", "RANKING", "SALIR"};
     for (size_t i = 0; i < opciones.size(); ++i) {
         sf::Text text;
         text.setFont(font);
         text.setString(opciones[i]);
         text.setCharacterSize(30);
-        text.setPosition(400 - text.getGlobalBounds().width / 2, 200 + i * 50);
-        text.setFillColor(i == opcionSeleccionada ? sf::Color::Red : sf::Color::White);
+        text.setPosition(400 - text.getGlobalBounds().width / 2, 200 + i * 100);
+        ///text.setFillColor(i == opcionSeleccionada ? sf::Color::Yellow : sf::Color::White);
         opcionesMenu.push_back(text);
     }
 }
@@ -36,23 +38,23 @@ void Menu::mostrarMenuPrincipal() {
                     opcionSeleccionada = (opcionSeleccionada < opcionesMenu.size() - 1) ? opcionSeleccionada + 1 : 0;
                 }
                 if (event.key.code == sf::Keyboard::Enter) {
-                    return;
+                    return;  // Salir del menú cuando se presiona Enter
                 }
             }
         }
-        dibujar();
+        draw();
     }
 }
 
-void Menu::dibujar() {
+void Menu::draw() {
     window.clear();
     for (size_t i = 0; i < opcionesMenu.size(); ++i) {
-        opcionesMenu[i].setFillColor(i == opcionSeleccionada ? sf::Color::Red : sf::Color::White);
+        opcionesMenu[i].setFillColor(i == opcionSeleccionada ? sf::Color::Yellow : sf::Color::White);
         window.draw(opcionesMenu[i]);
     }
     window.display();
 }
 
-int Menu::getOpcionSeleccionada() const {
+size_t Menu::getOpcionSeleccionada() const {
     return opcionSeleccionada;
 }

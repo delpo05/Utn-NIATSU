@@ -10,18 +10,17 @@ public:
     // Constructor que toma la ventana y configura las opciones del menú
     Menu(sf::RenderWindow& window);
 
-    // Métodos para mostrar y manejar el menú principal y el menú de pausa
+    // Métodos para mostrar el menú principal y manejar opciones
     void mostrarMenuPrincipal();
-    void mostrarMenuPausa();
-    int getOpcionSeleccionada() const;
+    size_t getOpcionSeleccionada() const;
 
 private:
     sf::RenderWindow& window;
     sf::Font font;
     std::vector<sf::Text> opcionesMenu;
-    int opcionSeleccionada;
+    size_t opcionSeleccionada;
 
-    // Métodos para inicializar los textos de las opciones del menú
+    // Métodos para inicializar y dibujar las opciones del menú
     void inicializarOpciones();
-    void dibujar();
+    void draw();
 };
