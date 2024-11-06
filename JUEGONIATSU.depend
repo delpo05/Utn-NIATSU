@@ -3734,7 +3734,7 @@
 1730730268 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\disparo_enemigo.cpp
 	"Disparo_enemigo.h"
 
-1730918376 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\game.cpp
+1730920057 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -3743,6 +3743,7 @@
 	"disparo.h"
 	"Nave.h"
 	"Fondo.h"
+	"primer_jefe.h"
 
 1730846450 c:\users\lauta\onedrive\documentos\github\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
@@ -4465,7 +4466,7 @@
 	<vector>
 	<string>
 
-1730919972 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\primer_jefe.cpp
+1730933497 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\primer_jefe.cpp
 	"primer_jefe.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
