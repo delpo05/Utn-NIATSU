@@ -101,7 +101,7 @@ void Colis::explosion() {
     _frame += 0.2;
 
     // Cambia el rectángulo de textura para la animación de explosión
-    _sprite.setTextureRect({145 + int(_frame) * 55, 382, 55, 45});
+    _sprite.setTextureRect({255 + int(_frame) * 55, 382, 55, 45});
 
     if (_frame > 6) {
         _frame = 0;

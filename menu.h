@@ -17,6 +17,10 @@ public:
 private:
     sf::RenderWindow& window;
     sf::Font font;
+    sf::Texture texturaFondoMenu;
+    sf::Sprite spriteFondoMenu;
+    float velocidad;
+    float posicionY;
     std::vector<sf::Text> opcionesMenu;
     size_t opcionSeleccionada;
 

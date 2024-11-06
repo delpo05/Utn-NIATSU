@@ -3184,7 +3184,7 @@
 1730725644 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_enemigo.cpp
 	"Disparo_enemigo.h"
 
-1730730268 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\colis.cpp
+1730895373 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\colis.cpp
 	"Colis.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -3757,7 +3757,7 @@
 	"disparo.h"
 	"colision.h"
 
-1730850325 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\main.cpp
+1730895182 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\main.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -4454,10 +4454,10 @@
 	"disparos_primer_jefe.h"
 	"colision.h"
 
-1730851419 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\menu.cpp
+1730895241 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\menu.cpp
 	"Menu.h"
 
-1730851057 c:\users\lauta\onedrive\documentos\github\utn-niatsu\menu.h
+1730895241 c:\users\lauta\onedrive\documentos\github\utn-niatsu\menu.h
 	<SFML/Graphics.hpp>
 	<vector>
 	<string>
@@ -4469,4 +4469,6 @@
 	<ctime>
 	<stdlib.h>
 	"disparos_primer_jefe.h"
+
+1730894596 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\fondomenu.cpp
 

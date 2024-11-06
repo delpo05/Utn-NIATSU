@@ -73,7 +73,7 @@ void Game::iniciar_partida() {
 
         // Verificar tiempo transcurrido y actualizar bandera para aparición de enemigos
         tiempo_transcurrido = timerAparicion.getElapsedTime();
-        if (tiempo_transcurrido.asSeconds() > 5) {
+        if (tiempo_transcurrido.asSeconds() > 20) {
             bandera_oleada = false;
         }
         // APARICION DE JEFE

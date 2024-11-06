@@ -6,6 +6,8 @@ Menu::Menu(sf::RenderWindow& window) : window(window){
     font.loadFromFile("Letra.ttf");  // Cargar la fuente
     opcionSeleccionada = 0;          // Configurar las opciones del menú
     inicializarOpciones();
+    texturaFondoMenu.loadFromFile("fondomenu.jpg");
+    spriteFondoMenu.setTexture(texturaFondoMenu);
 
 }
 
@@ -48,6 +50,7 @@ void Menu::mostrarMenuPrincipal() {
 
 void Menu::draw() {
     window.clear();
+    window.draw(spriteFondoMenu);
     for (size_t i = 0; i < opcionesMenu.size(); ++i) {
         opcionesMenu[i].setFillColor(i == opcionSeleccionada ? sf::Color::Yellow : sf::Color::White);
         window.draw(opcionesMenu[i]);
@@ -58,3 +61,5 @@ void Menu::draw() {
 size_t Menu::getOpcionSeleccionada() const {
     return opcionSeleccionada;
 }
+
+

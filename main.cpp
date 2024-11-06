@@ -15,6 +15,7 @@ sf::RenderWindow window(sf::VideoMode(800, 600), "NIATSU - Menu");
     Menu menu(window);
     menu.mostrarMenuPrincipal();
 
+
     // Verificar la opción seleccionada
     int opcion = menu.getOpcionSeleccionada();
     if (opcion == 0) {
