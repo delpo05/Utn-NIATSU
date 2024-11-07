@@ -11,7 +11,7 @@ class Colis : public sf::Drawable, public collisionable {
     sf::Texture* _texture;
     float _velocidadX;
     float _velocidadY;
-    std::vector<Disparo_enemigo> disparos;
+    std::vector<Disparo_enemigo> tiroC;
     float disparoTimer;            // Temporizador para controlar el disparo
     float intervaloDisparo;         // Intervalo aleatorio para disparar
     int vida_coli;

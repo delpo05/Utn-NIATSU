@@ -61,6 +61,10 @@ void primer_jefe::update() {
         if (_velocidadX < -5.0) _velocidadX = -5.0; // Límite inferior
     }
 
+
+            tiroJ.erase(std::remove_if(tiroJ.begin(), tiroJ.end(), [](disparo_primer_jefe& d)
+            {return d.sprite.getPosition().y < 0;}), tiroJ.end());
+
     // Movimiento
     _sprite.move(_velocidadX, _velocidadY);
 
@@ -89,8 +93,8 @@ void primer_jefe::update() {
     }
 
     // Actualización de disparos
-    for (auto& disparo : disparos) {
-        disparo.update();
+    for (auto& disparo_primer_jefe :tiroJ) {
+        disparo_primer_jefe.update();
     }
 }
 }
@@ -105,11 +109,11 @@ void primer_jefe::update() {
 
 void primer_jefe::disparar() {
     disparo_primer_jefe nuevoDisparo(_sprite.getPosition().x, _sprite.getPosition().y);
-    disparos.push_back(nuevoDisparo);
+    tiroJ.push_back(nuevoDisparo);
 }
 
 const std::vector<disparo_primer_jefe>& primer_jefe::getDisparos() const {
-    return disparos;
+    return tiroJ;
 }
 
 sf::FloatRect primer_jefe::getBounds() const {

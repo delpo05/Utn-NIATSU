@@ -7,6 +7,8 @@
 #include "primer_jefe.h"
 #include <SFML/Audio.hpp>
 #include <vector>
+#include "menuIntermedio.h"
+
 
 
 class Game : public sf::Drawable {
@@ -24,7 +26,7 @@ class Game : public sf::Drawable {
 
     bool banderaGolpe = false;
     bool bandeChoque = false;
-    bool banderaGolpeColi = false;
+    bool banderaGolpeJefe = false;
 
     int tiempoDeGracia;
     int tiempoDeGracia2;
@@ -45,6 +47,8 @@ class Game : public sf::Drawable {
     bool bandera_oleada;
     int movimiento_de_fondo;
     Fondo fondo;
+
+
 
 public:
     Game();  // Constructor

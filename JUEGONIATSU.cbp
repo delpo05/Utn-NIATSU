@@ -60,6 +60,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />
+		<Unit filename="menuIntermedio.cpp" />
+		<Unit filename="menuIntermedio.h" />
 		<Unit filename="primer_jefe.cpp" />
 		<Unit filename="primer_jefe.h" />
 		<Extensions />

@@ -4,13 +4,18 @@
 
 // La clase disparo representa cada proyectil disparado por la nave
 class disparo : public sf::Drawable, public collisionable {
+
 public:
     sf::Sprite sprite;      // Sprite del proyectil
     sf::Texture* textureDisparo;   // Textura del proyectil (memoria dinámica)
     float velocidad;        // Velocidad de movimiento del proyectil
+    bool activada = true;
+
 
     disparo(float x, float y);  // Constructor
     void update();              // Actualiza la posición
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;  // Dibuja el proyectil
     sf::FloatRect getBounds() const; // Obtiene límites para colisiones
+    void setActivada(bool estado) { activada = estado; }
+    bool getActivada() const { return activada; }
 };

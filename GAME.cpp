@@ -10,6 +10,8 @@
 #include "Fondo.h" // Incluye el archivo de la clase Fondo
 #include "primer_jefe.h"
 
+
+
 // Constructor
 Game::Game() {
     inicializacion_ventana();  // Inicializa la ventana y carga los elementos
@@ -30,7 +32,7 @@ void Game::iniciar_partida() {
     Musica.play();
     tiempoDeGracia = 60 * 0.3;
     tiempoDeGracia2 = 60 * 0.5;
-    tiempoDeGracia3 = 60 * 0.4;
+    tiempoDeGracia3= 60 * 0.4;
     tiempoUltimoDisparo = 0.0;
     intervaloDisparo = 0.2;
     puntos = 0;
@@ -54,6 +56,7 @@ void Game::iniciar_partida() {
     shoot.setVolume(10);
     explosionColi.setVolume(10);
     bandera_oleada = true;
+    MenuIntermedio menui(window);
 
     // Temporizador para controlar la aparición de enemigos
     timerAparicion.restart();
@@ -92,11 +95,15 @@ void Game::iniciar_partida() {
 
         //COLISIONES VS PRIMER JEFE
     for(auto& disparo : niatsu.getDisparos()){
-        if(disparo.isCollision(jefe1) && banderaGolpeColi == false && jefe1.getbandera_jefe_muerto()==false) {
-                        banderaGolpeColi = true;
+        if(disparo.isCollision(jefe1) && banderaGolpeJefe == false && jefe1.getbandera_jefe_muerto()==false) {
+                        banderaGolpeJefe = true;
                         jefe1.setVida_primer_jefe(jefe1.getVida() - 1);
                         explosionColi.play();
+
+
         }}
+
+
 
 
     for(auto& disparo_primer_jefe : jefe1.getDisparos()){
@@ -113,14 +120,28 @@ void Game::iniciar_partida() {
 
         //FIN DE COLISIONES PRIMER JEFE
 
+        //MENU INTERMEDIO ENTRE MUERTE DE PRIMER JEFE
+
+        if(jefe1.getbandera_jefe_muerto()==true){
+
+        menui.mostrarMenuPrincipal();
+        int opcion = menui.getOpcionSeleccionada();
+            if (opcion == 0) {
+
+            } else if (opcion == 1) {
+            window.close();
+                }
+        }
+
         // Actualizar colisiones de disparos con enemigos si bandera_ejemplo es verdadera
-        if (bandera_oleada == true && banderaGolpeColi == false) {
+        if (bandera_oleada == true) {
             for (auto& disparo : niatsu.getDisparos()) {
                 for (auto& coli : colis) {
                     if (disparo.isCollision(coli)) {
-                        banderaGolpeColi = true;
                         coli.setVida_coli(coli.getVida() - 1);
-                        puntos += 100;
+                        if(coli.getVida()==0){
+                            puntos += 100;
+                        }
                         explosionColi.play();
                     }
                 }
@@ -163,7 +184,7 @@ void Game::iniciar_partida() {
         }
 
 
-        if (banderaGolpeColi == true) {
+        if (banderaGolpeJefe == true) {
             tiempoDeGracia3--;
         }
 
@@ -171,7 +192,7 @@ void Game::iniciar_partida() {
 
         if (tiempoDeGracia3 <= 0) {
             tiempoDeGracia3 = 60 * 0.4;
-            banderaGolpeColi = false;
+            banderaGolpeJefe = false;
         }
 
 

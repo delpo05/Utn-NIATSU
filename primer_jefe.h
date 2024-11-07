@@ -12,7 +12,7 @@ class primer_jefe : public sf::Drawable, public collisionable {
     sf::Texture* _texture;
     float _velocidadX;
     float _velocidadY;
-    std::vector<disparo_primer_jefe> disparos;
+    std::vector<disparo_primer_jefe> tiroJ;
     float disparoTimer;            // Temporizador para controlar el disparo
     float intervaloDisparo;         // Intervalo aleatorio para disparar
     int vida_primer_jefe;

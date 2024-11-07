@@ -2,17 +2,17 @@
 #include <vector>
 #include <string>
 
-class Menu {
+class MenuIntermedio {
 public:
-    Menu(sf::RenderWindow& window);
+    MenuIntermedio(sf::RenderWindow& window);
     void mostrarMenuPrincipal();
     void draw();
     size_t getOpcionSeleccionada() const;
     std::string getNombreJugador() const; // Nueva función para obtener el nombre del jugador
     void Nombre();
-    void inicializarOpciones();
 
 private:
+    void inicializarOpciones();
     sf::RenderWindow& window;
     sf::Font font;
     std::vector<sf::Text> opcionesMenu;

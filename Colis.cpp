@@ -47,6 +47,11 @@ void Colis::update() {
         if (_velocidadX < -5.0) _velocidadX = -5.0; // Límite inferior
     }
 
+    //ELIMINAR TIROS
+    tiroC.erase(std::remove_if(tiroC.begin(), tiroC.end(), [](Disparo_enemigo& d)
+            {return d.sprite.getPosition().y < 0;}), tiroC.end());
+        //FIN DE LA ELIMINACION
+
     // Movimiento
     _sprite.move(_velocidadX, _velocidadY);
 
@@ -71,8 +76,8 @@ void Colis::update() {
     }
 
     // Actualización de disparos
-    for (auto& disparo : disparos) {
-        disparo.update();
+    for (auto& Disparo_enemigo : tiroC) {
+        Disparo_enemigo.update();
     }
 }
 
@@ -86,11 +91,11 @@ void Colis::respawn() {
 
 void Colis::disparar() {
     Disparo_enemigo nuevoDisparo(_sprite.getPosition().x, _sprite.getPosition().y);
-    disparos.push_back(nuevoDisparo);
+    tiroC.push_back(nuevoDisparo);
 }
 
 const std::vector<Disparo_enemigo>& Colis::getDisparos() const {
-    return disparos;
+    return tiroC;
 }
 
 sf::FloatRect Colis::getBounds() const {
