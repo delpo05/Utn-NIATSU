@@ -35,6 +35,10 @@ primer_jefe::primer_jefe() {
     _frame = 0;
     _contador = 0;
     bandera_jefe_muerto = false;
+
+    bufferrecibetiro.loadFromFile("explosion_coli.wav");
+    recibetiro.setBuffer(bufferrecibetiro);
+    recibetiro.setVolume(10);
 }
 
 void primer_jefe::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -62,8 +66,9 @@ void primer_jefe::update() {
     }
 
 
-            tiroJ.erase(std::remove_if(tiroJ.begin(), tiroJ.end(), [](disparo_primer_jefe& d)
-            {return d.sprite.getPosition().y < 0;}), tiroJ.end());
+        tiroJ.erase(std::remove_if(tiroJ.begin(), tiroJ.end(), [](disparo_primer_jefe& d)
+        {return d.sprite.getPosition().y > 600;}), tiroJ.end());
+
 
     // Movimiento
     _sprite.move(_velocidadX, _velocidadY);
@@ -99,13 +104,7 @@ void primer_jefe::update() {
 }
 }
 
-/*void Colis::respawn() {
-    _sprite.setPosition(std::rand() % 700 + _sprite.getGlobalBounds().width, -_sprite.getGlobalBounds().height);
-    _velocidadX = (std::rand() % 2 == 0) ? 3.5 : -3.5;
-    _velocidadY = 1.5 + float(std::rand() % 200) / 100.0;
-    _sprite.setTextureRect({145, 382, 55, 45});
-    vida_coli = 1; // Reinicia la vida del enemigo
-}*/
+
 
 void primer_jefe::disparar() {
     disparo_primer_jefe nuevoDisparo(_sprite.getPosition().x, _sprite.getPosition().y);
@@ -131,6 +130,13 @@ void primer_jefe::explosion() {
         bandera_jefe_muerto=true;
     }
 
+
+}
+
+void primer_jefe::recibedanio(){
+    setVida_primer_jefe(getVida()-1);
+
+    recibetiro.play();
 
 }
 

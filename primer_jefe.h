@@ -33,6 +33,9 @@ class primer_jefe : public sf::Drawable, public collisionable {
     int _contador;
     bool bandera_jefe_muerto;
 
+    sf::Sound recibetiro;
+    sf::SoundBuffer bufferrecibetiro;
+
 
 
 
@@ -48,5 +51,6 @@ public:
     int getVida(){return vida_primer_jefe;}
     void explosion();
     bool getbandera_jefe_muerto(){return bandera_jefe_muerto;}
+    void recibedanio();
 
 };

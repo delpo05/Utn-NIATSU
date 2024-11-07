@@ -42,11 +42,14 @@ class Game : public sf::Drawable {
     sf::SoundBuffer audioRecibetiro;
     sf::Sound explosionColi;
     sf::SoundBuffer bufferExplosionColi;
+    sf::Sound tiroRecibidoJefe;
+    sf::SoundBuffer bufferTiroRecibidoJefe;
     sf::Clock timerAparicion;
     sf::Time tiempo_transcurrido;
     bool bandera_oleada;
     int movimiento_de_fondo;
     Fondo fondo;
+    bool secondLevel = false;
 
 
 

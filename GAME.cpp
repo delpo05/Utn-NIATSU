@@ -52,8 +52,11 @@ void Game::iniciar_partida() {
     tiroRecibido.setBuffer(audioRecibetiro);
     bufferExplosionColi.loadFromFile("explosion_coli.wav");
     explosionColi.setBuffer(bufferExplosionColi);
+    bufferTiroRecibidoJefe.loadFromFile("explosionjefepordisparo.wav");
+    tiroRecibidoJefe.setBuffer(bufferTiroRecibidoJefe);
     tiroRecibido.setVolume(7);
     shoot.setVolume(10);
+    tiroRecibidoJefe.setVolume(10);
     explosionColi.setVolume(10);
     bandera_oleada = true;
     MenuIntermedio menui(window);
@@ -97,8 +100,7 @@ void Game::iniciar_partida() {
     for(auto& disparo : niatsu.getDisparos()){
         if(disparo.isCollision(jefe1) && banderaGolpeJefe == false && jefe1.getbandera_jefe_muerto()==false) {
                         banderaGolpeJefe = true;
-                        jefe1.setVida_primer_jefe(jefe1.getVida() - 1);
-                        explosionColi.play();
+                        jefe1.recibedanio();
 
 
         }}
@@ -109,8 +111,8 @@ void Game::iniciar_partida() {
     for(auto& disparo_primer_jefe : jefe1.getDisparos()){
         if(disparo_primer_jefe.isCollision(niatsu)&& banderaGolpe==false && jefe1.getbandera_jefe_muerto()==false){
                         banderaGolpe = true;
-                        niatsu.setVida_nave(niatsu.getVida_nave() - 1);
-                        tiroRecibido.play();
+                        niatsu.setVida_nave(niatsu.getVida_nave() - 3);
+                        tiroRecibidoJefe.play();
         }
     }
 
@@ -212,6 +214,13 @@ void Game::iniciar_partida() {
                 }
             }
         }
+
+        //SEGUNDO NIVEL
+        if(secondLevel==true){
+
+        }
+
+
 
         // INICIO DE UPDATES
         niatsu.update();

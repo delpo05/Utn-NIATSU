@@ -1,10 +1,12 @@
 #include "Menu.h"
 
-Menu::Menu(sf::RenderWindow& window) : window(window), opcionSeleccionada(0), ingresarNombre(true) {
+Menu::Menu(sf::RenderWindow& window) : window(window) {
     font.loadFromFile("Letra.ttf");
     inicializarOpciones();
     texturaFondoMenu.loadFromFile("fondomenu.jpg");
     spriteFondoMenu.setTexture(texturaFondoMenu);
+    opcionSeleccionada = 0;
+    ingresarNombre=true;
 
     // Inicializar el texto para mostrar el nombre ingresado
     nombreText.setFont(font);

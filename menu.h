@@ -22,5 +22,5 @@ private:
 
     sf::Text nombreText; // Texto para mostrar el nombre ingresado
     std::string nombreJugador; // String para almacenar el nombre
-    bool ingresarNombre; // Bandera para determinar si se está ingresando el nombre
+    bool ingresarNombre = true; // Bandera para determinar si se está ingresando el nombre
 };

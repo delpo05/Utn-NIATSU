@@ -49,7 +49,7 @@ void Colis::update() {
 
     //ELIMINAR TIROS
     tiroC.erase(std::remove_if(tiroC.begin(), tiroC.end(), [](Disparo_enemigo& d)
-            {return d.sprite.getPosition().y < 0;}), tiroC.end());
+            {return d.sprite.getPosition().y > 600;}), tiroC.end());
         //FIN DE LA ELIMINACION
 
     // Movimiento
