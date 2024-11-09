@@ -24,6 +24,7 @@ class Game : public sf::Drawable {
     sf::Text texPuntos;
     sf::Text texVidaJefe1;
 
+
     bool banderaGolpe = false;
     bool bandeChoque = false;
     bool banderaGolpeJefe = false;

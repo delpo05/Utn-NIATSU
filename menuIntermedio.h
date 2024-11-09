@@ -11,6 +11,8 @@ public:
     std::string getNombreJugador() const; // Nueva función para obtener el nombre del jugador
     void Nombre();
 
+
+
 private:
     void inicializarOpciones();
     sf::RenderWindow& window;

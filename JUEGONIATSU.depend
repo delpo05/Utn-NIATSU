@@ -3804,7 +3804,7 @@
 	<stdlib.h>
 	"disparos_primer_jefe.h"
 
-1730731708 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\colis.cpp
+1731001299 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\colis.cpp
 	"Colis.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -3812,7 +3812,7 @@
 	<stdlib.h>
 	"Disparo_enemigo.h"
 
-1730731708 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\colis.h
+1730986577 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\colis.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
@@ -4345,7 +4345,7 @@
 1730731708 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo.cpp
 	"disparo.h"
 
-1730733971 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo.h
+1731001299 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo.h
 	<SFML/Graphics.hpp>
 	"colision.h"
 
@@ -4355,13 +4355,13 @@
 1730734219 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparos_primer_jefe.cpp
 	"disparos_primer_jefe.h"
 
-1730731708 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\fondo.cpp
+1731185332 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\fondo.cpp
 	"Fondo.h"
 
-1730731708 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\fondo.h
+1731183768 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\fondo.h
 	<SFML/Graphics.hpp>
 
-1730735190 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\game.cpp
+1731184096 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -4370,8 +4370,9 @@
 	"disparo.h"
 	"Nave.h"
 	"Fondo.h"
+	"primer_jefe.h"
 
-1730734628 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\game.h
+1731183768 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
@@ -4380,21 +4381,24 @@
 	"primer_jefe.h"
 	<SFML/Audio.hpp>
 	<vector>
+	"menuIntermedio.h"
 
 1730731708 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\nave.h
 	<SFML\Graphics.hpp>
 	"disparo.h"
 	"colision.h"
 
-1730731708 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\main.cpp
+1731178341 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\main.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<ctime>
 	<stdlib.h>
 	"GAME.h"
+	"menu.h"
+	<iostream>
 
-1730731708 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\nave.cpp
+1731178340 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\nave.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -4402,7 +4406,7 @@
 	<stdlib.h>
 	"disparo.h"
 
-1730735174 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\primer_jefe.cpp
+1731187146 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\primer_jefe.cpp
 	"primer_jefe.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -4414,7 +4418,7 @@
 	<SFML/Graphics.hpp>
 	"colision.h"
 
-1730734330 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\primer_jefe.h
+1731001299 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\primer_jefe.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
@@ -5142,4 +5146,38 @@
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<iostream>
+
+1730895673 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\fondomenu.cpp
+
+1731179239 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\menuintermedio.h
+	<SFML/Graphics.hpp>
+	<vector>
+	<string>
+
+1731001299 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\menu.h
+	<SFML/Graphics.hpp>
+	<vector>
+	<string>
+
+1731001299 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\menu.cpp
+	"Menu.h"
+
+1731180470 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\menuintermedio.cpp
+	"menuIntermedio.h"
+
+1731178341 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\nivel1.cpp
+	"Nivel1.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+
+1731178341 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\nivel1.h
+	"Nave.h"
+	"Fondo.h"
+	"primer_jefe.h"
+	"disparo.h"
+	"Colis.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
 

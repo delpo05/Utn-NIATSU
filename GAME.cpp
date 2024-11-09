@@ -44,6 +44,7 @@ void Game::iniciar_partida() {
     texvidas.setCharacterSize(20);
     texVidaJefe1.setCharacterSize(15);
 
+
     // Cargar efectos de sonido
     audiochoque.loadFromFile("audiochoque.wav");
     choque.setBuffer(audiochoque);
@@ -88,7 +89,7 @@ void Game::iniciar_partida() {
 
         // Verificar tiempo transcurrido y actualizar bandera para aparición de enemigos
         tiempo_transcurrido = timerAparicion.getElapsedTime();
-        if (tiempo_transcurrido.asSeconds() > 20) {
+        if (tiempo_transcurrido.asSeconds() > 5) {
             bandera_oleada = false;
         }
 
@@ -123,6 +124,7 @@ void Game::iniciar_partida() {
 
         // MENÚ INTERMEDIO ENTRE MUERTE DE PRIMER JEFE
         if (jefe1.getbandera_jefe_muerto() == true) {
+            if (secondLevel == false){
             menui.mostrarMenuPrincipal();
             int opcion = menui.getOpcionSeleccionada();
             if (opcion == 0) {
@@ -132,6 +134,7 @@ void Game::iniciar_partida() {
             } else if (opcion == 1) {
                 window.close(); // Cerrar el juego
             }
+        }
         }
 
         // Actualizar colisiones de disparos con enemigos si bandera_oleada es verdadera
@@ -203,7 +206,9 @@ void Game::iniciar_partida() {
 
         // SEGUNDO NIVEL
         if (secondLevel == true) {
-            // Lógica para el segundo nivel (si es necesario)
+         fondo.cambiarFondo(secondLevel);
+         fondo.update(1.0 / 60.0f);
+
         }
 
         // INICIO DE UPDATES
@@ -268,6 +273,8 @@ void Game::iniciar_partida() {
         if (bandera_oleada == false) {
             window.draw(jefe1);
         }
+
+
 
         window.draw(niatsu);
         window.display();

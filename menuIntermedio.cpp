@@ -40,6 +40,7 @@ void MenuIntermedio::mostrarMenuPrincipal() {
                     if (event.key.code == sf::Keyboard::Up) {
                         opcionSeleccionada = (opcionSeleccionada > 0) ? opcionSeleccionada - 1 : opcionesMenu.size() - 1;
                     }
+
                     if (event.key.code == sf::Keyboard::Down) {
                         opcionSeleccionada = (opcionSeleccionada < opcionesMenu.size() - 1) ? opcionSeleccionada + 1 : 0;
                     }

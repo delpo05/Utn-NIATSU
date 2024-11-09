@@ -3,6 +3,8 @@
 Fondo::Fondo(){
     texturaFondo.loadFromFile("fondo espacio.jpg");
     texturaFondo.setRepeated(true);
+    texturaFondo2.loadFromFile("image.jpg");
+    texturaFondo2.setRepeated(true);
     spriteFondo.setTexture(texturaFondo);
     spriteFondo.setTextureRect(sf::IntRect(0, 0, 800, 1200)); // Dos veces la altura de la imagen para el desplazamiento
     velocidad = 100.0;
@@ -24,4 +26,14 @@ void Fondo::update(float deltaTime) {
 
 void Fondo::draw(sf::RenderWindow& window) {
     window.draw(spriteFondo);
+}
+
+void Fondo::cambiarFondo(bool secondLevel) {
+    if (secondLevel) {
+        // Cambiar a fondo del segundo nivel
+        spriteFondo.setTexture(texturaFondo2);
+    } else {
+        // Cambiar a fondo del primer nivel
+        spriteFondo.setTexture(texturaFondo);
+    }
 }
