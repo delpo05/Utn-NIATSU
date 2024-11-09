@@ -2429,7 +2429,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1730898297 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\main.cpp
+1731112020 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\main.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2556,7 +2556,7 @@
 	<stdlib.h>
 	"disparo.h"
 
-1730990389 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
+1731113045 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2567,7 +2567,7 @@
 	"Fondo.h"
 	"primer_jefe.h"
 
-1730990389 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
+1731112522 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
@@ -4480,12 +4480,12 @@
 
 1730895696 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\fondomenu.cpp
 
-1730938291 c:\users\felid\onedrive\documentos\github\utn-niatsu\menuintermedio.h
+1731105733 c:\users\felid\onedrive\documentos\github\utn-niatsu\menuintermedio.h
 	<SFML/Graphics.hpp>
 	<vector>
 	<string>
 
-1730979985 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\menuintermedio.cpp
+1731112628 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\menuintermedio.cpp
 	"menuIntermedio.h"
 
 1730985047 source:c:\users\felid\onedrive\documentos\menuintermediooo\utn-niatsu\colis.cpp
@@ -5126,4 +5126,20 @@
 	<ctime>
 	<stdlib.h>
 	"disparos_primer_jefe.h"
+
+1731108754 c:\users\felid\onedrive\documentos\github\utn-niatsu\nivel1.h
+	"Nave.h"
+	"Fondo.h"
+	"primer_jefe.h"
+	"disparo.h"
+	"Colis.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+
+1731109574 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\nivel1.cpp
+	"Nivel1.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
 

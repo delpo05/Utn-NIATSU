@@ -15,7 +15,7 @@ class Game : public sf::Drawable {
     Nave niatsu;   // Instancia de la nave
     primer_jefe jefe1;
     std::vector<Colis> colis;  // Vector para almacenar enemigos
-    sf::RenderWindow window; // Ventana del juego
+     // Ventana del juego
     //sf::Sprite fondo;       // Fondo del juego
     sf::Texture tex;        // Textura del fondo
     sf::Music Musica;
@@ -27,7 +27,8 @@ class Game : public sf::Drawable {
     bool banderaGolpe = false;
     bool bandeChoque = false;
     bool banderaGolpeJefe = false;
-
+    sf::RenderWindow window;
+    sf::RenderWindow windowIntermedio;
     int tiempoDeGracia;
     int tiempoDeGracia2;
     int tiempoDeGracia3;
@@ -55,6 +56,7 @@ class Game : public sf::Drawable {
 
 public:
     Game();  // Constructor
+
     void inicializacion_ventana();   // Inicializa la ventana y elementos
     void iniciar_partida();          // Ciclo principal del juego
     void pausar_partida();           // Pausar el juego (por implementar)
