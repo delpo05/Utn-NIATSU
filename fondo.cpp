@@ -3,7 +3,7 @@
 Fondo::Fondo(){
     texturaFondo.loadFromFile("fondo espacio.jpg");
     texturaFondo.setRepeated(true);
-    texturaFondo2.loadFromFile("image.jpg");
+    texturaFondo2.loadFromFile("image.jpg"); //Fondo 2do nivel
     texturaFondo2.setRepeated(true);
     spriteFondo.setTexture(texturaFondo);
     spriteFondo.setTextureRect(sf::IntRect(0, 0, 800, 1200)); // Dos veces la altura de la imagen para el desplazamiento

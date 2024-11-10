@@ -1,3 +1,4 @@
+/// colis.h
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -38,5 +39,6 @@ public:
     int getCantidadColis(){return _CantidadColis;}
     void setCantidadColis(int cant){_CantidadColis = cant;}
     void explosion();
+    void coli2donivel();
 
 };

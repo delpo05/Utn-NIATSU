@@ -20,4 +20,6 @@ public:
 
     // Obtiene los límites (bounds) del proyectil
     sf::FloatRect getBounds() const;
+
+    void disparo2do ();
 };

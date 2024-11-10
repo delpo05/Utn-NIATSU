@@ -1,4 +1,6 @@
+///game.cpp
 #include "Game.h"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <ctime>
@@ -89,7 +91,7 @@ void Game::iniciar_partida() {
 
         // Verificar tiempo transcurrido y actualizar bandera para aparición de enemigos
         tiempo_transcurrido = timerAparicion.getElapsedTime();
-        if (tiempo_transcurrido.asSeconds() > 5) {
+        if (tiempo_transcurrido.asSeconds() > 10 ) {
             bandera_oleada = false;
         }
 
@@ -124,17 +126,19 @@ void Game::iniciar_partida() {
 
         // MENÚ INTERMEDIO ENTRE MUERTE DE PRIMER JEFE
         if (jefe1.getbandera_jefe_muerto() == true) {
+                bandera_oleada = true;
+                bandeChoque == true;
             if (secondLevel == false){
             menui.mostrarMenuPrincipal();
             int opcion = menui.getOpcionSeleccionada();
             if (opcion == 0) {
                 secondLevel = true;
-            bandera_oleada = true;
+
                 // Continuar juego
             } else if (opcion == 1) {
                 window.close(); // Cerrar el juego
             }
-        }
+         }
         }
 
         // Actualizar colisiones de disparos con enemigos si bandera_oleada es verdadera
@@ -274,7 +278,14 @@ void Game::iniciar_partida() {
             window.draw(jefe1);
         }
 
+        if (secondLevel){
 
+       for(auto& coli: colis){
+        coli.setVida_coli(2);
+        coli.coli2donivel();
+
+    }
+}
 
         window.draw(niatsu);
         window.display();

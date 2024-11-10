@@ -28,3 +28,9 @@ void Disparo_enemigo::draw(sf::RenderTarget& target, sf::RenderStates states) co
 sf::FloatRect Disparo_enemigo::getBounds() const {
     return sprite.getGlobalBounds();
 }
+
+void Disparo_enemigo::disparo2do (){
+
+     sprite.setTextureRect({23,1278,66,42});
+
+}
