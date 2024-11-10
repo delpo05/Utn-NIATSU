@@ -3188,7 +3188,7 @@
 1730725644 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_enemigo.cpp
 	"Disparo_enemigo.h"
 
-1730895373 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\colis.cpp
+1731271326 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\colis.cpp
 	"Colis.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -3196,7 +3196,7 @@
 	<stdlib.h>
 	"Disparo_enemigo.h"
 
-1730730268 c:\users\lauta\onedrive\documentos\github\utn-niatsu\colis.h
+1731271326 c:\users\lauta\onedrive\documentos\github\utn-niatsu\colis.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
@@ -3716,7 +3716,7 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1730151055 c:\users\lauta\onedrive\documentos\github\utn-niatsu\disparo_enemigo.h
+1731271326 c:\users\lauta\onedrive\documentos\github\utn-niatsu\disparo_enemigo.h
 	<SFML/Graphics.hpp>
 	"colision.h"
 
@@ -3729,14 +3729,14 @@
 1730730268 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\disparo.cpp
 	"disparo.h"
 
-1730397074 c:\users\lauta\onedrive\documentos\github\utn-niatsu\disparo.h
+1730991794 c:\users\lauta\onedrive\documentos\github\utn-niatsu\disparo.h
 	<SFML/Graphics.hpp>
 	"colision.h"
 
-1730730268 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\disparo_enemigo.cpp
+1731271326 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\disparo_enemigo.cpp
 	"Disparo_enemigo.h"
 
-1730920057 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\game.cpp
+1731271326 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -3747,7 +3747,7 @@
 	"Fondo.h"
 	"primer_jefe.h"
 
-1730846450 c:\users\lauta\onedrive\documentos\github\utn-niatsu\game.h
+1731266396 c:\users\lauta\onedrive\documentos\github\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
@@ -3756,13 +3756,14 @@
 	"primer_jefe.h"
 	<SFML/Audio.hpp>
 	<vector>
+	"menuIntermedio.h"
 
 1730397074 c:\users\lauta\onedrive\documentos\github\utn-niatsu\nave.h
 	<SFML\Graphics.hpp>
 	"disparo.h"
 	"colision.h"
 
-1730916328 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\main.cpp
+1731266396 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\main.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -3772,7 +3773,7 @@
 	"menu.h"
 	<iostream>
 
-1730397074 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\nave.cpp
+1731271326 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\nave.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -4451,28 +4452,28 @@
 	<SFML/Graphics.hpp>
 	"colision.h"
 
-1730730268 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\fondo.cpp
+1731273792 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\fondo.cpp
 	"Fondo.h"
 
-1730730268 c:\users\lauta\onedrive\documentos\github\utn-niatsu\fondo.h
+1731266396 c:\users\lauta\onedrive\documentos\github\utn-niatsu\fondo.h
 	<SFML/Graphics.hpp>
 
-1730920057 c:\users\lauta\onedrive\documentos\github\utn-niatsu\primer_jefe.h
+1730991794 c:\users\lauta\onedrive\documentos\github\utn-niatsu\primer_jefe.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
 	"disparos_primer_jefe.h"
 	"colision.h"
 
-1730916328 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\menu.cpp
+1730991794 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\menu.cpp
 	"Menu.h"
 
-1730916328 c:\users\lauta\onedrive\documentos\github\utn-niatsu\menu.h
+1730991794 c:\users\lauta\onedrive\documentos\github\utn-niatsu\menu.h
 	<SFML/Graphics.hpp>
 	<vector>
 	<string>
 
-1730933497 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\primer_jefe.cpp
+1731271326 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\primer_jefe.cpp
 	"primer_jefe.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -5172,6 +5173,30 @@
 	<iostream>
 
 1731178341 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\nivel1.h
+	"Nave.h"
+	"Fondo.h"
+	"primer_jefe.h"
+	"disparo.h"
+	"Colis.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+
+1731266396 c:\users\lauta\onedrive\documentos\github\utn-niatsu\menuintermedio.h
+	<SFML/Graphics.hpp>
+	<vector>
+	<string>
+
+1731266396 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\menuintermedio.cpp
+	"menuIntermedio.h"
+
+1731266396 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\nivel1.cpp
+	"Nivel1.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+
+1731266396 c:\users\lauta\onedrive\documentos\github\utn-niatsu\nivel1.h
 	"Nave.h"
 	"Fondo.h"
 	"primer_jefe.h"
