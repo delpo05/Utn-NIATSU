@@ -42,9 +42,11 @@ void Game::iniciar_partida() {
     texPuntos.setFont(Letra);
     texvidas.setFont(Letra);
     texVidaJefe1.setFont(Letra);
+    texOleada.setFont(Letra);
     texPuntos.setCharacterSize(20);
     texvidas.setCharacterSize(20);
     texVidaJefe1.setCharacterSize(15);
+    texOleada.setCharacterSize(10);
 
 
     // Cargar efectos de sonido
@@ -244,13 +246,20 @@ void Game::iniciar_partida() {
 
         texPuntos.setPosition({ 800 - texPuntos.getGlobalBounds().width, 0 });
         texVidaJefe1.setPosition({ 400 - texVidaJefe1.getGlobalBounds().width / 2, 0 });
+        texOleada.setPosition({ 400 - texVidaJefe1.getGlobalBounds().width / 2, 0 });
+
         texPuntos.setString("PUNTOS: " + std::to_string(puntos));
         texvidas.setString("VIDAS: " + std::to_string(niatsu.getVida_nave()));
         texVidaJefe1.setString("VIDAS JEFE: " + std::to_string(jefe1.getVida()));
+        texOleada.setString("TIEMPO OLEADA " + std::to_string(tiempo_transcurrido.asSeconds()));
+
+
 
         if (bandera_oleada == false && jefe1.getbandera_jefe_muerto() == false) {
             window.draw(texVidaJefe1);
-        }
+        } else {window.draw(texOleada);}
+
+
 
         window.draw(texvidas);
         window.draw(texPuntos);
