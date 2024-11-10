@@ -126,12 +126,17 @@ void Game::iniciar_partida() {
 
         // MENÚ INTERMEDIO ENTRE MUERTE DE PRIMER JEFE
         if (jefe1.getbandera_jefe_muerto() == true) {
-                bandera_oleada = true;
-                bandeChoque == true;
+
             if (secondLevel == false){
             menui.mostrarMenuPrincipal();
             int opcion = menui.getOpcionSeleccionada();
             if (opcion == 0) {
+                timerAparicion.restart();
+                bandera_oleada = true;
+            for(auto& coli: colis){
+                coli.setVida_coli(2);
+
+            }
                 secondLevel = true;
 
                 // Continuar juego
@@ -278,14 +283,13 @@ void Game::iniciar_partida() {
             window.draw(jefe1);
         }
 
-        if (secondLevel){
 
-       for(auto& coli: colis){
-        coli.setVida_coli(2);
-        coli.coli2donivel();
+        if (secondLevel == true){
+            for(auto& coli : colis){
+            coli.coli2donivel();}
+        }
 
-    }
-}
+
 
         window.draw(niatsu);
         window.display();
@@ -295,4 +299,5 @@ void Game::iniciar_partida() {
 void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     // Dibujar elementos adicionales si es necesario
 }
+
 
