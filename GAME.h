@@ -53,6 +53,9 @@ class Game : public sf::Drawable {
     int movimiento_de_fondo;
     Fondo fondo;
     bool secondLevel = false;
+    int tiempoRestante;
+    int tiempoOleada;
+    int tiempoOleada2;
 
 
 

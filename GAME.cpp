@@ -34,6 +34,8 @@ void Game::iniciar_partida() {
     tiempoDeGracia2 = 60 * 0.5;
     tiempoDeGracia3 = 60 * 0.4;
     tiempoUltimoDisparo = 0.0f;
+    tiempoOleada = 10;
+    tiempoOleada2 = 15;
     intervaloDisparo = 0.2f;
     puntos = 0;
 
@@ -93,7 +95,8 @@ void Game::iniciar_partida() {
 
         // Verificar tiempo transcurrido y actualizar bandera para aparición de enemigos
         tiempo_transcurrido = timerAparicion.getElapsedTime();
-        if (tiempo_transcurrido.asSeconds() > 10 ) {
+        tiempoRestante = tiempoOleada - tiempo_transcurrido.asSeconds ();
+        if (tiempo_transcurrido.asSeconds() > tiempoOleada ) {
             bandera_oleada = false;
         }
 
@@ -251,13 +254,15 @@ void Game::iniciar_partida() {
         texPuntos.setString("PUNTOS: " + std::to_string(puntos));
         texvidas.setString("VIDAS: " + std::to_string(niatsu.getVida_nave()));
         texVidaJefe1.setString("VIDAS JEFE: " + std::to_string(jefe1.getVida()));
-        texOleada.setString("TIEMPO OLEADA " + std::to_string(tiempo_transcurrido.asSeconds()));
+        texOleada.setString("TIEMPO OLEADA: " + std::to_string(tiempoRestante) + " segundos");
 
 
 
         if (bandera_oleada == false && jefe1.getbandera_jefe_muerto() == false) {
             window.draw(texVidaJefe1);
-        } else {window.draw(texOleada);}
+        } else if (tiempoRestante > 0)  {
+            window.draw(texOleada);
+            }
 
 
 

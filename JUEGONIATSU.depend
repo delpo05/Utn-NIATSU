@@ -4362,7 +4362,7 @@
 1731183768 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\fondo.h
 	<SFML/Graphics.hpp>
 
-1731279189 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\game.cpp
+1731281436 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -4373,7 +4373,7 @@
 	"Fondo.h"
 	"primer_jefe.h"
 
-1731278665 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\game.h
+1731281882 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
