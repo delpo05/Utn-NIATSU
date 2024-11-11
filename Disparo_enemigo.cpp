@@ -34,3 +34,5 @@ void Disparo_enemigo::disparo2do (){
      sprite.setTextureRect({23,1278,66,42});
 
 }
+
+

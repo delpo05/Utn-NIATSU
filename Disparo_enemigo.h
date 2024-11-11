@@ -22,4 +22,6 @@ public:
     sf::FloatRect getBounds() const;
 
     void disparo2do ();
+
+
 };

@@ -95,10 +95,21 @@ void Game::iniciar_partida() {
 
         // Verificar tiempo transcurrido y actualizar bandera para aparición de enemigos
         tiempo_transcurrido = timerAparicion.getElapsedTime();
+        if (secondLevel == false){
         tiempoRestante = tiempoOleada - tiempo_transcurrido.asSeconds ();
-        if (tiempo_transcurrido.asSeconds() > tiempoOleada ) {
+        }
+        else{
+        tiempoRestante = tiempoOleada2 - tiempo_transcurrido.asSeconds();
+        }
+        if (secondLevel == false && tiempo_transcurrido.asSeconds() > tiempoOleada)
+         {
+
             bandera_oleada = false;
         }
+        else if (tiempo_transcurrido.asSeconds() > tiempoOleada2) {
+                bandera_oleada = false;
+            }
+
 
         // APARICIÓN DE JEFE
         // DISPARO INTERMITENTE CON EL ESPACIO
@@ -254,13 +265,13 @@ void Game::iniciar_partida() {
         texPuntos.setString("PUNTOS: " + std::to_string(puntos));
         texvidas.setString("VIDAS: " + std::to_string(niatsu.getVida_nave()));
         texVidaJefe1.setString("VIDAS JEFE: " + std::to_string(jefe1.getVida()));
-        texOleada.setString("TIEMPO OLEADA: " + std::to_string(tiempoRestante) + " segundos");
+        texOleada.setString("TIEMPO OLEADA: " + std::to_string(tiempoRestante+1) + " segundos");
 
 
 
         if (bandera_oleada == false && jefe1.getbandera_jefe_muerto() == false) {
             window.draw(texVidaJefe1);
-        } else if (tiempoRestante > 0)  {
+        } else if (tiempoRestante > -1)  {
             window.draw(texOleada);
             }
 
@@ -275,8 +286,8 @@ void Game::iniciar_partida() {
 
         if (bandera_oleada == true) {
             for (auto& coli : colis) {
-                for (auto& disparo : coli.getDisparos()) {
-                    disparo.draw(window, sf::RenderStates::Default);
+                for (auto& Disparo_enemigo : coli.getDisparos()) {
+                    Disparo_enemigo.draw(window, sf::RenderStates::Default);
                 }
             }
         }
@@ -300,7 +311,20 @@ void Game::iniciar_partida() {
 
         if (secondLevel == true){
             for(auto& coli : colis){
-            coli.coli2donivel();}
+            coli.coli2donivel();
+            }
+
+            for (auto& coli : colis) {
+                for (auto& Disparo_enemigo : coli.getDisparos()) {
+                    Disparo_enemigo.disparo2do();
+                }
+            }
+
+
+
+
+
+
         }
 
 
