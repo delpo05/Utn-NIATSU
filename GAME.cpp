@@ -304,7 +304,7 @@ void Game::iniciar_partida() {
             }
         }
 
-        if (bandera_oleada == false) {
+        if (bandera_oleada == false && secondLevel == false) {
             window.draw(jefe1);
         }
 
