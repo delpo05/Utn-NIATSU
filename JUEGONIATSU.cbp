@@ -45,8 +45,12 @@
 		<Unit filename="Disparo_enemigo.h" />
 		<Unit filename="GAME.cpp" />
 		<Unit filename="GAME.h" />
+		<Unit filename="Jugador.cpp" />
+		<Unit filename="Jugador.h" />
 		<Unit filename="Nave.cpp" />
 		<Unit filename="Nave.h" />
+		<Unit filename="Ranking.cpp" />
+		<Unit filename="Ranking.h" />
 		<Unit filename="colision.cpp" />
 		<Unit filename="colision.h" />
 		<Unit filename="disparo.cpp" />

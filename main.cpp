@@ -22,6 +22,8 @@ int main()
     int opcion = menu.getOpcionSeleccionada();
     if (opcion == 0) {
         Game game;
+        game.setNombre(menu.getNombreJugador());
+
         // Puedes pasar `nombreJugador` a la clase `Game` si deseas usarlo dentro del juego
     } else if (opcion == 1) {
         // Mostrar el ranking

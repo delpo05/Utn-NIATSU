@@ -8,6 +8,11 @@
 #include <SFML/Audio.hpp>
 #include <vector>
 #include "menuIntermedio.h"
+#include "Ranking.h"
+#include "Jugador.h"
+#include <string>
+#include<iostream>
+
 
 
 
@@ -15,6 +20,8 @@ class Game : public sf::Drawable {
     Nave niatsu;   // Instancia de la nave
     primer_jefe jefe1;
     std::vector<Colis> colis;  // Vector para almacenar enemigos
+
+    Jugador jugador;
      // Ventana del juego
     //sf::Sprite fondo;       // Fondo del juego
     sf::Texture tex;        // Textura del fondo
@@ -56,6 +63,9 @@ class Game : public sf::Drawable {
     int tiempoRestante;
     int tiempoOleada;
     int tiempoOleada2;
+    std::string Nombre;
+    bool band2jefedead;
+
 
 
 
@@ -66,5 +76,7 @@ public:
     void iniciar_partida();          // Ciclo principal del juego
     void pausar_partida();           // Pausar el juego (por implementar)
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;  // Dibuja en pantalla
+    void setNombre (std::string n){Nombre = n;}
+    std::string getNombre() {return Nombre;}
 };
 
