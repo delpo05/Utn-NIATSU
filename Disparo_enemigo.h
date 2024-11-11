@@ -5,7 +5,7 @@
 class Disparo_enemigo: public sf::Drawable, public collisionable
 {
 public:
-    sf::Sprite sprite;      // Sprite del proyectil
+    mutable sf::Sprite sprite;      // Sprite del proyectil
     sf::Texture *texture;    // Textura del proyectil
     float velocidad;        // Velocidad a la que se mueve el proyectil
 
@@ -21,7 +21,7 @@ public:
     // Obtiene los límites (bounds) del proyectil
     sf::FloatRect getBounds() const;
 
-    void disparo2do ();
+    void disparo2do () const;
 
 
 };

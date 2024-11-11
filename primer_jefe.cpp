@@ -7,7 +7,7 @@
 
 primer_jefe::primer_jefe() {
     _texture = new sf::Texture;
-    _texture->loadFromFile("colis.png");
+    _texture->loadFromFile("imagen_NIATSU.png");
     _sprite.setTexture(*_texture);
     _sprite.setTextureRect({123, 943, 102, 87});
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
@@ -20,7 +20,7 @@ primer_jefe::primer_jefe() {
 
     disparoTimer = 0;
     intervaloDisparo = float(std::rand() % 2000 + 1000);  // entre 1 y 3 segundos
-    vida_primer_jefe =1;
+    vida_primer_jefe =10;
 
     audiodisparoJefe.loadFromFile("disparojefe1.wav");
     disparoJefe.setBuffer(audiodisparoJefe);
@@ -39,6 +39,9 @@ primer_jefe::primer_jefe() {
     bufferrecibetiro.loadFromFile("explosion_coli.wav");
     recibetiro.setBuffer(bufferrecibetiro);
     recibetiro.setVolume(10);
+
+    impacto_img = false;
+
 }
 
 void primer_jefe::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -46,6 +49,18 @@ void primer_jefe::draw(sf::RenderTarget& target, sf::RenderStates states) const 
 }
 
 void primer_jefe::update() {
+
+    if (impacto_img) {
+        tiempo_transcurrido_jefe = timerAparicion_jefe.getElapsedTime();
+        if (tiempo_transcurrido_jefe.asSeconds() < 0.2) {
+            _sprite.setTextureRect({577, 948, 92, 75}); // Frame dañado
+        } else {
+            _sprite.setTextureRect({123, 943, 102, 87}); // Restaurar textura original
+            timerAparicion_jefe.restart();
+            impacto_img = false;
+        }
+    }
+
 
     if(bandera_jefe_muerto == false){
 
@@ -135,7 +150,8 @@ void primer_jefe::explosion() {
 
 void primer_jefe::recibedanio(){
     setVida_primer_jefe(getVida()-1);
-
+    impacto_img = true;
+    timerAparicion_jefe.restart(); // Inicia el temporizador en cada impacto
     recibetiro.play();
 
 }

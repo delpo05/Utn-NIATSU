@@ -52,5 +52,8 @@ public:
     void explosion();
     bool getbandera_jefe_muerto(){return bandera_jefe_muerto;}
     void recibedanio();
+    bool impacto_img;
+    sf::Clock timerAparicion_jefe;
+    sf::Time tiempo_transcurrido_jefe;
 
 };
