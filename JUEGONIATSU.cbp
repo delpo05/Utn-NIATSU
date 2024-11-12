@@ -47,10 +47,14 @@
 		<Unit filename="GAME.h" />
 		<Unit filename="Nave.cpp" />
 		<Unit filename="Nave.h" />
+		<Unit filename="Segundo_jefe.cpp" />
+		<Unit filename="Segundo_jefe.h" />
 		<Unit filename="colision.cpp" />
 		<Unit filename="colision.h" />
 		<Unit filename="disparo.cpp" />
 		<Unit filename="disparo.h" />
+		<Unit filename="disparo_Segudnojefe.cpp" />
+		<Unit filename="disparo_Segundojefe.h" />
 		<Unit filename="disparos_primer_jefe.cpp" />
 		<Unit filename="disparos_primer_jefe.h" />
 		<Unit filename="fondo.cpp" />

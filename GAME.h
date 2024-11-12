@@ -5,6 +5,7 @@
 #include "disparo.h"
 #include "fondo.h"
 #include "primer_jefe.h"
+#include "Segundo_jefe.h"
 #include <SFML/Audio.hpp>
 #include <vector>
 #include "menuIntermedio.h"
@@ -14,6 +15,7 @@
 class Game : public sf::Drawable {
     Nave niatsu;   // Instancia de la nave
     primer_jefe jefe1;
+    Segundo_jefe jefe2;
     std::vector<Colis> colis;  // Vector para almacenar enemigos
      // Ventana del juego
     //sf::Sprite fondo;       // Fondo del juego

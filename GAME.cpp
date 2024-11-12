@@ -138,6 +138,31 @@ void Game::iniciar_partida() {
                 tiroRecibidoJefe.play();
             }
         }
+
+
+        // COLISIONES VS SEGUNDO JEFE
+
+        for (auto& disparo : niatsu.getDisparos()) {
+            if (disparo.isCollision(jefe2) && banderaGolpeJefe == false && jefe2.getbandera_jefe_muerto2() == false) {
+                banderaGolpeJefe = true;
+                jefe2.recibedanio();
+            }
+        }
+
+        for (auto& disparo_segundo_jefe : jefe2.getDisparos()) {
+            if (disparo_segundo_jefe.isCollision(niatsu) && banderaGolpe == false && jefe2.getbandera_jefe_muerto2() == false) {
+                banderaGolpe = true;
+                niatsu.setVida_nave(niatsu.getVida_nave() - 3);
+                tiroRecibidoJefe.play();
+            }
+        }
+
+
+
+
+
+
+
         // FIN DE COLISIONES PRIMER JEFE
 
         // MENÚ INTERMEDIO ENTRE MUERTE DE PRIMER JEFE
@@ -252,6 +277,9 @@ void Game::iniciar_partida() {
         if (bandera_oleada == false && jefe1.getbandera_jefe_muerto() == false) {
             jefe1.update();
         }
+           if (bandera_oleada == false && secondLevel==true) {
+            jefe2.update();
+        }
 
         // INICIO DE WINDOWSSSS
         window.clear();
@@ -304,6 +332,12 @@ void Game::iniciar_partida() {
             }
         }
 
+        if (bandera_oleada == false && secondLevel== true) {
+            for (auto& disparo : jefe2.getDisparos()) {
+                disparo.draw(window, sf::RenderStates::Default);
+            }
+        }
+
         if (bandera_oleada == false && secondLevel == false) {
             window.draw(jefe1);
         }
@@ -319,6 +353,11 @@ void Game::iniciar_partida() {
                     Disparo_enemigo.disparo2do();
                 }
             }
+
+        if (bandera_oleada == false && secondLevel == true && jefe2.getVida()>0) {
+            window.draw(jefe2);
+        }
+
 
 
 
