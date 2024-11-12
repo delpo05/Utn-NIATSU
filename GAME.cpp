@@ -44,10 +44,12 @@ void Game::iniciar_partida() {
     texPuntos.setFont(Letra);
     texvidas.setFont(Letra);
     texVidaJefe1.setFont(Letra);
+    texVidaJefe2.setFont(Letra);
     texOleada.setFont(Letra);
     texPuntos.setCharacterSize(20);
     texvidas.setCharacterSize(20);
     texVidaJefe1.setCharacterSize(15);
+    texVidaJefe2.setCharacterSize(15);
     texOleada.setCharacterSize(10);
 
 
@@ -255,11 +257,7 @@ void Game::iniciar_partida() {
             }
         }
 
-        if (band2jefedead == true){
-           int lore = jugador.setPuntos(puntos);
-           jugador(Nombre, lore);
-           ArchivoRanking.grabarRegistro (jugador);
-        }
+
 
         // SEGUNDO NIVEL
         if (secondLevel == true) {
@@ -295,20 +293,26 @@ void Game::iniciar_partida() {
 
         texPuntos.setPosition({ 800 - texPuntos.getGlobalBounds().width, 0 });
         texVidaJefe1.setPosition({ 400 - texVidaJefe1.getGlobalBounds().width / 2, 0 });
-        texOleada.setPosition({ 400 - texVidaJefe1.getGlobalBounds().width / 2, 0 });
+        texOleada.setPosition({ 400 - texOleada.getGlobalBounds().width / 2, 0 });
+        texVidaJefe2.setPosition({400 - texVidaJefe2.getGlobalBounds().width /2,0 });
 
         texPuntos.setString("PUNTOS: " + std::to_string(puntos));
         texvidas.setString("VIDAS: " + std::to_string(niatsu.getVida_nave()));
         texVidaJefe1.setString("VIDAS JEFE: " + std::to_string(jefe1.getVida()));
+        texVidaJefe2.setString("VIDAS JEFE: " + std::to_string(jefe2.getVida()));
         texOleada.setString("TIEMPO OLEADA: " + std::to_string(tiempoRestante+1) + " segundos");
 
 
 
         if (bandera_oleada == false && jefe1.getbandera_jefe_muerto() == false) {
             window.draw(texVidaJefe1);
-        } else if (tiempoRestante > -1)  {
+        }
+        else if (tiempoRestante > -1)  {
             window.draw(texOleada);
             }
+        else if(bandera_oleada == false && jefe2.getbandera_jefe_muerto2() == false && secondLevel == true){
+            window.draw(texVidaJefe2);
+        }
 
 
 
@@ -339,7 +343,7 @@ void Game::iniciar_partida() {
             }
         }
 
-        if (bandera_oleada == false && secondLevel== true) {
+        if (bandera_oleada == false && secondLevel== true && jefe2.getbandera_jefe_muerto2() == false) {
             for (auto& disparo : jefe2.getDisparos()) {
                 disparo.draw(window, sf::RenderStates::Default);
             }
@@ -361,7 +365,7 @@ void Game::iniciar_partida() {
                 }
             }
 
-        if (bandera_oleada == false && secondLevel == true && jefe2.getVida()>0) {
+        if (bandera_oleada == false && secondLevel == true && jefe2.getbandera_jefe_muerto2() == false) {
             window.draw(jefe2);
         }
 

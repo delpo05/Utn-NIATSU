@@ -53,7 +53,7 @@ void Segundo_jefe::update() {
     if (impacto_img) {
         tiempo_transcurrido_jefe2 = timerAparicion_jefe2.getElapsedTime();
         if (tiempo_transcurrido_jefe2.asSeconds() < 0.2) {
-            _sprite.setTextureRect({577, 948, 92, 75}); // Frame dañado
+            _sprite.setTextureRect({656, 219, 94, 124}); // Frame dañado
         } else {
             _sprite.setTextureRect({118, 205, 112, 130}); // Restaurar textura original
             timerAparicion_jefe2.restart();

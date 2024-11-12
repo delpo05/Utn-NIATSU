@@ -23,7 +23,7 @@ class Game : public sf::Drawable {
     Segundo_jefe jefe2;
     std::vector<Colis> colis;  // Vector para almacenar enemigos
 
-    Jugador jugador;
+
      // Ventana del juego
     //sf::Sprite fondo;       // Fondo del juego
     sf::Texture tex;        // Textura del fondo
@@ -32,6 +32,7 @@ class Game : public sf::Drawable {
     sf::Text texvidas;
     sf::Text texPuntos;
     sf::Text texVidaJefe1;
+    sf::Text texVidaJefe2;
     sf::Text texOleada;
 
 

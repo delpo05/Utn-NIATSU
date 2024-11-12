@@ -1365,15 +1365,20 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1729684832 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\main.cpp
+1731376942 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\main.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<ctime>
 	<stdlib.h>
+	"GAME.h"
+	"menu.h"
+	<iostream>
 
-1729685036 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\nave.h
+1731294728 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\nave.h
 	<SFML\Graphics.hpp>
+	"disparo.h"
+	"colision.h"
 
 1729634096 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\sfml\include\sfml\audio.hpp
 	<SFML/System.hpp>
@@ -1479,8 +1484,13 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1729686850 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\nave.cpp
+1731294728 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\nave.cpp
 	"Nave.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<ctime>
+	<stdlib.h>
+	"disparo.h"
 
 1729691559 source:c:\users\usurio\onedrive\escritorio\nueva carpeta\utn-niatsu\colision.cpp
 	"colision.h"
@@ -5228,4 +5238,152 @@
 	<vector>
 	"disparo_Segundojefe.h"
 	"colision.h"
+
+1731294728 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\colis.cpp
+	"Colis.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<ctime>
+	<stdlib.h>
+	"Disparo_enemigo.h"
+
+1731294728 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\colis.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"Disparo_enemigo.h"
+	"colision.h"
+
+1731376942 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\disparo_enemigo.h
+	<SFML/Graphics.hpp>
+	"colision.h"
+
+1731294728 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\disparo.cpp
+	"disparo.h"
+
+1731294728 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\disparo.h
+	<SFML/Graphics.hpp>
+	"colision.h"
+
+1731376942 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\disparo_enemigo.cpp
+	"Disparo_enemigo.h"
+
+1731376942 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\disparo_segudnojefe.cpp
+	"disparo_Segundojefe.h"
+
+1731376942 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\disparo_segundojefe.h
+	<SFML/Graphics.hpp>
+	"colision.h"
+
+1731294728 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\disparos_primer_jefe.cpp
+	"disparos_primer_jefe.h"
+
+1731294728 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\disparos_primer_jefe.h
+	<SFML/Graphics.hpp>
+	"colision.h"
+
+1731294728 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\fondo.cpp
+	"Fondo.h"
+
+1731294728 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\fondo.h
+	<SFML/Graphics.hpp>
+
+1731294728 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\fondomenu.cpp
+
+1731380298 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\game.cpp
+	"Game.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<ctime>
+	<stdlib.h>
+	"disparo.h"
+	"Nave.h"
+	"Fondo.h"
+	"primer_jefe.h"
+
+1731379989 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\game.h
+	<SFML/Graphics.hpp>
+	"Nave.h"
+	"Colis.h"
+	"disparo.h"
+	"fondo.h"
+	"primer_jefe.h"
+	"Segundo_jefe.h"
+	<SFML/Audio.hpp>
+	<vector>
+	"menuIntermedio.h"
+	"Ranking.h"
+	"Jugador.h"
+	<string>
+	<iostream>
+
+1731376942 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\primer_jefe.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"disparos_primer_jefe.h"
+	"colision.h"
+
+1731376942 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\segundo_jefe.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"disparo_Segundojefe.h"
+	"colision.h"
+
+1731294728 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\menuintermedio.h
+	<SFML/Graphics.hpp>
+	<vector>
+	<string>
+
+1731376942 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\ranking.h
+	"Jugador.h"
+	<cstdio>
+
+1731376942 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\jugador.h
+	<iostream>
+	<string>
+
+1731294728 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\menu.h
+	<SFML/Graphics.hpp>
+	<vector>
+	<string>
+
+1731294728 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\menu.cpp
+	"Menu.h"
+
+1731294728 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\menuintermedio.cpp
+	"menuIntermedio.h"
+
+1731294728 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\nivel1.cpp
+	"Nivel1.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<iostream>
+
+1731294728 c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\nivel1.h
+	"Nave.h"
+	"Fondo.h"
+	"primer_jefe.h"
+	"disparo.h"
+	"Colis.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+
+1731376942 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\primer_jefe.cpp
+	"primer_jefe.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<ctime>
+	<stdlib.h>
+	"disparos_primer_jefe.h"
+
+1731379437 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\segundo_jefe.cpp
+	"Segundo_jefe.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<ctime>
+	<stdlib.h>
+	"disparo_Segundojefe.h"
 
