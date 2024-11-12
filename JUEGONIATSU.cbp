@@ -49,6 +49,8 @@
 		<Unit filename="Nave.h" />
 		<Unit filename="Segundo_jefe.cpp" />
 		<Unit filename="Segundo_jefe.h" />
+		<Unit filename="bonus.cpp" />
+		<Unit filename="bonus.h" />
 		<Unit filename="colision.cpp" />
 		<Unit filename="colision.h" />
 		<Unit filename="disparo.cpp" />

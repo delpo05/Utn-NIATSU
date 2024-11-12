@@ -34,8 +34,8 @@ void Game::iniciar_partida() {
     tiempoDeGracia2 = 60 * 0.5;
     tiempoDeGracia3 = 60 * 0.4;
     tiempoUltimoDisparo = 0.0f;
-    tiempoOleada = 5;
-    tiempoOleada2 = 10;
+    tiempoOleada = 20;
+    tiempoOleada2 = 30;
     intervaloDisparo = 0.2f;
     puntos = 0;
 
@@ -70,6 +70,9 @@ void Game::iniciar_partida() {
     bufferTiroRecibidoJefe.loadFromFile("explosionjefepordisparo.wav");
     tiroRecibidoJefe.setBuffer(bufferTiroRecibidoJefe);
 
+    Bonus.loadFromFile("bonus.wav");
+    soundbonus.setBuffer(Bonus);
+
     tiroRecibido.setVolume(7);
     shoot.setVolume(10);
     tiroRecibidoJefe.setVolume(10);
@@ -78,6 +81,7 @@ void Game::iniciar_partida() {
     // Inicialización de variables de estado
     bandera_oleada = true;
     MenuIntermedio menui(window);
+    banderaBonus = false;
 
 
     // Temporizador para controlar la aparición de enemigos
@@ -95,6 +99,8 @@ void Game::iniciar_partida() {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+
+
 
         // Verificar tiempo transcurrido y actualizar bandera para aparición de enemigos
         tiempo_transcurrido = timerAparicion.getElapsedTime();
@@ -191,18 +197,28 @@ void Game::iniciar_partida() {
         }
 
         // Actualizar colisiones de disparos con enemigos si bandera_oleada es verdadera
-        if (bandera_oleada == true) {
-            for (auto& disparo : niatsu.getDisparos()) {
-                for (auto& coli : colis) {
-                    if (disparo.isCollision(coli)) {
-                        coli.setVida_coli(coli.getVida() - 1);
-                        if (coli.getVida() == 0) {
-                            puntos += 100;
+        for (auto& disparo : niatsu.getDisparos()) {
+            for (auto& coli : colis) {
+                if (disparo.isCollision(coli)) {
+                    coli.setVida_coli(coli.getVida() - 1);
+                    if (coli.getVida() == 0) {
+                        puntos += 100;
+                        // Probabilidad del 10% de que aparezca el bonus cuando el coli es destruido
+                        if (std::rand() % 10 == 0) {
+                            banderaBonus = true;
+                            powerup.respawn();
                         }
-                        explosionColi.play();
                     }
+                    explosionColi.play();
                 }
             }
+        }
+
+        if (niatsu.isCollision(powerup)&& banderaBonus == true ) {
+            niatsu.setVida_nave(niatsu.getVida_nave() + 1);
+            banderaBonus = false;
+            powerup.respawn();
+            soundbonus.play();
         }
 
         // CHEQUEO COLISIONES DISPARO ENEMIGO HACIA NIATSU
@@ -268,6 +284,7 @@ void Game::iniciar_partida() {
 
         // INICIO DE UPDATES
         niatsu.update();
+        powerup.update();
 
         if (bandera_oleada == true) {
             fondo.update(1.0 / 60.0f); // Actualiza el fondo con deltaTime
@@ -318,6 +335,10 @@ void Game::iniciar_partida() {
 
         window.draw(texvidas);
         window.draw(texPuntos);
+
+        if (banderaBonus == true){
+            window.draw(powerup);
+        }
 
         for (auto& disparo : niatsu.getDisparos()) {
             disparo.draw(window, sf::RenderStates::Default);

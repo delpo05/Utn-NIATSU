@@ -44,4 +44,5 @@ public:
     bool banderaAparicionSegundosColis;
     void setBanderaSegundoNivel(bool b){banderaSegundoNivel = b;}
 
+
 };

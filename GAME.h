@@ -11,6 +11,7 @@
 #include "menuIntermedio.h"
 #include "Ranking.h"
 #include "Jugador.h"
+#include "bonus.h"
 #include <string>
 #include<iostream>
 
@@ -57,6 +58,8 @@ class Game : public sf::Drawable {
     sf::SoundBuffer bufferExplosionColi;
     sf::Sound tiroRecibidoJefe;
     sf::SoundBuffer bufferTiroRecibidoJefe;
+    sf::SoundBuffer Bonus;
+    sf::Sound soundbonus;
     sf::Clock timerAparicion;
     sf::Time tiempo_transcurrido;
     bool bandera_oleada;
@@ -67,6 +70,8 @@ class Game : public sf::Drawable {
     int tiempoOleada;
     int tiempoOleada2;
     std::string Nombre;
+    bonus powerup;
+    bool banderaBonus;
 
 
 
