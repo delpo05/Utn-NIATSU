@@ -7,7 +7,7 @@
 
 Nave::Nave()
 {
-    _velocidad = 10;  // Establece la velocidad de la nave
+    _velocidad = 6;  // Establece la velocidad de la nave
     _texture.loadFromFile("Nave.png");  // Carga la textura de la nave
     _sprite.setTexture(_texture);  // Asigna la textura al sprite
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height); // Centra el sprite

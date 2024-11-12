@@ -78,7 +78,7 @@ void Game::iniciar_partida() {
     // Inicialización de variables de estado
     bandera_oleada = true;
     MenuIntermedio menui(window);
-    band2jefedead = true;
+
 
     // Temporizador para controlar la aparición de enemigos
     timerAparicion.restart();
@@ -389,17 +389,3 @@ void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 }
 
 
-/*bool grabar_registro(Alumno obj);
-bool grabar_registro(Alumno obj) {
-    if (buscar_legajo(obj.get_legajo())) {
-        cout << "Legajo existe" << endl;
-        return false;
-    }
-
-    FILE *pAlumno = fopen("alumnitos.dat", "ab");
-    if (pAlumno == NULL) return false;
-
-    int escribio = fwrite(&obj, sizeof(Alumno), 1, pAlumno);
-    fclose(pAlumno);
-    return escribio == 1;
-}*/

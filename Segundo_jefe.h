@@ -31,6 +31,7 @@ class Segundo_jefe : public sf::Drawable, public collisionable {
     float _frame;
     int _contador;
     bool bandera_jefe_muerto2;
+    bool bandera_pasoPantalla;
 
     sf::Sound recibetiro;
     sf::SoundBuffer bufferrecibetiro;
@@ -56,4 +57,3 @@ public:
     sf::Time tiempo_transcurrido_jefe2;
 
 };
-

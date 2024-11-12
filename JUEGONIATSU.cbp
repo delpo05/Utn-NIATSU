@@ -66,8 +66,6 @@
 		<Unit filename="menu.h" />
 		<Unit filename="menuIntermedio.cpp" />
 		<Unit filename="menuIntermedio.h" />
-		<Unit filename="nivel1.cpp" />
-		<Unit filename="nivel1.h" />
 		<Unit filename="primer_jefe.cpp" />
 		<Unit filename="primer_jefe.h" />
 		<Extensions />

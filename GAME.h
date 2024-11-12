@@ -67,7 +67,7 @@ class Game : public sf::Drawable {
     int tiempoOleada;
     int tiempoOleada2;
     std::string Nombre;
-    bool band2jefedead;
+
 
 
 

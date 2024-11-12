@@ -3,6 +3,7 @@
 #include <SFML/Audio.hpp>
 #include <ctime>
 #include <stdlib.h>
+#include <cmath>
 #include "disparo_Segundojefe.h"
 
 Segundo_jefe::Segundo_jefe() {
@@ -35,6 +36,7 @@ Segundo_jefe::Segundo_jefe() {
     _frame = 0;
     _contador = 0;
     bandera_jefe_muerto2 = false;
+    bandera_pasoPantalla = false;
 
     bufferrecibetiro.loadFromFile("explosion_coli.wav");
     recibetiro.setBuffer(bufferrecibetiro);
@@ -73,8 +75,61 @@ void Segundo_jefe::update() {
     }
 
 
+    if(_sprite.getPosition().y > _sprite.getGlobalBounds().height){
+
+        bandera_pasoPantalla = true;
+
+    }
+
+        // Ajuste aleatorio en la velocidad X para un movimiento más impredecible
+        if (std::rand() % 15 == 0) {  // 1 en 15 posibilidad de cambiar aleatoriamente cada ciclo
+            _velocidadX += (std::rand() % 5 - 2);  // Añade -2, -1, 0, 1 o 2 a _velocidadX
+
+            // Limita _velocidadX entre -7.0 y 7.0
+            if (_velocidadX > 7.0) _velocidadX = 7.0;
+            if (_velocidadX < -7.0) _velocidadX = -7.0;
+        }
+
+        // Movimiento en oleada en Y para patrón vertical adicional
+        if (std::rand() % 100 == 0 && bandera_pasoPantalla == true) {  // Cada cierto tiempo cambia la dirección Y
+            _velocidadY = (std::rand() % 3 - 1) * 2;  // Cambia a -2, 0 o 2
+        }
+
+        // Movimiento del jefe2
+        _sprite.move(_velocidadX, _velocidadY + std::sin(_sprite.getPosition().x / 30.0) * 5);
+
+        // Cambia dirección en X e Y si el jefe toca los bordes de la pantalla
+        if (_sprite.getPosition().x <= 0 || _sprite.getPosition().x >= 800 - _sprite.getGlobalBounds().width) {
+            _velocidadX = -_velocidadX; // Invierte la dirección en X
+        }
+
+
+
+        // Condición para que el jefe2 vuelva a la velocidad inicial en Y tras pasar cierto límite
+        if (_sprite.getPosition().y > 600 - _sprite.getGlobalBounds().height) {
+            _velocidadY = -1.5f; // Velocidad constante hacia arriba si alcanza el límite inferior
+        }
+
+
+        if(_sprite.getPosition().y < _sprite.getGlobalBounds().height && bandera_pasoPantalla == true){
+            _sprite.setPosition(_sprite.getPosition().x, _sprite.getGlobalBounds().height);
+        }
+
+        if(_sprite.getPosition().y > 200){
+            _sprite.setPosition(_sprite.getPosition().x, 200);
+        }
+
+
+
+        // Elimina proyectiles que salen de la pantalla
+        tiroJ.erase(std::remove_if(tiroJ.begin(), tiroJ.end(), [](disparo_segundo_jefe& d) {
+            return d.sprite.getPosition().y > 600;
+        }), tiroJ.end());
+
+
+
     // Ajuste aleatorio en la velocidad X para un movimiento horizontal más impredecible
-    if (std::rand() % 20 == 0) {  // 1 en 20 posibilidad de cambiar aleatoriamente cada ciclo
+    /*if (std::rand() % 20 == 0) {  // 1 en 20 posibilidad de cambiar aleatoriamente cada ciclo
         _velocidadX += (std::rand() % 3 - 1);  // Añade -1, 0 o 1 a _velocidadX
         if (_velocidadX > 5.0) _velocidadX = 5.0; // Límite superior
         if (_velocidadX < -5.0) _velocidadX = -5.0; // Límite inferior
@@ -95,7 +150,7 @@ void Segundo_jefe::update() {
 
     if(_sprite.getPosition().y > _sprite.getGlobalBounds().height){
         _velocidadY = 0;
-    }
+    }*/
 
     // Desaparece y vuelve a la parte superior si se mueve fuera de la pantalla hacia abajo
     /*if (_sprite.getPosition().y > 600) {
@@ -103,10 +158,10 @@ void Segundo_jefe::update() {
     }*/
 
     // Control de disparo
-    if (disparoTimer <= 0 && vida_segundo_jefe >= 1 && _velocidadY == 0) {
+    if (disparoTimer <= 0 && vida_segundo_jefe >= 1 && bandera_pasoPantalla == true) {
         disparar();
         disparoJefe.play();
-        intervaloDisparo = float(std::rand() % 500 + 100);
+        intervaloDisparo = float(std::rand() % 200 + 100);
         disparoTimer = intervaloDisparo;
     } else {
         disparoTimer -= 10;
@@ -155,4 +210,3 @@ void Segundo_jefe::recibedanio(){
     recibetiro.play();
 
 }
-

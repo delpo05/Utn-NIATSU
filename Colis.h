@@ -40,5 +40,8 @@ public:
     void setCantidadColis(int cant){_CantidadColis = cant;}
     void explosion();
     void coli2donivel();
+    bool banderaSegundoNivel;
+    bool banderaAparicionSegundosColis;
+    void setBanderaSegundoNivel(bool b){banderaSegundoNivel = b;}
 
 };
