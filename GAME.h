@@ -38,6 +38,7 @@ class Game : public sf::Drawable {
     sf::Text texOleada;
 
 
+
     bool banderaGolpe = false;
     bool bandeChoque = false;
     bool banderaGolpeJefe = false;
@@ -74,6 +75,8 @@ class Game : public sf::Drawable {
     bonus powerup;
     bool banderaBonus;
     bool modificarCantidadDeColis;
+    sf::Text textoGanaste;
+    sf::Text textoPerdiste;
 
 
 

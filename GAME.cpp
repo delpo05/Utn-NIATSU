@@ -53,6 +53,16 @@ void Game::iniciar_partida() {
     texVidaJefe1.setCharacterSize(15);
     texVidaJefe2.setCharacterSize(15);
     texOleada.setCharacterSize(10);
+    textoPerdiste.setFont(Letra);
+    textoPerdiste.setString("Perdiste");
+    textoPerdiste.setCharacterSize(50);
+    textoPerdiste.setFillColor(sf::Color::Red);
+    textoPerdiste.setPosition(400 - textoPerdiste.getGlobalBounds().width / 2, 300 - textoPerdiste.getGlobalBounds().height / 2);
+    textoGanaste.setFont(Letra);
+    textoGanaste.setString("Ganaste");
+    textoGanaste.setCharacterSize(50);
+    textoGanaste.setFillColor(sf::Color::Green);
+    textoGanaste.setPosition(400 - textoPerdiste.getGlobalBounds().width / 2, 300 - textoPerdiste.getGlobalBounds().height / 2);
 
 
     // Cargar efectos de sonido
@@ -295,6 +305,16 @@ void Game::iniciar_partida() {
         niatsu.update();
         powerup.update();
 
+        if (niatsu.getVida_nave()<1){
+        window.clear();
+        window.draw(textoPerdiste);
+        window.display();
+
+    // Pausa de 3 segundos antes de regresar al menú
+        sf::sleep(sf::seconds(3));
+        window.close();
+        }
+
         if (bandera_oleada == true) {
             fondo.update(1.0 / 60.0f); // Actualiza el fondo con deltaTime
         }
@@ -316,7 +336,16 @@ void Game::iniciar_partida() {
         Jugador jugadorFinal(menui.getNombreJugador(), puntos);
         ArchivoJugadores archivoJugadores("jugadores.dat");
         archivoJugadores.grabarRegistro(jugadorFinal);
+        window.clear();
+        window.draw(textoGanaste);
+        window.display();
+
+    // Pausa de 3 segundos antes de regresar al menú
+        sf::sleep(sf::seconds(3));
         window.close();
+
+    // Regresar al menú
+
 
 }
 

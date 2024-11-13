@@ -116,16 +116,27 @@ bool grabarRegistro(Jugador jugador) {
     }
 
     // Mostrar el ranking de jugadores en la ventana de SFML
-    void mostrarRankingSFML(sf::RenderWindow& window) {
-        // Obtener los jugadores ordenados
-        std::vector<Jugador> jugadores = obtenerJugadoresOrdenados();
+  void mostrarRankingSFML(sf::RenderWindow& window) {
+    // Obtener los jugadores ordenados
+    std::vector<Jugador> jugadores = obtenerJugadoresOrdenados();
 
-        // Configurar la fuente y el texto de SFML
-        sf::Font font;
-        font.loadFromFile("Letra.ttf");
+    // Configurar la fuente y el texto de SFML
+    sf::Font font;
+    font.loadFromFile("Letra.ttf");
 
+    std::vector<sf::Text> textoRanking;
 
-        std::vector<sf::Text> textoRanking;
+    // Verificar si no hay jugadores
+    if (jugadores.empty()) {
+        sf::Text noJugadoresText;
+        noJugadoresText.setFont(font);
+        noJugadoresText.setCharacterSize(15);
+        noJugadoresText.setFillColor(sf::Color::White);
+        noJugadoresText.setString("POR EL MOMENTO NO HAY GANADORES, SE EL PRIMERO");
+        noJugadoresText.setPosition(50, 25);  // Colocar el texto en una posición central
+        textoRanking.push_back(noJugadoresText);
+    } else {
+        // Si hay jugadores, agregar el ranking
         for (size_t i = 0; i < jugadores.size(); ++i) {
             sf::Text text;
             text.setFont(font);
@@ -135,28 +146,37 @@ bool grabarRegistro(Jugador jugador) {
             // Formatear el texto de cada jugador con posición, nombre y puntos
             text.setString(std::to_string(i + 1) + ". " + jugadores[i].getNombre() +
                            " - Puntos: " + std::to_string(jugadores[i].getPuntos()));
-            text.setPosition(100, 100 + i * 30);  // Ajusta la posición vertical de cada jugador
+            text.setPosition(100, 25 + i * 30);  // Ajusta la posición vertical de cada jugador
             textoRanking.push_back(text);
         }
+    }
 
-        // Mostrar el ranking en la ventana
-        while (window.isOpen()) {
-            sf::Event event;
-            while (window.pollEvent(event)) {
-                if (event.type == sf::Event::Closed ||
-                    (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)) {
-                    window.close();  // Cierra la ventana si el usuario presiona 'Escape'
-                    return;
+    // Mostrar el ranking en la ventana
+    bool esperandoTecla = true;  // Variable para controlar la espera de una tecla
+    while (window.isOpen() && esperandoTecla) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window.close();
+                return;
+            }
+
+            // Cuando se presiona una tecla, se puede salir
+            if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::Space || event.key.code == sf::Keyboard::Escape) {
+                    esperandoTecla = false;  // Deja de esperar y regresa al menú
                 }
             }
-
-            window.clear();
-            for (const auto& text : textoRanking) {
-                window.draw(text);
-            }
-            window.display();
         }
+
+        window.clear();
+        for (const auto& text : textoRanking) {
+            window.draw(text);
+        }
+        window.display();
     }
+}
+
 };
 
 #endif // ARCHIVO_JUGADORES_H_INCLUDED

@@ -2439,7 +2439,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1731505610 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\main.cpp
+1731526799 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\main.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2559,7 +2559,7 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1731437190 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\nave.cpp
+1731524531 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\nave.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2567,7 +2567,7 @@
 	<stdlib.h>
 	"disparo.h"
 
-1731509681 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
+1731525138 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2579,7 +2579,7 @@
 	"primer_jefe.h"
 	"archivo_jugadores.h"
 
-1731507760 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
+1731525138 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
@@ -5443,7 +5443,7 @@
 	"Jugador.h"
 	<cstring>
 
-1731522428 c:\users\felid\onedrive\documentos\github\utn-niatsu\jugadorarchivo.h
+1731527787 c:\users\felid\onedrive\documentos\github\utn-niatsu\jugadorarchivo.h
 	<iostream>
 	<cstring>
 	<cstdio>

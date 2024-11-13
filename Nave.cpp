@@ -11,7 +11,7 @@ Nave::Nave()
     _texture.loadFromFile("Nave.png");  // Carga la textura de la nave
     _sprite.setTexture(_texture);  // Asigna la textura al sprite
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height); // Centra el sprite
-    vida_nave = 100; // Inicializa la vida de la nave
+    vida_nave = 10; // Inicializa la vida de la nave
     _sprite.setPosition(400, 550); // Posición inicial de la nave
 }
 
