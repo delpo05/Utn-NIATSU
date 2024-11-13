@@ -1,17 +1,22 @@
+// Jugador.cpp
 #include "Jugador.h"
 
-// Constructor para inicializar los datos del jugador
-Jugador::Jugador(std::string n, int p) : nombre(n), puntos(p) {}
+// Constructor por defecto
+Jugador::Jugador() : nombre(""), puntos(0) {}
 
-// Métodos para establecer y obtener el nombre y los puntos
-void Jugador::setNombre(const std::string& n) {
-    nombre = n;
+// Constructor con parámetros
+Jugador::Jugador(const std::string& nombre, int puntos) : nombre(nombre), puntos(puntos) {}
+
+// Setters
+void Jugador::setNombre(const std::string& nombre) {
+    this->nombre = nombre;
 }
 
-void Jugador::setPuntos(int p) {
-    puntos = p;
+void Jugador::setPuntos(int puntos) {
+    this->puntos = puntos;
 }
 
+// Getters
 std::string Jugador::getNombre() const {
     return nombre;
 }
@@ -19,9 +24,3 @@ std::string Jugador::getNombre() const {
 int Jugador::getPuntos() const {
     return puntos;
 }
-
-// Método para mostrar los datos del jugador
-void Jugador::mostrar() const {
-    std::cout << "Nombre: " << nombre << ", Puntos: " << puntos << std::endl;
-}
-

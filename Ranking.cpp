@@ -1,63 +1,52 @@
 #include "Ranking.h"
-#include <iostream>
-#include <cstring>
-using namespace std;
 
-// Constructor para inicializar el nombre del archivo
-ArchivoRanking::ArchivoRanking(const char *n) {
-    strcpy(nombreArchivo, n);
-}
+Ranking::Ranking(const std::string& archivo) : archivo_(archivo) {}
 
-bool ArchivoRanking::grabarRegistro(const Jugador& jugador) {
-    FILE *pArchivo = fopen(nombreArchivo, "ab");
-    if (pArchivo == NULL) return false;
-    bool exito = fwrite(&jugador, sizeof(Jugador), 1, pArchivo);
-    fclose(pArchivo);
-    return exito;
-}
+void Ranking::mostrarRanking(sf::RenderWindow& window) {
+    window.clear();
 
-bool ArchivoRanking::listarRegistros() {
-    Jugador jugador;
-    FILE *pArchivo = fopen(nombreArchivo, "rb");
-    if (pArchivo == NULL) return false;
-    while (fread(&jugador, sizeof(Jugador), 1, pArchivo) == 1) {
-        jugador.mostrar();
+    // Cargar la fuente
+    sf::Font font;
+    if (!font.loadFromFile("Letra.ttf")) {  // Cambia la ruta de la fuente si es necesario
+        std::cerr << "No se pudo cargar la fuente" << std::endl;
+        return;
     }
-    fclose(pArchivo);
-    return true;
-}
 
-/*int ArchivoRanking::buscarJugador(const char* nombreBuscado) {
-    Jugador jugador;
-    FILE *pArchivo = fopen(nombreArchivo, "rb");
-    if (pArchivo == NULL) return -2;
-    int pos = 0;
-    while (fread(&jugador, sizeof(Jugador), 1, pArchivo) == 1) {
-        if (strcmp(jugador.getNombre(), nombreBuscado) == 0) {
-            fclose(pArchivo);
-            return pos;
+    // Título del ranking
+    sf::Text title("Ranking", font, 30);
+    title.setPosition(300, 50);
+    window.draw(title);
+
+    // Abrir el archivo en modo binario
+    std::ifstream archivo(archivo_, std::ios::binary);
+    if (!archivo.is_open()) {
+        std::cerr << "No se pudo abrir el archivo " << archivo_ << std::endl;
+        return;
+    }
+
+    // Variables de posición para mostrar los jugadores en la ventana
+    int y = 100;
+    Jugador jugador("", 0);  // Jugador temporal para leer los datos
+
+    // Leer cada jugador desde el archivo y mostrarlo en la ventana
+    while (archivo.read(reinterpret_cast<char*>(&jugador), sizeof(Jugador))) {
+        std::string texto = jugador.getNombre() + " - " + std::to_string(jugador.getPuntos());
+        sf::Text jugadorText(texto, font, 20);
+        jugadorText.setPosition(100, y);
+        window.draw(jugadorText);
+        y += 30;
+    }
+    archivo.close();
+    window.display();  // Mostrar los datos en la ventana
+
+    // Esperar hasta que el usuario cierre la ventana manualmente
+    sf::Event event;
+    while (window.isOpen()) {
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed || (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)) {
+                window.close();
+                break;
+            }
         }
-        pos++;
     }
-    fclose(pArchivo);
-    return -1;
-}*/
-
-Jugador ArchivoRanking::leerRegistro(int posReg) {
-    Jugador jugador;
-    FILE *pArchivo = fopen(nombreArchivo, "rb");
-    if (pArchivo == NULL) return jugador;
-    fseek(pArchivo, posReg * sizeof(Jugador), SEEK_SET);
-    fread(&jugador, sizeof(Jugador), 1, pArchivo);
-    fclose(pArchivo);
-    return jugador;
-}
-
-int ArchivoRanking::contarRegistros() {
-    FILE *pArchivo = fopen(nombreArchivo, "rb");
-    if (pArchivo == NULL) return -1;
-    fseek(pArchivo, 0, SEEK_END);
-    int cantidad = ftell(pArchivo) / sizeof(Jugador);
-    fclose(pArchivo);
-    return cantidad;
 }

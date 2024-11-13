@@ -1,23 +1,19 @@
-#ifndef ARCHIVO_RANKING_H_INCLUDED
-#define ARCHIVO_RANKING_H_INCLUDED
+#ifndef RANKING_H
+#define RANKING_H
 
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include <fstream>
+#include <vector>
 #include "Jugador.h"
-#include <cstdio>
 
-class ArchivoRanking {
-private:
-    char nombreArchivo[50];
-
+class Ranking {
 public:
-    // Constructor para inicializar el nombre del archivo
-    ArchivoRanking(const char *n = "rankings.dat");
+    Ranking(const std::string& archivo);
+    void mostrarRanking(sf::RenderWindow& window);
 
-    // Métodos para gestionar el archivo de rankings
-    bool grabarRegistro(const Jugador& jugador);
-    bool listarRegistros();
-    int buscarJugador(const char* nombreBuscado);
-    Jugador leerRegistro(int posReg);
-    int contarRegistros();
+private:
+    std::string archivo_;
 };
 
-#endif // ARCHIVO_RANKING_H_INCLUDED
+#endif

@@ -36,24 +36,7 @@ void Menu::mostrarMenuPrincipal() {
                 window.close();
             }
 
-            // Manejador para ingresar el nombre del jugador
-            if (ingresarNombre == true) {
 
-                nombreText.setString("Nombre de usuario: " + nombreJugador);
-                if (event.type == sf::Event::TextEntered) {
-
-                    if (event.text.unicode == '\b' && !nombreJugador.empty()) { // Borrar con retroceso
-                        nombreJugador.pop_back();
-                    } else if (event.text.unicode < 128 && event.text.unicode != '\b') { // Solo caracteres ASCII
-                        nombreJugador += static_cast<char>(event.text.unicode);
-                    }
-
-                }
-                if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter) {
-                    ingresarNombre = false; // Finalizar ingreso de nombre
-                }
-                //FIN DE INGRESO DE NOMBRE
-            } else {
                 if (event.type == sf::Event::KeyPressed) {
                     if (event.key.code == sf::Keyboard::Up) {
                         opcionSeleccionada = (opcionSeleccionada > 0) ? opcionSeleccionada - 1 : opcionesMenu.size() - 1;
@@ -65,7 +48,7 @@ void Menu::mostrarMenuPrincipal() {
                         return;  // Salir del menú cuando se presiona Enter
                     }
                 }
-            }
+
         }
         draw();
     }
@@ -75,14 +58,12 @@ void Menu::draw() {
     window.clear();
     window.draw(spriteFondoMenu);
 
-    if (ingresarNombre) {
-        window.draw(nombreText); // Dibujar el campo de texto para el nombre
-    } else {
+
         for (size_t i = 0; i < opcionesMenu.size(); ++i) {
             opcionesMenu[i].setFillColor(i == opcionSeleccionada ? sf::Color::Yellow : sf::Color::White);
             window.draw(opcionesMenu[i]);
         }
-    }
+
 
     window.display();
 }

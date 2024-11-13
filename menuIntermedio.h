@@ -10,6 +10,7 @@ public:
     size_t getOpcionSeleccionada() const;
     std::string getNombreJugador() const; // Nueva función para obtener el nombre del jugador
     void Nombre();
+    void capturarNombreJugador();
 
 
 

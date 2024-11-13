@@ -9,6 +9,7 @@
 #include "Nave.h"
 #include "Fondo.h"  // Incluye el archivo de la clase Fondo
 #include "primer_jefe.h"
+#include "archivo_jugadores.h"
 
 // Constructor
 Game::Game() {
@@ -24,6 +25,7 @@ void Game::inicializacion_ventana() {
 
 // Método principal que ejecuta el juego (game loop)
 void Game::iniciar_partida() {
+    MenuIntermedio menui(window);
     Musica.openFromFile("Musica.ogg");
     Musica.setLoop(true);
     Musica.setVolume(5);
@@ -34,8 +36,8 @@ void Game::iniciar_partida() {
     tiempoDeGracia2 = 60 * 0.5;
     tiempoDeGracia3 = 60 * 0.4;
     tiempoUltimoDisparo = 0.0f;
-    tiempoOleada = 20;
-    tiempoOleada2 = 30;
+    tiempoOleada = 5;
+    tiempoOleada2 = 5;
     intervaloDisparo = 0.2f;
     puntos = 0;
 
@@ -80,12 +82,14 @@ void Game::iniciar_partida() {
 
     // Inicialización de variables de estado
     bandera_oleada = true;
-    MenuIntermedio menui(window);
+
     banderaBonus = false;
 
 
+
+
     // Temporizador para controlar la aparición de enemigos
-    timerAparicion.restart();
+    //timerAparicion.restart();
 
     // Inicialización de enemigos antes del bucle
     for (int i = 0; i < 3; ++i) {
@@ -99,6 +103,12 @@ void Game::iniciar_partida() {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+
+
+    if (menui.getNombreJugador()==""){
+        menui.capturarNombreJugador();
+        timerAparicion.restart();
+    }
 
 
 
@@ -390,19 +400,35 @@ void Game::iniciar_partida() {
             window.draw(jefe2);
         }
 
-
-
-
-
-
-
         }
-
 
 
         window.draw(niatsu);
         window.display();
     }
+
+if (jefe2.getbandera_jefe_muerto2() == true) {
+    // Crear un objeto Jugador con los datos del jugador final
+    Jugador jugadorFinal(menui.getNombreJugador(), puntos);
+
+    // Crear o usar un objeto ArchivoJugadores para guardar el registro
+    ArchivoJugadores archivoJugadores("jugadores.dat");
+
+    // Llamar a grabarRegistro para guardar los datos del jugador
+    if (archivoJugadores.grabarRegistro(jugadorFinal)) {
+        std::cout << "Registro de jugador guardado exitosamente." << std::endl;
+    } else {
+        std::cout << "Error al guardar el registro del jugador." << std::endl;
+    }
+
+    // Llamar a listarRegistros para mostrar todos los registros en el archivo
+    std::cout << "Listado de todos los registros guardados:" << std::endl;
+    archivoJugadores.listarRegistros();
+}
+
+
+
+
 }
 
 void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {

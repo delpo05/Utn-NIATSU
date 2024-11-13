@@ -1,8 +1,8 @@
-#ifndef JUGADOR_H_INCLUDED
-#define JUGADOR_H_INCLUDED
+// Jugador.h
+#ifndef JUGADOR_H
+#define JUGADOR_H
 
-#include <iostream>
-#include <string>  // Incluye string para usar std::string
+#include <string>
 
 class Jugador {
 private:
@@ -10,17 +10,19 @@ private:
     int puntos;
 
 public:
-    // Constructor para inicializar los datos del jugador
-    Jugador(std::string n = "", int p = 0);
+    // Constructor por defecto
+    Jugador();
 
-    // Métodos para establecer y obtener el nombre y los puntos
-    void setNombre(const std::string& n);
-    void setPuntos(int p);
+    // Constructor con parámetros
+    Jugador(const std::string& nombre, int puntos);
+
+    // Setters
+    void setNombre(const std::string& nombre);
+    void setPuntos(int puntos);
+
+    // Getters
     std::string getNombre() const;
     int getPuntos() const;
-
-    // Método para mostrar los datos del jugador
-    void mostrar() const;
 };
 
-#endif // JUGADOR_H_INCLUDED
+#endif // JUGADOR_H

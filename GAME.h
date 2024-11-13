@@ -11,6 +11,7 @@
 #include "menuIntermedio.h"
 #include "Ranking.h"
 #include "Jugador.h"
+#include "JugadorArchivo.h"
 #include "bonus.h"
 #include <string>
 #include<iostream>
@@ -77,6 +78,7 @@ class Game : public sf::Drawable {
 
 
 
+
 public:
     Game();  // Constructor
 
@@ -86,5 +88,6 @@ public:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;  // Dibuja en pantalla
     void setNombre (std::string n){Nombre = n;}
     std::string getNombre() {return Nombre;}
+
 };
 

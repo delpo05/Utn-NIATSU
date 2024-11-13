@@ -6,6 +6,7 @@
 #include "GAME.h"
 #include "menu.h"
 #include <iostream>
+#include "Ranking.h"
 
 using namespace std;
 
@@ -22,11 +23,12 @@ int main()
     int opcion = menu.getOpcionSeleccionada();
     if (opcion == 0) {
         Game game;
-        game.setNombre(menu.getNombreJugador());
 
         // Puedes pasar `nombreJugador` a la clase `Game` si deseas usarlo dentro del juego
     } else if (opcion == 1) {
         // Mostrar el ranking
+        Ranking ranking("Jugadores.dat");
+        ranking.mostrarRanking(window);
     } else if (opcion == 2) {
         window.close();
     }
