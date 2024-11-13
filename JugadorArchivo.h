@@ -18,14 +18,37 @@ public:
     }
 
     // Función para grabar un registro de jugador en el archivo
-    bool grabarRegistro(Jugador jugador) {
-        FILE* pArchivo = std::fopen(nombreArchivo, "ab");
-        if (pArchivo == nullptr) return false;
-
-        int escribio = fwrite(&jugador, sizeof(Jugador), 1, pArchivo);
-        std::fclose(pArchivo);
-        return escribio == 1;
+bool grabarRegistro(Jugador jugador) {
+    Jugador jugadorExistente;
+    FILE* pArchivo = fopen(nombreArchivo, "r+b"); // Abrir el archivo en modo lectura/escritura
+    if (!pArchivo) {
+        // Si el archivo no existe, lo creamos en modo escritura y guardamos el jugador
+        pArchivo = fopen(nombreArchivo, "wb");
+        if (!pArchivo) return false;
+        fwrite(&jugador, sizeof(Jugador), 1, pArchivo);
+        fclose(pArchivo);
+        return true;
     }
+
+
+    while (fread(&jugadorExistente, sizeof(Jugador), 1, pArchivo) == 1) {
+        if (strcmp(jugador.getNombre(), jugadorExistente.getNombre()) == 0) {
+            // Si se encuentra el jugador y el puntaje es mayor, actualizar el registro
+            if (jugador.getPuntos() > jugadorExistente.getPuntos()) {
+                fseek(pArchivo, -static_cast<long>(sizeof(Jugador)), SEEK_CUR);
+                fwrite(&jugador, sizeof(Jugador), 1, pArchivo);
+            }
+            fclose(pArchivo);
+            return true;
+        }
+    }
+
+    // Si el jugador no está en el archivo, agregarlo al final
+    fwrite(&jugador, sizeof(Jugador), 1, pArchivo);
+    fclose(pArchivo);
+    return true;
+}
+
 
     // Función para listar todos los registros en el archivo
     bool listarRegistros() {
@@ -66,6 +89,8 @@ public:
             }
         }
     }
+
+
 
     // Cargar los jugadores desde el archivo, ordenar y devolver el vector
     std::vector<Jugador> obtenerJugadoresOrdenados() {

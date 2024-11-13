@@ -2567,7 +2567,7 @@
 	<stdlib.h>
 	"disparo.h"
 
-1731509141 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
+1731509681 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -5443,7 +5443,7 @@
 	"Jugador.h"
 	<cstring>
 
-1731506225 c:\users\felid\onedrive\documentos\github\utn-niatsu\jugadorarchivo.h
+1731522428 c:\users\felid\onedrive\documentos\github\utn-niatsu\jugadorarchivo.h
 	<iostream>
 	<cstring>
 	<cstdio>
