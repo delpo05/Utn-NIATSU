@@ -73,7 +73,7 @@ class Game : public sf::Drawable {
     std::string Nombre;
     bonus powerup;
     bool banderaBonus;
-
+    bool modificarCantidadDeColis;
 
 
 

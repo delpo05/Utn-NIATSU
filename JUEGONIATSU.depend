@@ -2439,7 +2439,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1731467165 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\main.cpp
+1731505610 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\main.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2448,7 +2448,7 @@
 	"GAME.h"
 	"menu.h"
 	<iostream>
-	"Ranking.h"
+	"JugadorArchivo.h"
 
 1730331818 c:\users\felid\onedrive\documentos\github\utn-niatsu\nave.h
 	<SFML\Graphics.hpp>
@@ -2567,7 +2567,7 @@
 	<stdlib.h>
 	"disparo.h"
 
-1731465237 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
+1731509141 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2579,7 +2579,7 @@
 	"primer_jefe.h"
 	"archivo_jugadores.h"
 
-1731465237 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
+1731507760 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
@@ -4505,13 +4505,14 @@
 
 1730895696 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\fondomenu.cpp
 
-1731458279 c:\users\felid\onedrive\documentos\github\utn-niatsu\menuintermedio.h
+1731499793 c:\users\felid\onedrive\documentos\github\utn-niatsu\menuintermedio.h
 	<SFML/Graphics.hpp>
 	<vector>
 	<string>
 
-1731465507 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\menuintermedio.cpp
+1731500863 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\menuintermedio.cpp
 	"menuIntermedio.h"
+	<cstring>
 
 1730985047 source:c:\users\felid\onedrive\documentos\menuintermediooo\utn-niatsu\colis.cpp
 	"Colis.h"
@@ -5411,15 +5412,10 @@
 	"disparo_Segundojefe.h"
 	"colision.h"
 
-1731467165 c:\users\felid\onedrive\documentos\github\utn-niatsu\ranking.h
-	<SFML/Graphics.hpp>
-	<iostream>
-	<fstream>
-	<vector>
-	"Jugador.h"
+1731496443 c:\users\felid\onedrive\documentos\github\utn-niatsu\ranking.h
 
-1731454390 c:\users\felid\onedrive\documentos\github\utn-niatsu\jugador.h
-	<string>
+1731498827 c:\users\felid\onedrive\documentos\github\utn-niatsu\jugador.h
+	<cstring>
 
 1731437190 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\segundo_jefe.cpp
 	"Segundo_jefe.h"
@@ -5443,15 +5439,16 @@
 
 1731445437 c:\users\felid\onedrive\documentos\github\utn-niatsu\archivo_jugadores.h
 
-1731454390 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\jugador.cpp
+1731498827 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\jugador.cpp
 	"Jugador.h"
+	<cstring>
 
-1731455676 c:\users\felid\onedrive\documentos\github\utn-niatsu\jugadorarchivo.h
+1731506225 c:\users\felid\onedrive\documentos\github\utn-niatsu\jugadorarchivo.h
 	<iostream>
 	<cstring>
 	<cstdio>
+	<vector>
 	"Jugador.h"
 
-1731467338 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\ranking.cpp
-	"Ranking.h"
+1731496443 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\ranking.cpp
 

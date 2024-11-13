@@ -85,6 +85,10 @@ void Game::iniciar_partida() {
 
     banderaBonus = false;
 
+    menui.capturarNombreJugador();
+    timerAparicion.restart();
+    modificarCantidadDeColis = false;
+
 
 
 
@@ -105,10 +109,9 @@ void Game::iniciar_partida() {
         }
 
 
-    if (menui.getNombreJugador()==""){
-        menui.capturarNombreJugador();
-        timerAparicion.restart();
-    }
+
+
+
 
 
 
@@ -193,10 +196,6 @@ void Game::iniciar_partida() {
             if (opcion == 0) {
                 timerAparicion.restart();
                 bandera_oleada = true;
-            for(auto& coli: colis){
-                coli.setVida_coli(2);
-
-            }
                 secondLevel = true;
 
                 // Continuar juego
@@ -209,7 +208,7 @@ void Game::iniciar_partida() {
         // Actualizar colisiones de disparos con enemigos si bandera_oleada es verdadera
         for (auto& disparo : niatsu.getDisparos()) {
             for (auto& coli : colis) {
-                if (disparo.isCollision(coli)) {
+                if (disparo.isCollision(coli) && bandera_oleada == true) {
                     coli.setVida_coli(coli.getVida() - 1);
                     if (coli.getVida() == 0) {
                         puntos += 100;
@@ -313,6 +312,14 @@ void Game::iniciar_partida() {
             jefe2.update();
         }
 
+            if (jefe2.getbandera_jefe_muerto2() == true) {
+        Jugador jugadorFinal(menui.getNombreJugador(), puntos);
+        ArchivoJugadores archivoJugadores("jugadores.dat");
+        archivoJugadores.grabarRegistro(jugadorFinal);
+        window.close();
+
+}
+
         // INICIO DE WINDOWSSSS
         window.clear();
 
@@ -396,35 +403,26 @@ void Game::iniciar_partida() {
                 }
             }
 
-        if (bandera_oleada == false && secondLevel == true && jefe2.getbandera_jefe_muerto2() == false) {
+
+
+
+        if (bandera_oleada == false && jefe2.getbandera_jefe_muerto2() == false) {
             window.draw(jefe2);
         }
 
         }
 
 
+
+
         window.draw(niatsu);
         window.display();
+
+
     }
 
-if (jefe2.getbandera_jefe_muerto2() == true) {
-    // Crear un objeto Jugador con los datos del jugador final
-    Jugador jugadorFinal(menui.getNombreJugador(), puntos);
 
-    // Crear o usar un objeto ArchivoJugadores para guardar el registro
-    ArchivoJugadores archivoJugadores("jugadores.dat");
 
-    // Llamar a grabarRegistro para guardar los datos del jugador
-    if (archivoJugadores.grabarRegistro(jugadorFinal)) {
-        std::cout << "Registro de jugador guardado exitosamente." << std::endl;
-    } else {
-        std::cout << "Error al guardar el registro del jugador." << std::endl;
-    }
-
-    // Llamar a listarRegistros para mostrar todos los registros en el archivo
-    std::cout << "Listado de todos los registros guardados:" << std::endl;
-    archivoJugadores.listarRegistros();
-}
 
 
 

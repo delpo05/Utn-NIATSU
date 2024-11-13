@@ -6,7 +6,7 @@
 #include "GAME.h"
 #include "menu.h"
 #include <iostream>
-#include "Ranking.h"
+#include "JugadorArchivo.h"
 
 using namespace std;
 
@@ -27,8 +27,10 @@ int main()
         // Puedes pasar `nombreJugador` a la clase `Game` si deseas usarlo dentro del juego
     } else if (opcion == 1) {
         // Mostrar el ranking
-        Ranking ranking("Jugadores.dat");
-        ranking.mostrarRanking(window);
+        ArchivoJugadores archivoJugadores("Jugadores.dat");
+        archivoJugadores.mostrarRankingSFML(window);
+        menu.mostrarMenuPrincipal();
+
     } else if (opcion == 2) {
         window.close();
     }

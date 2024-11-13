@@ -1,12 +1,11 @@
-// Jugador.h
 #ifndef JUGADOR_H
 #define JUGADOR_H
 
-#include <string>
+#include <cstring>
 
 class Jugador {
 private:
-    std::string nombre;
+    char nombre[50];
     int puntos;
 
 public:
@@ -14,14 +13,14 @@ public:
     Jugador();
 
     // Constructor con parámetros
-    Jugador(const std::string& nombre, int puntos);
+    Jugador(const char* nombre, int puntos);
 
     // Setters
-    void setNombre(const std::string& nombre);
+    void setNombre(const char* nombre);
     void setPuntos(int puntos);
 
     // Getters
-    std::string getNombre() const;
+    const char* getNombre() const;
     int getPuntos() const;
 };
 

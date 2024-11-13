@@ -1,4 +1,5 @@
 #include "menuIntermedio.h"
+#include <cstring>  // Para memset
 
 MenuIntermedio::MenuIntermedio(sf::RenderWindow& window) : window(window), opcionSeleccionada(0), ingresarNombre(true) {
     font.loadFromFile("Letra.ttf");
@@ -12,7 +13,7 @@ MenuIntermedio::MenuIntermedio(sf::RenderWindow& window) : window(window), opcio
     nombreText.setFillColor(sf::Color::Yellow);
     nombreText.setPosition(10, 0);  // Ajusta la posición según sea necesario
 
-    nombreJugador = "";  // Inicializa el nombre como una cadena vacía
+    memset(nombreJugador, 0, sizeof(nombreJugador));  // Inicializa el array a una cadena vacía
 }
 
 void MenuIntermedio::inicializarOpciones() {
@@ -28,7 +29,9 @@ void MenuIntermedio::inicializarOpciones() {
 }
 
 void MenuIntermedio::capturarNombreJugador() {
+    int indice = 0;  // Índice para manejar la posición en nombreJugador
     nombreText.setString("Ingrese su nombre: ");
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -38,12 +41,13 @@ void MenuIntermedio::capturarNombreJugador() {
 
             // Capturar la entrada de texto para el nombre
             if (event.type == sf::Event::TextEntered) {
-                if (event.text.unicode == '\b' && !nombreJugador.empty()) {  // Retroceso
-                    nombreJugador.pop_back();
-                } else if (event.text.unicode < 128 && event.text.unicode != '\b') {  // Solo caracteres ASCII
-                    nombreJugador += static_cast<char>(event.text.unicode);
+                if (event.text.unicode == '\b' && indice > 0) {  // Retroceso
+                    nombreJugador[--indice] = '\0';  // Elimina el último caracter ingresado
+                } else if (event.text.unicode < 128 && event.text.unicode != '\b' && indice < 49) {  // Solo caracteres ASCII y límite de 49 caracteres
+                    nombreJugador[indice++] = static_cast<char>(event.text.unicode);
+                    nombreJugador[indice] = '\0';  // Mantiene el final nulo de la cadena
                 }
-                nombreText.setString("Nombre: " + nombreJugador);  // Actualiza el texto en pantalla
+                nombreText.setString("Ingrese Nombre: " + std::string(nombreJugador));  // Actualiza el texto en pantalla
             }
 
             // Si el usuario presiona Enter, termina la entrada del nombre
@@ -95,14 +99,5 @@ void MenuIntermedio::draw() {
     }
 
     window.display();
-}
-
-// Método para obtener el nombre del jugador desde fuera de la clase
-std::string MenuIntermedio::getNombreJugador() const {
-    return nombreJugador;
-}
-
-size_t MenuIntermedio::getOpcionSeleccionada() const {
-    return opcionSeleccionada;
 }
 
