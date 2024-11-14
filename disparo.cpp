@@ -15,7 +15,7 @@ void disparo::update() {
     sprite.move(0, -velocidad); // Movimiento hacia arriba
 
 
-    sprite.setTextureRect({140, 183, 65, 40}); // Rectángulo de textura
+
 }
 
 void disparo::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -25,4 +25,6 @@ void disparo::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 sf::FloatRect disparo::getBounds() const {
     return sprite.getGlobalBounds(); // Retorna límites para colisiones
 }
+
+
 

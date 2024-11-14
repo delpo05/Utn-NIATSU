@@ -1,4 +1,3 @@
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -7,9 +6,9 @@
 #include "colision.h"
 
 class primer_jefe : public sf::Drawable, public collisionable {
-    private:
+private:
     sf::Sprite _sprite;
-    sf::Texture* _texture;
+    sf::Texture _texture;
     float _velocidadX;
     float _velocidadY;
     std::vector<disparo_primer_jefe> tiroJ;
@@ -23,8 +22,6 @@ class primer_jefe : public sf::Drawable, public collisionable {
     sf::Sound explosionJefe;
     sf::SoundBuffer audioexplosionJefe;
 
-
-
     sf::Clock timerAparicion;
     sf::Time tiempo_transcurrido;
 
@@ -36,24 +33,20 @@ class primer_jefe : public sf::Drawable, public collisionable {
     sf::Sound recibetiro;
     sf::SoundBuffer bufferrecibetiro;
 
-
-
-
 public:
-    primer_jefe ();
+    primer_jefe();
     void update();
     void respawn();
     const std::vector<disparo_primer_jefe>& getDisparos() const;
     sf::FloatRect getBounds() const;
     void disparar();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-    void setVida_primer_jefe (int vida){vida_primer_jefe=vida;}
-    int getVida(){return vida_primer_jefe;}
+    void setVida_primer_jefe(int vida) { vida_primer_jefe = vida; }
+    int getVida() { return vida_primer_jefe; }
     void explosion();
-    bool getbandera_jefe_muerto(){return bandera_jefe_muerto;}
+    bool getbandera_jefe_muerto() { return bandera_jefe_muerto; }
     void recibedanio();
     bool impacto_img;
     sf::Clock timerAparicion_jefe;
     sf::Time tiempo_transcurrido_jefe;
-
 };

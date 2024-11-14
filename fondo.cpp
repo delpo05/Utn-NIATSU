@@ -21,7 +21,7 @@ void Fondo::update(float deltaTime) {
     }
 
     // Actualiza la textura en función de la posiciónY
-    spriteFondo.setTextureRect(sf::IntRect(0, posicionY, 800, 1200));
+    spriteFondo.setTextureRect(sf::IntRect(0, posicionY, 800, 600));
 }
 
 void Fondo::draw(sf::RenderWindow& window) {

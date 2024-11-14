@@ -6,9 +6,9 @@
 #include "disparos_primer_jefe.h"
 
 primer_jefe::primer_jefe() {
-    _texture = new sf::Texture;
-    _texture->loadFromFile("imagen_NIATSU.png");
-    _sprite.setTexture(*_texture);
+
+    _texture.loadFromFile("imagen_NIATSU.png");
+    _sprite.setTexture(_texture);
     _sprite.setTextureRect({123, 943, 102, 87});
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     // Establece la posición inicial en una coordenada aleatoria en la parte superior de la pantalla
@@ -19,7 +19,6 @@ primer_jefe::primer_jefe() {
     _velocidadY = 2;
 
     disparoTimer = 0;
-    intervaloDisparo = float(std::rand() % 2000 + 1000);  // entre 1 y 3 segundos
     vida_primer_jefe =10;
 
     audiodisparoJefe.loadFromFile("disparojefe1.wav");
@@ -50,7 +49,7 @@ void primer_jefe::draw(sf::RenderTarget& target, sf::RenderStates states) const 
 
 void primer_jefe::update() {
 
-    if (impacto_img) {
+    if (impacto_img == true) {
         tiempo_transcurrido_jefe = timerAparicion_jefe.getElapsedTime();
         if (tiempo_transcurrido_jefe.asSeconds() < 0.2) {
             _sprite.setTextureRect({577, 948, 92, 75}); // Frame dañado
@@ -140,7 +139,7 @@ void primer_jefe::explosion() {
     // Cambia el rectángulo de textura para la animación de explosión
     _sprite.setTextureRect({232 + int(_frame) * 57, 943, 57, 87});
 
-    if (_frame > 6 && _contador <= 3) {
+    if (_frame > 5) {
         _frame = 0;
         bandera_jefe_muerto=true;
     }

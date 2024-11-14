@@ -7,9 +7,9 @@
 #include "disparo_Segundojefe.h"
 
 Segundo_jefe::Segundo_jefe() {
-    _texture = new sf::Texture;
-    _texture->loadFromFile("imagen_NIATSU.png");
-    _sprite.setTexture(*_texture);
+
+    _texture.loadFromFile("imagen_NIATSU.png");
+    _sprite.setTexture(_texture);
     _sprite.setTextureRect({118, 205, 112, 130});
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
     // Establece la posición inicial en una coordenada aleatoria en la parte superior de la pantalla
@@ -126,36 +126,6 @@ void Segundo_jefe::update() {
             return d.sprite.getPosition().y > 600;
         }), tiroJ.end());
 
-
-
-    // Ajuste aleatorio en la velocidad X para un movimiento horizontal más impredecible
-    /*if (std::rand() % 20 == 0) {  // 1 en 20 posibilidad de cambiar aleatoriamente cada ciclo
-        _velocidadX += (std::rand() % 3 - 1);  // Añade -1, 0 o 1 a _velocidadX
-        if (_velocidadX > 5.0) _velocidadX = 5.0; // Límite superior
-        if (_velocidadX < -5.0) _velocidadX = -5.0; // Límite inferior
-    }
-
-
-        tiroJ.erase(std::remove_if(tiroJ.begin(), tiroJ.end(), [](disparo_segundo_jefe& d)
-        {return d.sprite.getPosition().y > 600;}), tiroJ.end());
-
-
-    // Movimiento
-    _sprite.move(_velocidadX, _velocidadY);
-
-    // Cambia la dirección en X si el enemigo toca los bordes de la pantalla
-    if (_sprite.getPosition().x <= 0 || _sprite.getPosition().x >= 800 - _sprite.getGlobalBounds().width) {
-        _velocidadX = -_velocidadX; // Invierte la dirección en X
-    }
-
-    if(_sprite.getPosition().y > _sprite.getGlobalBounds().height){
-        _velocidadY = 0;
-    }*/
-
-    // Desaparece y vuelve a la parte superior si se mueve fuera de la pantalla hacia abajo
-    /*if (_sprite.getPosition().y > 600) {
-        respawn();
-    }*/
 
     // Control de disparo
     if (disparoTimer <= 0 && vida_segundo_jefe >= 1 && bandera_pasoPantalla == true) {

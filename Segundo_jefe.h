@@ -8,7 +8,7 @@
 class Segundo_jefe : public sf::Drawable, public collisionable {
     private:
     sf::Sprite _sprite;
-    sf::Texture* _texture;
+    sf::Texture _texture;
     float _velocidadX;
     float _velocidadY;
     std::vector<disparo_segundo_jefe> tiroJ;

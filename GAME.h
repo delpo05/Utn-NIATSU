@@ -13,6 +13,7 @@
 #include "Jugador.h"
 #include "JugadorArchivo.h"
 #include "bonus.h"
+#include "archivo_jugadores.h"
 #include <string>
 #include<iostream>
 
@@ -43,7 +44,6 @@ class Game : public sf::Drawable {
     bool bandeChoque = false;
     bool banderaGolpeJefe = false;
     sf::RenderWindow window;
-    sf::RenderWindow windowIntermedio;
     int tiempoDeGracia;
     int tiempoDeGracia2;
     int tiempoDeGracia3;
@@ -65,16 +65,16 @@ class Game : public sf::Drawable {
     sf::Clock timerAparicion;
     sf::Time tiempo_transcurrido;
     bool bandera_oleada;
-    int movimiento_de_fondo;
+
     Fondo fondo;
     bool secondLevel = false;
     int tiempoRestante;
     int tiempoOleada;
     int tiempoOleada2;
-    std::string Nombre;
+
     bonus powerup;
     bool banderaBonus;
-    bool modificarCantidadDeColis;
+
     sf::Text textoGanaste;
     sf::Text textoPerdiste;
 
@@ -89,8 +89,7 @@ public:
     void iniciar_partida();          // Ciclo principal del juego
     void pausar_partida();           // Pausar el juego (por implementar)
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;  // Dibuja en pantalla
-    void setNombre (std::string n){Nombre = n;}
-    std::string getNombre() {return Nombre;}
+
 
 };
 

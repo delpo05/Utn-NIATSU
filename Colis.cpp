@@ -17,7 +17,6 @@ Colis::Colis() {
     _velocidadY = 1.5 + float(std::rand() % 200) / 100.0;
 
     disparoTimer = 0;
-    intervaloDisparo = float(std::rand() % 2000 + 1000);
     vida_coli = 1;
 
     audiotiroColi.loadFromFile("Disparocolis.wav");

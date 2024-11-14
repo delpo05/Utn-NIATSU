@@ -5,11 +5,7 @@
 #include <SFML/Audio.hpp>
 #include <ctime>
 #include <stdlib.h>
-#include "disparo.h"
-#include "Nave.h"
-#include "Fondo.h"  // Incluye el archivo de la clase Fondo
-#include "primer_jefe.h"
-#include "archivo_jugadores.h"
+
 
 // Constructor
 Game::Game() {
@@ -26,10 +22,12 @@ void Game::inicializacion_ventana() {
 // Método principal que ejecuta el juego (game loop)
 void Game::iniciar_partida() {
     MenuIntermedio menui(window);
+
     Musica.openFromFile("Musica.ogg");
     Musica.setLoop(true);
     Musica.setVolume(5);
-    Musica.play();
+
+
 
     // Inicialización de tiempos y variables
     tiempoDeGracia = 60 * 0.3;
@@ -48,12 +46,15 @@ void Game::iniciar_partida() {
     texVidaJefe1.setFont(Letra);
     texVidaJefe2.setFont(Letra);
     texOleada.setFont(Letra);
+    textoPerdiste.setFont(Letra);
+
     texPuntos.setCharacterSize(20);
     texvidas.setCharacterSize(20);
     texVidaJefe1.setCharacterSize(15);
     texVidaJefe2.setCharacterSize(15);
-    texOleada.setCharacterSize(10);
-    textoPerdiste.setFont(Letra);
+    texOleada.setCharacterSize(13);
+
+
     textoPerdiste.setString("Perdiste");
     textoPerdiste.setCharacterSize(50);
     textoPerdiste.setFillColor(sf::Color::Red);
@@ -96,8 +97,9 @@ void Game::iniciar_partida() {
     banderaBonus = false;
 
     menui.capturarNombreJugador();
+    Musica.play();
     timerAparicion.restart();
-    modificarCantidadDeColis = false;
+
 
 
 
@@ -117,13 +119,6 @@ void Game::iniciar_partida() {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
-
-
-
-
-
-
 
         // Verificar tiempo transcurrido y actualizar bandera para aparición de enemigos
         tiempo_transcurrido = timerAparicion.getElapsedTime();
@@ -173,49 +168,23 @@ void Game::iniciar_partida() {
 
 
         // COLISIONES VS SEGUNDO JEFE
-
+        // to punch jefe
         for (auto& disparo : niatsu.getDisparos()) {
             if (disparo.isCollision(jefe2) && banderaGolpeJefe == false && jefe2.getbandera_jefe_muerto2() == false) {
                 banderaGolpeJefe = true;
                 jefe2.recibedanio();
             }
         }
-
+        //jefe punch me
         for (auto& disparo_segundo_jefe : jefe2.getDisparos()) {
             if (disparo_segundo_jefe.isCollision(niatsu) && banderaGolpe == false && jefe2.getbandera_jefe_muerto2() == false) {
                 banderaGolpe = true;
-                niatsu.setVida_nave(niatsu.getVida_nave() - 3);
+                niatsu.setVida_nave(niatsu.getVida_nave() - 5);
                 tiroRecibidoJefe.play();
             }
         }
 
-
-
-
-
-
-
-        // FIN DE COLISIONES PRIMER JEFE
-
-        // MENÚ INTERMEDIO ENTRE MUERTE DE PRIMER JEFE
-        if (jefe1.getbandera_jefe_muerto() == true) {
-
-            if (secondLevel == false){
-            menui.mostrarMenuPrincipal();
-            int opcion = menui.getOpcionSeleccionada();
-            if (opcion == 0) {
-                timerAparicion.restart();
-                bandera_oleada = true;
-                secondLevel = true;
-
-                // Continuar juego
-            } else if (opcion == 1) {
-                window.close(); // Cerrar el juego
-            }
-         }
-        }
-
-        // Actualizar colisiones de disparos con enemigos si bandera_oleada es verdadera
+            // Actualizar colisiones de disparos con enemigos si bandera_oleada es verdadera
         for (auto& disparo : niatsu.getDisparos()) {
             for (auto& coli : colis) {
                 if (disparo.isCollision(coli) && bandera_oleada == true) {
@@ -234,7 +203,7 @@ void Game::iniciar_partida() {
         }
 
         if (niatsu.isCollision(powerup)&& banderaBonus == true ) {
-            niatsu.setVida_nave(niatsu.getVida_nave() + 1);
+            niatsu.setVida_nave(niatsu.getVida_nave() + 3);
             banderaBonus = false;
             powerup.respawn();
             soundbonus.play();
@@ -252,6 +221,41 @@ void Game::iniciar_partida() {
                 }
             }
         }
+
+        if (bandera_oleada == true && bandeChoque == false) {
+            for (auto& coli : colis) {
+                if (niatsu.isCollision(coli)) {
+                    niatsu.setVida_nave(niatsu.getVida_nave() - 1);
+                    choque.play();
+                    bandeChoque = true;
+                    coli.setVida_coli(coli.getVida() - 1);
+                }
+            }
+        }
+
+
+        // MENÚ INTERMEDIO ENTRE MUERTE DE PRIMER JEFE
+        if (jefe1.getbandera_jefe_muerto() == true) {
+
+            if (secondLevel == false){
+            Musica.stop();
+            menui.mostrarMenuPrincipal();
+
+            int opcion = menui.getOpcionSeleccionada();
+            if (opcion == 0) {
+                timerAparicion.restart();
+                bandera_oleada = true;
+                secondLevel = true;
+                Musica.play();
+
+                // Continuar juego
+            } else if (opcion == 1) {
+                window.close(); // Cerrar el juego
+            }
+         }
+        }
+
+
 
         if (banderaGolpe == true) {
             tiempoDeGracia--;
@@ -278,18 +282,6 @@ void Game::iniciar_partida() {
         if (tiempoDeGracia3 <= 0) {
             tiempoDeGracia3 = 60 * 0.4;
             banderaGolpeJefe = false;
-        }
-
-        // CHOQUES
-        if (bandera_oleada == true && bandeChoque == false) {
-            for (auto& coli : colis) {
-                if (niatsu.isCollision(coli)) {
-                    niatsu.setVida_nave(niatsu.getVida_nave() - 1);
-                    choque.play();
-                    bandeChoque = true;
-                    coli.setVida_coli(coli.getVida() - 1);
-                }
-            }
         }
 
 

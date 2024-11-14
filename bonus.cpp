@@ -5,7 +5,7 @@ bonus::bonus()
 {
     _texture.loadFromFile("bonus.png");
     _sprite.setTexture(_texture);
-    _sprite.setOrigin(_sprite.getGlobalBounds().width/2, _sprite.getGlobalBounds().height/2);
+
 }
 
 

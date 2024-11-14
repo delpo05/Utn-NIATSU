@@ -47,7 +47,7 @@ void MenuIntermedio::capturarNombreJugador() {
                     nombreJugador[indice++] = static_cast<char>(event.text.unicode);
                     nombreJugador[indice] = '\0';  // Mantiene el final nulo de la cadena
                 }
-                nombreText.setString("Ingrese Nombre: " + std::string(nombreJugador));  // Actualiza el texto en pantalla
+                nombreText.setString("Ingrese su nombre: " + std::string(nombreJugador));  // Actualiza el texto en pantalla
             }
 
             // Si el usuario presiona Enter, termina la entrada del nombre
