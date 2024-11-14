@@ -50,31 +50,8 @@ bool grabarRegistro(Jugador jugador) {
 }
 
 
-    // Función para listar todos los registros en el archivo
-    bool listarRegistros() {
-        Jugador jugador;
-        FILE* pArchivo = std::fopen(nombreArchivo, "rb");
-        if (pArchivo == nullptr) return false;
 
-        while (fread(&jugador, sizeof(Jugador), 1, pArchivo) == 1) {
-            std::cout << "Nombre: " << jugador.getNombre() << " - Puntos: " << jugador.getPuntos() << std::endl;
-        }
 
-        std::fclose(pArchivo);
-        return true;
-    }
-
-    // Función para contar la cantidad de registros
-    int contarRegistros() {
-        FILE* pArchivo = std::fopen(nombreArchivo, "rb");
-        if (pArchivo == nullptr) return -1;
-
-        fseek(pArchivo, 0, SEEK_END);
-        int cantidadRegistros = ftell(pArchivo) / sizeof(Jugador);
-        std::fclose(pArchivo);
-
-        return cantidadRegistros;
-    }
 
     // Ordenar el vector de jugadores por puntos (de mayor a menor)
     void ordenarVector(std::vector<Jugador>& jugadores) {

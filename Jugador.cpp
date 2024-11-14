@@ -15,17 +15,7 @@ Jugador::Jugador(const char* nombre, int puntos) {
     this->puntos = puntos;
 }
 
-// Setters
-void Jugador::setNombre(const char* nombre) {
-    std::strncpy(this->nombre, nombre, sizeof(this->nombre) - 1);
-    this->nombre[sizeof(this->nombre) - 1] = '\0';
-}
 
-void Jugador::setPuntos(int puntos) {
-    this->puntos = puntos;
-}
-
-// Getters
 const char* Jugador::getNombre() const {
     return nombre;
 }

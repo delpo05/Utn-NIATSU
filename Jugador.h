@@ -15,9 +15,8 @@ public:
     // Constructor con parámetros
     Jugador(const char* nombre, int puntos);
 
-    // Setters
-    void setNombre(const char* nombre);
-    void setPuntos(int puntos);
+
+
 
     // Getters
     const char* getNombre() const;

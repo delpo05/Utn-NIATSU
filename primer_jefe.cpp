@@ -19,7 +19,7 @@ primer_jefe::primer_jefe() {
     _velocidadY = 2;
 
     disparoTimer = 0;
-    vida_primer_jefe =10;
+    vida_primer_jefe =20;
 
     audiodisparoJefe.loadFromFile("disparojefe1.wav");
     disparoJefe.setBuffer(audiodisparoJefe);
@@ -105,7 +105,7 @@ void primer_jefe::update() {
     if (disparoTimer <= 0 && vida_primer_jefe >= 1 && _velocidadY == 0) {
         disparar();
         disparoJefe.play();
-        intervaloDisparo = float(std::rand() % 500 + 100);
+        intervaloDisparo = float(std::rand() % 300 + 100);
         disparoTimer = intervaloDisparo;
     } else {
         disparoTimer -= 10;
