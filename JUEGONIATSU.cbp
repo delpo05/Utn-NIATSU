@@ -50,8 +50,6 @@
 		<Unit filename="JugadorArchivo.h" />
 		<Unit filename="Nave.cpp" />
 		<Unit filename="Nave.h" />
-		<Unit filename="Ranking.cpp" />
-		<Unit filename="Ranking.h" />
 		<Unit filename="Segundo_jefe.cpp" />
 		<Unit filename="Segundo_jefe.h" />
 		<Unit filename="bonus.cpp" />
@@ -66,8 +64,6 @@
 		<Unit filename="disparos_primer_jefe.h" />
 		<Unit filename="fondo.cpp" />
 		<Unit filename="fondo.h" />
-		<Unit filename="fondoMenu.cpp" />
-		<Unit filename="fondoMenu.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />

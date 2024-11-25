@@ -1,7 +1,7 @@
 #include "Fondo.h"
 
 Fondo::Fondo(){
-    texturaFondo.loadFromFile("fondo espacio.jpg");
+    texturaFondo.loadFromFile("fondoespacio800x600.jpg");
     texturaFondo.setRepeated(true);
     texturaFondo2.loadFromFile("Fondo2nivel.jpg"); //Fondo 2do nivel
     texturaFondo2.setRepeated(true);

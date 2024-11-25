@@ -3,7 +3,7 @@
 // Constructor del disparo
 disparo_primer_jefe::disparo_primer_jefe(float x, float y) {
     texture = new sf::Texture;
-    texture->loadFromFile("disparo_enemigo.azul.png");
+    texture->loadFromFile("imagen_NIATSU.png");
     sprite.setTexture(*texture);
     sprite.setTextureRect({40,923,35,32});
     sprite.setOrigin(sprite.getGlobalBounds().width/2, sprite.getGlobalBounds().height-10);

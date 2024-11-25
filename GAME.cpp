@@ -34,7 +34,7 @@ void Game::iniciar_partida() {
     tiempoDeGracia2 = 60 * 0.5;
     tiempoDeGracia3 = 60 * 0.4;
     tiempoUltimoDisparo = 0.0f;
-    tiempoOleada = 30;
+    tiempoOleada = 10;
     tiempoOleada2 = 40;
     intervaloDisparo = 0.2f;
     puntos = 0;
@@ -99,6 +99,8 @@ void Game::iniciar_partida() {
     menui.capturarNombreJugador();
     Musica.play();
     timerAparicion.restart();
+
+
 
 
 
@@ -192,7 +194,7 @@ void Game::iniciar_partida() {
                     if (coli.getVida() == 0) {
                         puntos += 100;
                         // Probabilidad del 10% de que aparezca el bonus cuando el coli es destruido
-                        if (std::rand() % 10 == 0) {
+                        if (std::rand() % 10 == 0 && powerup.getBounds().top+ powerup.getBounds().height > 600) {
                             banderaBonus = true;
                             powerup.respawn();
                         }

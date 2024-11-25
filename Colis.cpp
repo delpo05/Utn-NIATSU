@@ -7,7 +7,7 @@
 
 Colis::Colis() {
     _texture = new sf::Texture;
-    _texture->loadFromFile("colis.png");
+    _texture->loadFromFile("imagen_NIATSU.png");
     _sprite.setTexture(*_texture);
     _sprite.setTextureRect({145, 382, 55, 45});
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);

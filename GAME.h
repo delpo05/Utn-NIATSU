@@ -9,11 +9,10 @@
 #include <SFML/Audio.hpp>
 #include <vector>
 #include "menuIntermedio.h"
-#include "Ranking.h"
 #include "Jugador.h"
 #include "JugadorArchivo.h"
 #include "bonus.h"
-#include "archivo_jugadores.h"
+
 #include <string>
 #include<iostream>
 
