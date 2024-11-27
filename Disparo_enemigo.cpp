@@ -35,4 +35,9 @@ void Disparo_enemigo::disparo2do () const{
 
 }
 
+Disparo_enemigo::~Disparo_enemigo() {
+    if(sprite.getPosition().y>600){
+    delete texture;}
+}
+
 

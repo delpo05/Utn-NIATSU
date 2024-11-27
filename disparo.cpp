@@ -26,5 +26,10 @@ sf::FloatRect disparo::getBounds() const {
     return sprite.getGlobalBounds(); // Retorna límites para colisiones
 }
 
+disparo::~disparo() {
+    if(sprite.getPosition().y<0){
+    delete textureDisparo;}
+}
+
 
 

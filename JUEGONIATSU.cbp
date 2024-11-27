@@ -64,6 +64,8 @@
 		<Unit filename="disparos_primer_jefe.h" />
 		<Unit filename="fondo.cpp" />
 		<Unit filename="fondo.h" />
+		<Unit filename="jefe.cpp" />
+		<Unit filename="jefe.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />

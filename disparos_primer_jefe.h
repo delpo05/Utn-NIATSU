@@ -20,4 +20,6 @@ public:
 
     // Obtiene los límites (bounds) del proyectil
     sf::FloatRect getBounds() const;
+
+    ~disparo_primer_jefe();
 };

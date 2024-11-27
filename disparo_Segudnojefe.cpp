@@ -29,3 +29,8 @@ sf::FloatRect disparo_segundo_jefe::getBounds() const {
     return sprite.getGlobalBounds();
 }
 
+disparo_segundo_jefe::~disparo_segundo_jefe() {
+    if(sprite.getPosition().y>600){
+    delete texture;}
+}
+

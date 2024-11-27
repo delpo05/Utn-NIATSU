@@ -16,6 +16,7 @@ public:
     void update();              // Actualiza la posición
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;  // Dibuja el proyectil
     sf::FloatRect getBounds() const; // Obtiene límites para colisiones
+    ~disparo();
 
 
 };

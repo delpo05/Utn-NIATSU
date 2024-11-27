@@ -22,6 +22,7 @@ public:
     sf::FloatRect getBounds() const;
 
     void disparo2do () const;
+    ~Disparo_enemigo();
 
 
 };

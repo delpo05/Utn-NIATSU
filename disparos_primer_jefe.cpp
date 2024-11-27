@@ -28,3 +28,8 @@ void disparo_primer_jefe::draw(sf::RenderTarget& target, sf::RenderStates states
 sf::FloatRect disparo_primer_jefe::getBounds() const {
     return sprite.getGlobalBounds();
 }
+
+disparo_primer_jefe::~disparo_primer_jefe() {
+    if(sprite.getPosition().y>600){
+    delete texture;}
+}

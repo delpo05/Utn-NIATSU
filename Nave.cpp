@@ -36,7 +36,7 @@ void Nave::update()
         // Eliminar disparos que salen de la pantalla
         tiro.erase(std::remove_if(tiro.begin(), tiro.end(), [](disparo& d)
             {return d.sprite.getPosition().y < 0;}), tiro.end());
-        //FIN DE LA ELIMINACION
+        //FIN DE LA ELIMINACIO
 
         // Límites de pantalla para la nave
         if (_sprite.getGlobalBounds().left < 0)
