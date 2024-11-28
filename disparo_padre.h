@@ -4,17 +4,13 @@
 
 class disparo_padre : public sf::Drawable, public collisionable
 {
-public:
+protected:
     sf::Sprite sprite;      // Sprite del proyectil
     sf::Texture *texture;    // Textura del proyectil
     float velocidad;
-
-    void update();
-
+public:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-
     sf::FloatRect getBounds() const;
-
     ~disparo_padre();
 
 };

@@ -1,8 +1,6 @@
 #include "disparo_padre.h"
 
-void disparo_padre::update() {
-    sprite.move(0, velocidad); // Movimiento hacia arriba
-}
+
 
 void disparo_padre::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {

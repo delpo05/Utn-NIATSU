@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "collisionable.h"
+#include "colision.h"
 class bonus : public sf::Drawable, public collisionable
 {
         sf::Sprite _sprite;

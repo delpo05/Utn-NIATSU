@@ -11,3 +11,7 @@ disparo_primer_jefe::disparo_primer_jefe(float x, float y) {
     velocidad = 10.0; // Velocidad de movimiento del disparo
 }
 
+
+void disparo_primer_jefe::update() {
+    sprite.move(0, velocidad); // Movimiento hacia arriba
+}
