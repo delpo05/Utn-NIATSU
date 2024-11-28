@@ -35,7 +35,7 @@ void Game::iniciar_partida() {
     tiempoDeGracia3 = 60 * 0.4;
     tiempoUltimoDisparo = 0.0f;
     tiempoOleada = 10;
-    tiempoOleada2 = 40;
+    tiempoOleada2 = 10;
     intervaloDisparo = 0.2f;
     puntos = 0;
 

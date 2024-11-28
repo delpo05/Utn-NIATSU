@@ -1,5 +1,5 @@
 #include "disparos_primer_jefe.h"
-//lore
+
 // Constructor del disparo
 disparo_primer_jefe::disparo_primer_jefe(float x, float y) {
     texture = new sf::Texture;

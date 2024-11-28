@@ -2,9 +2,9 @@
 
 // Constructor del disparo
 disparo::disparo(float x, float y) {
-    textureDisparo = new sf::Texture;  // Reserva memoria para la textura
-    textureDisparo ->loadFromFile("disparo.png");  // Carga la textura desde archivo
-    sprite.setTexture(*textureDisparo); // Asigna la textura al sprite
+    texture = new sf::Texture;  // Reserva memoria para la textura
+    texture ->loadFromFile("disparo.png");  // Carga la textura desde archivo
+    sprite.setTexture(*texture); // Asigna la textura al sprite
     sprite.setTextureRect({140, 183, 65, 40}); // Rectángulo de textura
     sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height);
     sprite.setPosition(x, y); // Posición inicial
@@ -17,19 +17,5 @@ void disparo::update() {
 
 
 }
-
-void disparo::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-    target.draw(sprite, states); // Dibuja el proyectil
-}
-
-sf::FloatRect disparo::getBounds() const {
-    return sprite.getGlobalBounds(); // Retorna límites para colisiones
-}
-
-disparo::~disparo() {
-    if(sprite.getPosition().y<0){
-    delete textureDisparo;}
-}
-
 
 

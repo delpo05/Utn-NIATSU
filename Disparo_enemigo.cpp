@@ -18,26 +18,11 @@ void Disparo_enemigo::update() {
     sprite.move(0, velocidad); // Movimiento hacia arriba
 }
 
-// Dibujar el disparo
-void Disparo_enemigo::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-    target.draw(sprite, states);
-
-}
-// Obtener los límites del disparo (para colisiones)
-sf::FloatRect Disparo_enemigo::getBounds() const {
-    return sprite.getGlobalBounds();
-}
 
 void Disparo_enemigo::disparo2do () const{
 
      sprite.setTextureRect({23,1278,66,42});
 
-}
-
-Disparo_enemigo::~Disparo_enemigo() {
-    if(sprite.getPosition().y>600){
-    delete texture;}
 }
 
 

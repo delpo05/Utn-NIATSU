@@ -2568,7 +2568,7 @@
 	<stdlib.h>
 	"disparo.h"
 
-1732713114 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
+1732829210 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2592,11 +2592,14 @@
 	<string>
 	<iostream>
 
-1732666218 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo.h
+1732829572 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo.h
 	<SFML/Graphics.hpp>
 	"colision.h"
+	<SFML/Graphics.hpp>
+	"colision.h"
+	"disparo_padre.h"
 
-1732714258 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo.cpp
+1732829590 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo.cpp
 	"disparo.h"
 
 1729690142 source:c:\users\usuario\documents\nueva carpeta\utn-niatsu\colision.cpp
@@ -3195,11 +3198,12 @@
 	"Disparo_enemigo.h"
 	"colision.h"
 
-1732714601 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_enemigo.h
+1732829572 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_enemigo.h
 	<SFML/Graphics.hpp>
 	"colision.h"
+	"disparo_padre.h"
 
-1732714601 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_enemigo.cpp
+1732829247 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_enemigo.cpp
 	"Disparo_enemigo.h"
 
 1731271326 source:c:\users\lauta\onedrive\documentos\github\utn-niatsu\colis.cpp
@@ -3809,10 +3813,10 @@
 1731270952 c:\users\felid\onedrive\documentos\github\utn-niatsu\fondo.h
 	<SFML/Graphics.hpp>
 
-1732715060 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparos_primer_jefe.cpp
+1732827964 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparos_primer_jefe.cpp
 	"disparos_primer_jefe.h"
 
-1732642871 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\primer_jefe.cpp
+1732804943 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\primer_jefe.cpp
 	"primer_jefe.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -4446,16 +4450,18 @@
 	"colision.h"
 	"jefe.h"
 
-1732715060 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparos_primer_jefe.h
+1732827226 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparos_primer_jefe.h
 	<SFML/Graphics.hpp>
 	"colision.h"
+	"disparo_padre.h"
 
-1732642871 c:\users\felid\onedrive\documentos\github\utn-niatsu\primer_jefe.h
+1732797712 c:\users\felid\onedrive\documentos\github\utn-niatsu\primer_jefe.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
 	"disparos_primer_jefe.h"
 	"colision.h"
+	"jefe.h"
 
 1731457948 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\menu.cpp
 	"Menu.h"
@@ -5399,26 +5405,28 @@
 	<cmath>
 	"disparo_Segundojefe.h"
 
-1732715306 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_segudnojefe.cpp
+1732827964 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_segudnojefe.cpp
 	"disparo_Segundojefe.h"
 
-1732715323 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_segundojefe.h
+1732827964 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_segundojefe.h
 	<SFML/Graphics.hpp>
 	"colision.h"
+	"disparo_padre.h"
 
-1732717406 c:\users\felid\onedrive\documentos\github\utn-niatsu\segundo_jefe.h
+1732804943 c:\users\felid\onedrive\documentos\github\utn-niatsu\segundo_jefe.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
 	"disparo_Segundojefe.h"
 	"colision.h"
+	"jefe.h"
 
 1731496443 c:\users\felid\onedrive\documentos\github\utn-niatsu\ranking.h
 
 1731581656 c:\users\felid\onedrive\documentos\github\utn-niatsu\jugador.h
 	<cstring>
 
-1732495112 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\segundo_jefe.cpp
+1732804943 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\segundo_jefe.cpp
 	"Segundo_jefe.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -5431,9 +5439,9 @@
 	"bonus.h"
 	<stdlib.h>
 
-1731442223 c:\users\felid\onedrive\documentos\github\utn-niatsu\bonus.h
+1732827226 c:\users\felid\onedrive\documentos\github\utn-niatsu\bonus.h
 	<SFML/Graphics.hpp>
-	"collisionable.h"
+	"colision.h"
 
 1729715177 c:\users\felid\onedrive\documentos\github\utn-niatsu\collisionable.h
 	<SFML/Graphics.hpp>
@@ -5508,9 +5516,14 @@
 
 1731498209 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\archivo_jugadores.h
 
-1732642871 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\jefe.cpp
+1732797712 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\jefe.cpp
+	"jefe.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<ctime>
+	<stdlib.h>
 
-1732642732 c:\users\felid\onedrive\documentos\github\utn-niatsu\jefe.h
+1732797712 c:\users\felid\onedrive\documentos\github\utn-niatsu\jefe.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
@@ -5577,4 +5590,11 @@
 1732626327 source:c:\users\delpo\documents\juego\juegoniatsu\juegoniatsu\utn-niatsu\jugador.cpp
 	"Jugador.h"
 	<cstring>
+
+1732830493 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_padre.cpp
+	"disparo_padre.h"
+
+1732829993 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparo_padre.h
+	<SFML/Graphics.hpp>
+	"colision.h"
 
