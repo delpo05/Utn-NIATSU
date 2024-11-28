@@ -3819,7 +3819,7 @@
 	<stdlib.h>
 	"disparos_primer_jefe.h"
 
-1731550955 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\colis.cpp
+1732645708 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\colis.cpp
 	"Colis.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -4347,7 +4347,7 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1731331665 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo_enemigo.h
+1732717605 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo_enemigo.h
 	<SFML/Graphics.hpp>
 	"colision.h"
 
@@ -4357,33 +4357,33 @@
 1730731708 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\colision.cpp
 	"colision.h"
 
-1731550129 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo.cpp
+1732717605 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo.cpp
 	"disparo.h"
 
-1731550129 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo.h
+1732717605 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo.h
 	<SFML/Graphics.hpp>
 	"colision.h"
 
-1731331665 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo_enemigo.cpp
+1732717605 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo_enemigo.cpp
 	"Disparo_enemigo.h"
 
-1730734219 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparos_primer_jefe.cpp
+1732717605 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparos_primer_jefe.cpp
 	"disparos_primer_jefe.h"
 
-1731532112 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\fondo.cpp
+1732645708 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\fondo.cpp
 	"Fondo.h"
 
 1731183768 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\fondo.h
 	<SFML/Graphics.hpp>
 
-1731541825 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\game.cpp
+1732645708 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<ctime>
 	<stdlib.h>
 
-1731534809 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\game.h
+1732645708 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
@@ -4394,15 +4394,13 @@
 	<SFML/Audio.hpp>
 	<vector>
 	"menuIntermedio.h"
-	"Ranking.h"
 	"Jugador.h"
 	"JugadorArchivo.h"
 	"bonus.h"
-	"archivo_jugadores.h"
 	<string>
 	<iostream>
 
-1730731708 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\nave.h
+1732645707 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\nave.h
 	<SFML\Graphics.hpp>
 	"disparo.h"
 	"colision.h"
@@ -4418,7 +4416,7 @@
 	<iostream>
 	"JugadorArchivo.h"
 
-1731550129 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\nave.cpp
+1732717605 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\nave.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -4426,7 +4424,7 @@
 	<stdlib.h>
 	"disparo.h"
 
-1731550888 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\primer_jefe.cpp
+1732751523 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\primer_jefe.cpp
 	"primer_jefe.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -4434,16 +4432,17 @@
 	<stdlib.h>
 	"disparos_primer_jefe.h"
 
-1730734094 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparos_primer_jefe.h
+1732717605 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparos_primer_jefe.h
 	<SFML/Graphics.hpp>
 	"colision.h"
 
-1731550294 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\primer_jefe.h
+1732751504 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\primer_jefe.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
 	"disparos_primer_jefe.h"
 	"colision.h"
+	"jefe.h"
 
 1732715060 c:\users\felid\onedrive\documentos\github\utn-niatsu\disparos_primer_jefe.h
 	<SFML/Graphics.hpp>
@@ -5463,21 +5462,21 @@
 1730731708 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\collisionable.h
 	<SFML/Graphics.hpp>
 
-1731411379 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo_segudnojefe.cpp
+1732717605 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo_segudnojefe.cpp
 	"disparo_Segundojefe.h"
 
-1731411379 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo_segundojefe.h
+1732717605 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\disparo_segundojefe.h
 	<SFML/Graphics.hpp>
 	"colision.h"
 
-1731509915 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\jugador.cpp
+1731582630 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\jugador.cpp
 	"Jugador.h"
 	<cstring>
 
-1731509915 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\jugador.h
+1731582630 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\jugador.h
 	<cstring>
 
-1731550294 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\segundo_jefe.h
+1732748852 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\segundo_jefe.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>
@@ -5486,7 +5485,7 @@
 
 1731509915 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\ranking.h
 
-1731529003 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\jugadorarchivo.h
+1731582630 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\jugadorarchivo.h
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -5495,7 +5494,7 @@
 
 1731509915 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\ranking.cpp
 
-1731550294 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\segundo_jefe.cpp
+1732718955 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\segundo_jefe.cpp
 	"Segundo_jefe.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -5509,6 +5508,19 @@
 1732642871 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\jefe.cpp
 
 1732642732 c:\users\felid\onedrive\documentos\github\utn-niatsu\jefe.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<vector>
+	"colision.h"
+
+1732751329 source:c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\jefe.cpp
+	"jefe.h"
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<ctime>
+	<stdlib.h>
+
+1732751504 c:\users\usuario\documents\qverrrrrrrrrrrrrr\utn-niatsu\jefe.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<vector>

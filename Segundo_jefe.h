@@ -36,13 +36,10 @@ class Segundo_jefe : public sf::Drawable, public collisionable {
     sf::Sound recibetiro;
     sf::SoundBuffer bufferrecibetiro;
 
-
-
-
 public:
     Segundo_jefe ();
     void update();
-    void respawn();
+
     const std::vector<disparo_segundo_jefe>& getDisparos() const;
     sf::FloatRect getBounds() const;
     void disparar();

@@ -19,7 +19,7 @@ primer_jefe::primer_jefe() {
     _velocidadY = 2;
 
     disparoTimer = 0;
-    vida_primer_jefe =20;
+    vida_jefe =20;
 
     audiodisparoJefe.loadFromFile("disparojefe1.wav");
     disparoJefe.setBuffer(audiodisparoJefe);
@@ -43,9 +43,6 @@ primer_jefe::primer_jefe() {
 
 }
 
-void primer_jefe::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-    target.draw(_sprite, states);
-}
 
 void primer_jefe::update() {
 
@@ -64,7 +61,7 @@ void primer_jefe::update() {
     if(bandera_jefe_muerto == false){
 
     // Si el enemigo no tiene vida, ejecutar la animación de explosión
-    if (vida_primer_jefe <= 0) {
+    if (vida_jefe <= 0) {
         explosionJefe.play();
         explosion();
 
@@ -102,7 +99,7 @@ void primer_jefe::update() {
     }*/
 
     // Control de disparo
-    if (disparoTimer <= 0 && vida_primer_jefe >= 1 && _velocidadY == 0) {
+    if (disparoTimer <= 0 && vida_jefe >= 1 && _velocidadY == 0) {
         disparar();
         disparoJefe.play();
         intervaloDisparo = float(std::rand() % 300 + 100);
@@ -129,9 +126,7 @@ const std::vector<disparo_primer_jefe>& primer_jefe::getDisparos() const {
     return tiroJ;
 }
 
-sf::FloatRect primer_jefe::getBounds() const {
-    return _sprite.getGlobalBounds();
-}
+
 
 void primer_jefe::explosion() {
     _frame += 0.2;
@@ -147,11 +142,5 @@ void primer_jefe::explosion() {
 
 }
 
-void primer_jefe::recibedanio(){
-    setVida_primer_jefe(getVida()-1);
-    impacto_img = true;
-    timerAparicion_jefe.restart(); // Inicia el temporizador en cada impacto
-    recibetiro.play();
 
-}
 
