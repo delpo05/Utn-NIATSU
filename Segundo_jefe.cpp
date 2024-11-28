@@ -21,7 +21,7 @@ Segundo_jefe::Segundo_jefe() {
 
     disparoTimer = 0;
     intervaloDisparo = float(std::rand() % 2000 + 1000);  // entre 1 y 3 segundos
-    vida_segundo_jefe =15;
+    vida_jefe =2;
 
     audiodisparoJefe.loadFromFile("disparojefe1.wav");
     disparoJefe.setBuffer(audiodisparoJefe);
@@ -46,19 +46,16 @@ Segundo_jefe::Segundo_jefe() {
 
 }
 
-void Segundo_jefe::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-    target.draw(_sprite, states);
-}
 
 void Segundo_jefe::update() {
 
     if (impacto_img) {
-        tiempo_transcurrido_jefe2 = timerAparicion_jefe2.getElapsedTime();
-        if (tiempo_transcurrido_jefe2.asSeconds() < 0.2) {
+        tiempo_transcurrido_jefe = timerAparicion_jefe.getElapsedTime();
+        if (tiempo_transcurrido_jefe.asSeconds() < 0.2) {
             _sprite.setTextureRect({656, 219, 94, 124}); // Frame dañado
         } else {
             _sprite.setTextureRect({118, 205, 112, 130}); // Restaurar textura original
-            timerAparicion_jefe2.restart();
+            timerAparicion_jefe.restart();
             impacto_img = false;
         }
     }
@@ -67,12 +64,12 @@ void Segundo_jefe::update() {
     if(bandera_jefe_muerto2 == false){
 
     // Si el enemigo no tiene vida, ejecutar la animación de explosión
-    if (vida_segundo_jefe <= 0) {
+    if (vida_jefe <= 0) {
         explosionJefe.play();
         explosion();
 
          // Detener la actualización si está explotando
-    }
+         }
 
 
     if(_sprite.getPosition().y > _sprite.getGlobalBounds().height){
@@ -128,7 +125,7 @@ void Segundo_jefe::update() {
 
 
     // Control de disparo
-    if (disparoTimer <= 0 && vida_segundo_jefe >= 1 && bandera_pasoPantalla == true) {
+    if (disparoTimer <= 0 && vida_jefe >= 1 && bandera_pasoPantalla == true) {
         disparar();
         disparoJefe.play();
         intervaloDisparo = float(std::rand() % 200 + 100);
@@ -144,8 +141,6 @@ void Segundo_jefe::update() {
 }
 }
 
-
-
 void Segundo_jefe::disparar() {
     disparo_segundo_jefe nuevoDisparo(_sprite.getPosition().x, _sprite.getPosition().y);
     tiroJ.push_back(nuevoDisparo);
@@ -153,10 +148,6 @@ void Segundo_jefe::disparar() {
 
 const std::vector<disparo_segundo_jefe>& Segundo_jefe::getDisparos() const {
     return tiroJ;
-}
-
-sf::FloatRect Segundo_jefe::getBounds() const {
-    return _sprite.getGlobalBounds();
 }
 
 void Segundo_jefe::explosion() {
@@ -173,10 +164,3 @@ void Segundo_jefe::explosion() {
 
 }
 
-void Segundo_jefe::recibedanio(){
-    setVida_segundo_jefe(getVida()-1);
-    impacto_img = true;
-    timerAparicion_jefe2.restart(); // Inicia el temporizador en cada impacto
-    recibetiro.play();
-
-}

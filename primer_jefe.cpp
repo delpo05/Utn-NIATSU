@@ -19,7 +19,7 @@ primer_jefe::primer_jefe() {
     _velocidadY = 2;
 
     disparoTimer = 0;
-    vida_jefe =20;
+    vida_jefe =1;
 
     audiodisparoJefe.loadFromFile("disparojefe1.wav");
     disparoJefe.setBuffer(audiodisparoJefe);

@@ -60,6 +60,8 @@
 		<Unit filename="disparo.h" />
 		<Unit filename="disparo_Segudnojefe.cpp" />
 		<Unit filename="disparo_Segundojefe.h" />
+		<Unit filename="disparo_padre.cpp" />
+		<Unit filename="disparo_padre.h" />
 		<Unit filename="disparos_primer_jefe.cpp" />
 		<Unit filename="disparos_primer_jefe.h" />
 		<Unit filename="fondo.cpp" />

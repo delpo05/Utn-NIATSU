@@ -11,25 +11,3 @@ disparo_primer_jefe::disparo_primer_jefe(float x, float y) {
     velocidad = 10.0; // Velocidad de movimiento del disparo
 }
 
-
-
-// Actualizar posición del disparo
-void disparo_primer_jefe::update() {
-    sprite.move(0, velocidad); // Movimiento hacia arriba
-}
-
-// Dibujar el disparo
-void disparo_primer_jefe::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-    target.draw(sprite, states);
-
-}
-// Obtener los límites del disparo (para colisiones)
-sf::FloatRect disparo_primer_jefe::getBounds() const {
-    return sprite.getGlobalBounds();
-}
-
-disparo_primer_jefe::~disparo_primer_jefe() {
-    if(sprite.getPosition().y>600){
-    delete texture;}
-}
