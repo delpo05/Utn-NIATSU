@@ -13,6 +13,7 @@ Nave::Nave()
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height); // Centra el sprite
     vida_nave = 20; // Inicializa la vida de la nave
     _sprite.setPosition(400, 550); // Posición inicial de la nave
+    cantidad_de_disparos = 0;
 }
 
 void Nave::update()
@@ -48,6 +49,9 @@ void Nave::update()
         if (_sprite.getGlobalBounds().left + _sprite.getGlobalBounds().width > 800)
             _sprite.setPosition(800 - (_sprite.getGlobalBounds().width - _sprite.getOrigin().x), _sprite.getPosition().y);
     }
+
+
+    cantidad_de_disparos = tiro.size();
 }
 
 void Nave::draw(sf::RenderTarget& target, sf::RenderStates states) const

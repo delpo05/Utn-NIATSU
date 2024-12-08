@@ -77,7 +77,9 @@ class Game : public sf::Drawable {
     sf::Text textoGanaste;
     sf::Text textoPerdiste;
 
-
+///PARA CHEQUEO DE MEMORY LEAK
+    sf::Text cant;
+    size_t lore;
 
 
 
@@ -88,7 +90,6 @@ public:
     void iniciar_partida();          // Ciclo principal del juego
     void pausar_partida();           // Pausar el juego (por implementar)
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;  // Dibuja en pantalla
-
 
 };
 

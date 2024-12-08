@@ -26,6 +26,7 @@ Colis::Colis() {
     _frame = 0;
     banderaSegundoNivel = false;
     banderaAparicionSegundosColis = false;
+    cant=0;
 }
 
 void Colis::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -111,6 +112,9 @@ void Colis::update() {
     tiroC.erase(std::remove_if(tiroC.begin(), tiroC.end(), [](Disparo_enemigo& d) {
         return d.sprite.getPosition().y > 600;
     }), tiroC.end());
+
+
+    cant=tiroC.size();
 }
 
 void Colis::respawn() {

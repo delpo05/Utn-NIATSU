@@ -23,6 +23,7 @@ class Colis : public sf::Drawable, public collisionable {
     int _CantidadColis;
     int TimerRespawn;
     float _frame;
+    size_t cant;
 
 
 
@@ -43,6 +44,7 @@ public:
     bool banderaSegundoNivel;
     bool banderaAparicionSegundosColis;
     void setBanderaSegundoNivel(bool b){banderaSegundoNivel = b;}
+    size_t getCant(){return cant;}
 
 
 };

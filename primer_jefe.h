@@ -14,11 +14,11 @@ private:
 public:
     primer_jefe();
     void update();
-    const std::vector<disparo_primer_jefe>& getDisparos() const;
+    std::vector<disparo_primer_jefe>& getDisparos();
     void disparar();
     void explosion();
 
-    bool getbandera_jefe_muerto() const { return bandera_jefe_muerto; }
+    bool getbandera_jefe_muerto(){return bandera_jefe_muerto; }
 
 
 };

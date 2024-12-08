@@ -13,7 +13,7 @@ public:
     Jugador();
 
     // Constructor con parámetros
-    Jugador(const char* nombre, int puntos);
+    Jugador(char* nombre, int puntos);
 
 
 

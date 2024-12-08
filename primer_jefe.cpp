@@ -11,34 +11,23 @@ primer_jefe::primer_jefe() {
     _sprite.setTexture(_texture);
     _sprite.setTextureRect({123, 943, 102, 87});
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
-    // Establece la posición inicial en una coordenada aleatoria en la parte superior de la pantalla
     _sprite.setPosition(400, -_sprite.getGlobalBounds().height);
-
-    // Velocidades iniciales aleatorias en X y Y
     _velocidadX = (std::rand() % 2 == 0) ? 3.5 : -3.5;
     _velocidadY = 2;
-
     disparoTimer = 0;
     vida_jefe =1;
-
     audiodisparoJefe.loadFromFile("disparojefe1.wav");
     disparoJefe.setBuffer(audiodisparoJefe);
     disparoJefe.setVolume(10);
-
     audioexplosionJefe.loadFromFile("explosionjefelarga2.wav");
     explosionJefe.setBuffer(audioexplosionJefe);
     explosionJefe.setVolume(10);
-
-
-
     _frame = 0;
     _contador = 0;
     bandera_jefe_muerto = false;
-
     bufferrecibetiro.loadFromFile("explosion_coli.wav");
     recibetiro.setBuffer(bufferrecibetiro);
     recibetiro.setVolume(10);
-
     impacto_img = false;
 
 }
@@ -60,20 +49,20 @@ void primer_jefe::update() {
 
     if(bandera_jefe_muerto == false){
 
-    // Si el enemigo no tiene vida, ejecutar la animación de explosión
+
     if (vida_jefe <= 0) {
         explosionJefe.play();
         explosion();
 
-         // Detener la actualización si está explotando
+
     }
 
 
-    // Ajuste aleatorio en la velocidad X para un movimiento horizontal más impredecible
-    if (std::rand() % 20 == 0) {  // 1 en 20 posibilidad de cambiar aleatoriamente cada ciclo
-        _velocidadX += (std::rand() % 3 - 1);  // Añade -1, 0 o 1 a _velocidadX
-        if (_velocidadX > 5.0) _velocidadX = 5.0; // Límite superior
-        if (_velocidadX < -5.0) _velocidadX = -5.0; // Límite inferior
+
+    if (std::rand() % 20 == 0) {
+        _velocidadX += (std::rand() % 3 - 1);
+        if (_velocidadX > 5.0) _velocidadX = 5.0;
+        if (_velocidadX < -5.0) _velocidadX = -5.0;
     }
 
 
@@ -122,7 +111,7 @@ void primer_jefe::disparar() {
     tiroJ.push_back(nuevoDisparo);
 }
 
-const std::vector<disparo_primer_jefe>& primer_jefe::getDisparos() const {
+std::vector<disparo_primer_jefe>& primer_jefe::getDisparos(){
     return tiroJ;
 }
 

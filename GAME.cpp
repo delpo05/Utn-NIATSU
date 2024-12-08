@@ -54,6 +54,11 @@ void Game::iniciar_partida() {
     texVidaJefe2.setCharacterSize(15);
     texOleada.setCharacterSize(13);
 
+    ///CHEQUEO DE MEMORY LEAK
+    cant.setCharacterSize(10);
+    cant.setFillColor(sf::Color::Green);
+    cant.setFont(Letra);
+
 
     textoPerdiste.setString("Perdiste");
     textoPerdiste.setCharacterSize(50);
@@ -286,6 +291,11 @@ void Game::iniciar_partida() {
             banderaGolpeJefe = false;
         }
 
+        ///CHEQUEO DE MEMORY LEAK
+         for (auto& coli : colis){
+            lore=coli.getCant();
+         }
+
 
 
         // SEGUNDO NIVEL
@@ -357,9 +367,13 @@ void Game::iniciar_partida() {
         texvidas.setString("VIDAS: " + std::to_string(niatsu.getVida_nave()));
         texVidaJefe1.setString("VIDAS JEFE: " + std::to_string(jefe1.getVida()));
         texVidaJefe2.setString("VIDAS JEFE: " + std::to_string(jefe2.getVida()));
+
         texOleada.setString("TIEMPO OLEADA: " + std::to_string(tiempoRestante+1) + " segundos");
 
-
+        ///CHEQUEO DE MEMORY LEAK
+        cant.setPosition({5, 585});
+        cant.setString("NAVE: " + std::to_string(lore));
+        window.draw(cant);
 
         if (bandera_oleada == false && jefe1.getbandera_jefe_muerto() == false) {
             window.draw(texVidaJefe1);
