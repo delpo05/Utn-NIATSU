@@ -44,6 +44,8 @@ Segundo_jefe::Segundo_jefe() {
 
     impacto_img = false;
 
+    ///CHEQUEO DE MEMORY LEAK
+    cantidad_de_disparos=0;
 }
 
 
@@ -124,6 +126,9 @@ void Segundo_jefe::update() {
         }), tiroJ.end());
 
 
+
+    cantidad_de_disparos = tiroJ.size();
+
     // Control de disparo
     if (disparoTimer <= 0 && vida_jefe >= 1 && bandera_pasoPantalla == true) {
         disparar();
@@ -162,5 +167,10 @@ void Segundo_jefe::explosion() {
     }
 
 
+}
+
+void Segundo_jefe::borrarDisparos(){
+    tiroJ.clear();
+    cantidad_de_disparos=tiroJ.size();
 }
 

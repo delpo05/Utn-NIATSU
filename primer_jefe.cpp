@@ -70,6 +70,8 @@ void primer_jefe::update() {
         {return d.sprite.getPosition().y > 600;}), tiroJ.end());
 
 
+        cantidad_de_disparos = tiroJ.size();
+
     // Movimiento
     _sprite.move(_velocidadX, _velocidadY);
 
@@ -129,6 +131,11 @@ void primer_jefe::explosion() {
     }
 
 
+}
+
+void primer_jefe::borrarDisparos(){
+    tiroJ.clear();
+    cantidad_de_disparos=tiroJ.size();
 }
 
 

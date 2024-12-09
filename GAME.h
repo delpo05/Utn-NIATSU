@@ -78,8 +78,13 @@ class Game : public sf::Drawable {
     sf::Text textoPerdiste;
 
 ///PARA CHEQUEO DE MEMORY LEAK
-    sf::Text cant;
-    size_t lore;
+    sf::Text textcant_disparo_nave;
+    sf::Text textcant_disparo_colis;
+    sf::Text textcant_disparos_primer_jefe;
+    sf::Text textcant_disparos_segundo_jefe;
+
+    size_t cant_disp_colis;
+
 
 
 

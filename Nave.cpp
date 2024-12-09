@@ -74,3 +74,7 @@ sf::FloatRect Nave::getBounds() const {
 }
 
 
+void Nave::borrarDisparos(){
+    tiro.clear();
+}
+

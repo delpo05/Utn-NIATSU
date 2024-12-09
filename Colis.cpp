@@ -152,3 +152,8 @@ void Colis::coli2donivel() {
     _sprite.setTextureRect({138, 1291, 67, 71});
     banderaSegundoNivel = true;
 }
+
+void Colis::borrarDisparos(){
+    tiroC.clear();
+    cant=tiroC.size();
+}

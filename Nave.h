@@ -22,5 +22,6 @@ public:
     void setVida_nave(int vida) { vida_nave = vida; }  // Establece la vida de la nave
     int getVida_nave() { return vida_nave; }  // Obtiene la vida de la nave
     size_t Getcantidad_de_disparos(){return cantidad_de_disparos;};
+    void borrarDisparos();
 };
 

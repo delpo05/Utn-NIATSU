@@ -45,6 +45,7 @@ public:
     bool banderaAparicionSegundosColis;
     void setBanderaSegundoNivel(bool b){banderaSegundoNivel = b;}
     size_t getCant(){return cant;}
+    void borrarDisparos();
 
 
 };

@@ -55,9 +55,18 @@ void Game::iniciar_partida() {
     texOleada.setCharacterSize(13);
 
     ///CHEQUEO DE MEMORY LEAK
-    cant.setCharacterSize(10);
-    cant.setFillColor(sf::Color::Green);
-    cant.setFont(Letra);
+    textcant_disparo_nave.setCharacterSize(10);
+    textcant_disparo_nave.setFillColor(sf::Color::Green);
+    textcant_disparo_nave.setFont(Letra);
+    textcant_disparo_colis.setCharacterSize(10);
+    textcant_disparo_colis.setFillColor(sf::Color::Red);
+    textcant_disparo_colis.setFont(Letra);
+    textcant_disparos_primer_jefe.setCharacterSize(10);
+    textcant_disparos_primer_jefe.setFillColor(sf::Color::Green);
+    textcant_disparos_primer_jefe.setFont(Letra);
+    textcant_disparos_segundo_jefe.setCharacterSize(10);
+    textcant_disparos_segundo_jefe.setFillColor(sf::Color::Red);
+    textcant_disparos_segundo_jefe.setFont(Letra);
 
 
     textoPerdiste.setString("Perdiste");
@@ -245,6 +254,12 @@ void Game::iniciar_partida() {
         if (jefe1.getbandera_jefe_muerto() == true) {
 
             if (secondLevel == false){
+            niatsu.borrarDisparos();
+            jefe1.borrarDisparos();
+            jefe2.borrarDisparos();
+            for (auto& coli : colis){
+            coli.borrarDisparos();
+         }
             Musica.stop();
             menui.mostrarMenuPrincipal();
 
@@ -293,7 +308,7 @@ void Game::iniciar_partida() {
 
         ///CHEQUEO DE MEMORY LEAK
          for (auto& coli : colis){
-            lore=coli.getCant();
+            cant_disp_colis=coli.getCant();
          }
 
 
@@ -371,9 +386,18 @@ void Game::iniciar_partida() {
         texOleada.setString("TIEMPO OLEADA: " + std::to_string(tiempoRestante+1) + " segundos");
 
         ///CHEQUEO DE MEMORY LEAK
-        cant.setPosition({5, 585});
-        cant.setString("NAVE: " + std::to_string(lore));
-        window.draw(cant);
+        textcant_disparo_nave.setPosition({5, 585});
+        textcant_disparo_nave.setString("NAVE: " + std::to_string(niatsu.Getcantidad_de_disparos()));
+        window.draw(textcant_disparo_nave);
+        textcant_disparo_colis.setPosition({5, 570});
+        textcant_disparo_colis.setString("COLIS: " + std::to_string(cant_disp_colis));
+        window.draw(textcant_disparo_colis);
+        textcant_disparos_primer_jefe.setPosition({5, 555});
+        textcant_disparos_primer_jefe.setString("JEFE 1: " + std::to_string(jefe1.getCantidad_de_disparos()));
+        window.draw(textcant_disparos_primer_jefe);
+        textcant_disparos_segundo_jefe.setPosition({5, 540});
+        textcant_disparos_segundo_jefe.setString("JEFE 2: " + std::to_string(jefe2.getCantidad_de_disparos()));
+        window.draw(textcant_disparos_segundo_jefe);
 
         if (bandera_oleada == false && jefe1.getbandera_jefe_muerto() == false) {
             window.draw(texVidaJefe1);
