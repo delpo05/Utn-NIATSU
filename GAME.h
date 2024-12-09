@@ -95,6 +95,7 @@ public:
     void iniciar_partida();          // Ciclo principal del juego
     void pausar_partida();           // Pausar el juego (por implementar)
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;  // Dibuja en pantalla
+    void eliminarTodosLosVectoresDeDisparos();
 
 };
 

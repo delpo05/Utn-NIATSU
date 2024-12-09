@@ -34,8 +34,8 @@ void Game::iniciar_partida() {
     tiempoDeGracia2 = 60 * 0.5;
     tiempoDeGracia3 = 60 * 0.4;
     tiempoUltimoDisparo = 0.0f;
-    tiempoOleada = 10;
-    tiempoOleada2 = 10;
+    tiempoOleada = 5;
+    tiempoOleada2 = 5;
     intervaloDisparo = 0.2f;
     puntos = 0;
 
@@ -254,12 +254,7 @@ void Game::iniciar_partida() {
         if (jefe1.getbandera_jefe_muerto() == true) {
 
             if (secondLevel == false){
-            niatsu.borrarDisparos();
-            jefe1.borrarDisparos();
-            jefe2.borrarDisparos();
-            for (auto& coli : colis){
-            coli.borrarDisparos();
-         }
+            eliminarTodosLosVectoresDeDisparos();
             Musica.stop();
             menui.mostrarMenuPrincipal();
 
@@ -325,6 +320,7 @@ void Game::iniciar_partida() {
         powerup.update();
 
         if (niatsu.getVida_nave()<1){
+        eliminarTodosLosVectoresDeDisparos();
         window.clear();
         window.draw(textoPerdiste);
         window.display();
@@ -356,6 +352,7 @@ void Game::iniciar_partida() {
         ArchivoJugadores archivoJugadores("jugadores.dat");
         archivoJugadores.grabarRegistro(jugadorFinal);
         window.clear();
+        eliminarTodosLosVectoresDeDisparos();
         window.draw(textoGanaste);
         window.display();
 
@@ -386,6 +383,8 @@ void Game::iniciar_partida() {
         texOleada.setString("TIEMPO OLEADA: " + std::to_string(tiempoRestante+1) + " segundos");
 
         ///CHEQUEO DE MEMORY LEAK
+
+        /*
         textcant_disparo_nave.setPosition({5, 585});
         textcant_disparo_nave.setString("NAVE: " + std::to_string(niatsu.Getcantidad_de_disparos()));
         window.draw(textcant_disparo_nave);
@@ -398,6 +397,8 @@ void Game::iniciar_partida() {
         textcant_disparos_segundo_jefe.setPosition({5, 540});
         textcant_disparos_segundo_jefe.setString("JEFE 2: " + std::to_string(jefe2.getCantidad_de_disparos()));
         window.draw(textcant_disparos_segundo_jefe);
+        */
+
 
         if (bandera_oleada == false && jefe1.getbandera_jefe_muerto() == false) {
             window.draw(texVidaJefe1);
@@ -492,6 +493,17 @@ void Game::iniciar_partida() {
 
 void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     // Dibujar elementos adicionales si es necesario
+}
+
+void Game::eliminarTodosLosVectoresDeDisparos(){
+            niatsu.borrarDisparos();
+            jefe1.borrarDisparos();
+            jefe2.borrarDisparos();
+            for (auto& coli : colis){
+            coli.borrarDisparos();
+         }
+
+
 }
 
 

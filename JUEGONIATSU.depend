@@ -2451,7 +2451,7 @@
 	<iostream>
 	"JugadorArchivo.h"
 
-1733709608 c:\users\felid\onedrive\documentos\github\utn-niatsu\nave.h
+1733775996 c:\users\felid\onedrive\documentos\github\utn-niatsu\nave.h
 	<SFML\Graphics.hpp>
 	"disparo.h"
 	"colision.h"
@@ -2560,7 +2560,7 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1733711213 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\nave.cpp
+1733775985 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\nave.cpp
 	"Nave.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -2568,14 +2568,14 @@
 	<stdlib.h>
 	"disparo.h"
 
-1733712935 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
+1733774407 source:c:\users\felid\onedrive\documentos\github\utn-niatsu\game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<ctime>
 	<stdlib.h>
 
-1733707986 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
+1733773046 c:\users\felid\onedrive\documentos\github\utn-niatsu\game.h
 	<SFML/Graphics.hpp>
 	"Nave.h"
 	"Colis.h"
