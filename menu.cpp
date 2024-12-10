@@ -8,11 +8,10 @@ Menu::Menu(sf::RenderWindow& window) : window(window) {
     opcionSeleccionada = 0;
     ingresarNombre=true;
 
-    // Inicializar el texto para mostrar el nombre ingresado
     nombreText.setFont(font);
     nombreText.setCharacterSize(24);
     nombreText.setFillColor(sf::Color::Yellow);
-    nombreText.setPosition(10,0);  // Ajusta la posición según sea necesario
+    nombreText.setPosition(10,0);
 }
 
 void Menu::inicializarOpciones() {
@@ -45,7 +44,7 @@ void Menu::mostrarMenuPrincipal() {
                         opcionSeleccionada = (opcionSeleccionada < opcionesMenu.size() - 1) ? opcionSeleccionada + 1 : 0;
                     }
                     if (event.key.code == sf::Keyboard::Enter) {
-                        return;  // Salir del menú cuando se presiona Enter
+                        return;
                     }
                 }
 

@@ -15,3 +15,7 @@ disparo_padre::~disparo_padre() {
     if(sprite.getPosition().y>600){
     delete texture;}
 }
+
+disparo_padre::limpiezatotal(){
+delete texture;
+}

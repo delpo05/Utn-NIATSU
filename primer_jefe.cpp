@@ -72,24 +72,19 @@ void primer_jefe::update() {
 
         cantidad_de_disparos = tiroJ.size();
 
-    // Movimiento
+
     _sprite.move(_velocidadX, _velocidadY);
 
-    // Cambia la dirección en X si el enemigo toca los bordes de la pantalla
+
     if (_sprite.getPosition().x <= 0 || _sprite.getPosition().x >= 800 - _sprite.getGlobalBounds().width) {
-        _velocidadX = -_velocidadX; // Invierte la dirección en X
+        _velocidadX = -_velocidadX;
     }
 
     if(_sprite.getPosition().y > _sprite.getGlobalBounds().height){
         _velocidadY = 0;
     }
 
-    // Desaparece y vuelve a la parte superior si se mueve fuera de la pantalla hacia abajo
-    /*if (_sprite.getPosition().y > 600) {
-        respawn();
-    }*/
 
-    // Control de disparo
     if (disparoTimer <= 0 && vida_jefe >= 1 && _velocidadY == 0) {
         disparar();
         disparoJefe.play();
@@ -99,7 +94,7 @@ void primer_jefe::update() {
         disparoTimer -= 10;
     }
 
-    // Actualización de disparos
+
     for (auto& disparo_primer_jefe :tiroJ) {
         disparo_primer_jefe.update();
     }

@@ -1,5 +1,5 @@
 #include "menuIntermedio.h"
-#include <cstring>  // Para memset
+#include <cstring>
 
 MenuIntermedio::MenuIntermedio(sf::RenderWindow& window) : window(window), opcionSeleccionada(0), ingresarNombre(true) {
     font.loadFromFile("Letra.ttf");
@@ -7,13 +7,13 @@ MenuIntermedio::MenuIntermedio(sf::RenderWindow& window) : window(window), opcio
     texturaFondoMenu.loadFromFile("fondomenu.jpg");
     spriteFondoMenu.setTexture(texturaFondoMenu);
 
-    // Inicializar el texto para mostrar el nombre ingresado
+
     nombreText.setFont(font);
     nombreText.setCharacterSize(24);
     nombreText.setFillColor(sf::Color::Yellow);
-    nombreText.setPosition(10, 0);  // Ajusta la posición según sea necesario
+    nombreText.setPosition(10, 0);
 
-    memset(nombreJugador, 0, sizeof(nombreJugador));  // Inicializa el array a una cadena vacía
+    memset(nombreJugador, 0, sizeof(nombreJugador));
 }
 
 void MenuIntermedio::inicializarOpciones() {
@@ -29,7 +29,7 @@ void MenuIntermedio::inicializarOpciones() {
 }
 
 void MenuIntermedio::capturarNombreJugador() {
-    int indice = 0;  // Índice para manejar la posición en nombreJugador
+    int indice = 0;
     nombreText.setString("Ingrese su nombre: ");
 
     while (window.isOpen()) {
@@ -39,27 +39,26 @@ void MenuIntermedio::capturarNombreJugador() {
                 window.close();
             }
 
-            // Capturar la entrada de texto para el nombre
             if (event.type == sf::Event::TextEntered) {
-                if (event.text.unicode == '\b' && indice > 0) {  // Retroceso
-                    nombreJugador[--indice] = '\0';  // Elimina el último caracter ingresado
+                if (event.text.unicode == '\b' && indice > 0) {
+                    nombreJugador[--indice] = '\0';
                 } else if (event.text.unicode < 128 && event.text.unicode != '\b' && indice < 49) {  // Solo caracteres ASCII y límite de 49 caracteres
                     nombreJugador[indice++] = static_cast<char>(event.text.unicode);
                     nombreJugador[indice] = '\0';  // Mantiene el final nulo de la cadena
                 }
-                nombreText.setString("Ingrese su nombre: " + std::string(nombreJugador));  // Actualiza el texto en pantalla
+                nombreText.setString("Ingrese su nombre: " + std::string(nombreJugador));
             }
 
-            // Si el usuario presiona Enter, termina la entrada del nombre
+
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter) {
-                return;  // Salir del método una vez ingresado el nombre
+                return;
             }
         }
 
-        // Dibujar la pantalla de entrada de nombre
+
         window.clear();
         window.draw(spriteFondoMenu);
-        window.draw(nombreText);  // Mostrar el nombre que se va ingresando
+        window.draw(nombreText);
         window.display();
     }
 }
@@ -72,7 +71,7 @@ void MenuIntermedio::mostrarMenuPrincipal() {
                 window.close();
             }
 
-            // Controles de navegación del menú
+
             if (event.type == sf::Event::KeyPressed) {
                 if (event.key.code == sf::Keyboard::Up) {
                     opcionSeleccionada = (opcionSeleccionada > 0) ? opcionSeleccionada - 1 : opcionesMenu.size() - 1;
@@ -81,7 +80,7 @@ void MenuIntermedio::mostrarMenuPrincipal() {
                     opcionSeleccionada = (opcionSeleccionada < opcionesMenu.size() - 1) ? opcionSeleccionada + 1 : 0;
                 }
                 if (event.key.code == sf::Keyboard::Enter) {
-                    return;  // Salir del menú cuando se presiona Enter
+                    return;
                 }
             }
         }

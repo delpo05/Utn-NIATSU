@@ -16,7 +16,7 @@ sf::FloatRect jefe::getBounds() const {
 void jefe::recibedanio(){
     setVida_jefe (getVida()-1);
     impacto_img = true;
-    timerAparicion_jefe.restart(); // Inicia el temporizador en cada impacto
+    timerAparicion_jefe.restart();
     recibetiro.play();
 
 }

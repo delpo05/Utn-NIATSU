@@ -40,7 +40,7 @@ void Colis::update() {
     }
 
     if (!banderaSegundoNivel) {
-        // Comportamiento básico del enemigo
+
         if (std::rand() % 20 == 0) {
             _velocidadX += (std::rand() % 3 - 1);
             if (_velocidadX > 5.0) _velocidadX = 5.0;
@@ -74,14 +74,14 @@ void Colis::update() {
         _sprite.setPosition(std::rand() % 700 + _sprite.getGlobalBounds().width, -_sprite.getGlobalBounds().height);
         banderaAparicionSegundosColis = true;
         }
-        // Comportamiento avanzado del enemigo en el segundo nivel
+
         if (std::rand() % 10 == 0) {
-            _velocidadX += (std::rand() % 5 - 2);  // Movimiento más errático
-            if (_velocidadX > 7.0) _velocidadX = 7.0; // Mayor velocidad
+            _velocidadX += (std::rand() % 5 - 2);
+            if (_velocidadX > 7.0) _velocidadX = 7.0;
             if (_velocidadX < -7.0) _velocidadX = -7.0;
         }
 
-        _sprite.move(_velocidadX, _velocidadY * 1.5); // Aumento de velocidad vertical también
+        _sprite.move(_velocidadX, _velocidadY * 1.5);
 
         if (_sprite.getPosition().x <= 0 || _sprite.getPosition().x >= 800 - _sprite.getGlobalBounds().width) {
             _velocidadX = -_velocidadX;
@@ -91,13 +91,13 @@ void Colis::update() {
             respawn();
         }
 
-        // Disparo en ráfagas
+
         if (disparoTimer <= 0 && vida_coli >= 1) {
 
                 disparar();
                 tiroColi.play();
 
-            intervaloDisparo = 500;  // Intervalo más corto entre ráfagas
+            intervaloDisparo = 500;
             disparoTimer = intervaloDisparo;
         } else {
             disparoTimer -= 10;
@@ -108,7 +108,7 @@ void Colis::update() {
         }
     }
 
-    // Elimina disparos fuera de la pantalla
+
     tiroC.erase(std::remove_if(tiroC.begin(), tiroC.end(), [](Disparo_enemigo& d) {
         return d.sprite.getPosition().y > 600;
     }), tiroC.end());

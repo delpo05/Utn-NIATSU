@@ -1,25 +1,19 @@
-///game.cpp
 #include "Game.h"
-
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <ctime>
 #include <stdlib.h>
 
-
-// Constructor
 Game::Game() {
-    inicializacion_ventana();  // Inicializa la ventana y carga los elementos
-    iniciar_partida(); // Inicia la partida
+    inicializacion_ventana();
+    iniciar_partida();
 }
 
-// Inicialización de la ventana y elementos gráficos
 void Game::inicializacion_ventana() {
     window.create(sf::VideoMode(800, 600), "NIATSU");
     window.setFramerateLimit(60);
 }
 
-// Método principal que ejecuta el juego (game loop)
 void Game::iniciar_partida() {
     MenuIntermedio menui(window);
 
@@ -29,7 +23,7 @@ void Game::iniciar_partida() {
 
 
 
-    // Inicialización de tiempos y variables
+
     tiempoDeGracia = 60 * 0.3;
     tiempoDeGracia2 = 60 * 0.5;
     tiempoDeGracia3 = 60 * 0.4;
@@ -39,7 +33,7 @@ void Game::iniciar_partida() {
     intervaloDisparo = 0.2f;
     puntos = 0;
 
-    // Cargar fuentes
+
     Letra.loadFromFile("Letra.ttf");
     texPuntos.setFont(Letra);
     texvidas.setFont(Letra);
@@ -80,7 +74,7 @@ void Game::iniciar_partida() {
     textoGanaste.setPosition(400 - textoPerdiste.getGlobalBounds().width / 2, 300 - textoPerdiste.getGlobalBounds().height / 2);
 
 
-    // Cargar efectos de sonido
+
     audiochoque.loadFromFile("audiochoque.wav");
     choque.setBuffer(audiochoque);
     choque.setVolume(10);
@@ -105,7 +99,7 @@ void Game::iniciar_partida() {
     tiroRecibidoJefe.setVolume(10);
     explosionColi.setVolume(10);
 
-    // Inicialización de variables de estado
+
     bandera_oleada = true;
 
     banderaBonus = false;
@@ -116,14 +110,6 @@ void Game::iniciar_partida() {
 
 
 
-
-
-
-
-    // Temporizador para controlar la aparición de enemigos
-    //timerAparicion.restart();
-
-    // Inicialización de enemigos antes del bucle
     for (int i = 0; i < 3; ++i) {
         colis.emplace_back();
     }
@@ -136,7 +122,7 @@ void Game::iniciar_partida() {
                 window.close();
         }
 
-        // Verificar tiempo transcurrido y actualizar bandera para aparición de enemigos
+
         tiempo_transcurrido = timerAparicion.getElapsedTime();
         if (secondLevel == false){
         tiempoRestante = tiempoOleada - tiempo_transcurrido.asSeconds ();
@@ -154,8 +140,8 @@ void Game::iniciar_partida() {
             }
 
 
-        // APARICIÓN DE JEFE
-        // DISPARO INTERMITENTE CON EL ESPACIO
+
+
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
             if (tiempoUltimoDisparo >= intervaloDisparo) {
                 niatsu.disparar();
@@ -184,14 +170,14 @@ void Game::iniciar_partida() {
 
 
         // COLISIONES VS SEGUNDO JEFE
-        // to punch jefe
+
         for (auto& disparo : niatsu.getDisparos()) {
             if (disparo.isCollision(jefe2) && banderaGolpeJefe == false && jefe2.getbandera_jefe_muerto2() == false) {
                 banderaGolpeJefe = true;
                 jefe2.recibedanio();
             }
         }
-        //jefe punch me
+
         for (auto& disparo_segundo_jefe : jefe2.getDisparos()) {
             if (disparo_segundo_jefe.isCollision(niatsu) && banderaGolpe == false && jefe2.getbandera_jefe_muerto2() == false) {
                 banderaGolpe = true;
@@ -200,7 +186,7 @@ void Game::iniciar_partida() {
             }
         }
 
-            // Actualizar colisiones de disparos con enemigos si bandera_oleada es verdadera
+            // NIATSUUU VS COLI
         for (auto& disparo : niatsu.getDisparos()) {
             for (auto& coli : colis) {
                 if (disparo.isCollision(coli) && bandera_oleada == true) {
@@ -218,6 +204,8 @@ void Game::iniciar_partida() {
             }
         }
 
+
+        // COLISION CON EL POWERUPPP
         if (niatsu.isCollision(powerup)&& banderaBonus == true ) {
             niatsu.setVida_nave(niatsu.getVida_nave() + 3);
             banderaBonus = false;
@@ -265,9 +253,9 @@ void Game::iniciar_partida() {
                 secondLevel = true;
                 Musica.play();
 
-                // Continuar juego
+
             } else if (opcion == 1) {
-                window.close(); // Cerrar el juego
+                window.close();
             }
          }
         }
@@ -311,7 +299,7 @@ void Game::iniciar_partida() {
         // SEGUNDO NIVEL
         if (secondLevel == true) {
          fondo.cambiarFondo(secondLevel);
-         fondo.update(1.0 / 60.0f);
+         fondo.update(1.0 / 60.0);
 
         }
 
@@ -324,14 +312,12 @@ void Game::iniciar_partida() {
         window.clear();
         window.draw(textoPerdiste);
         window.display();
-
-    // Pausa de 3 segundos antes de regresar al menú
         sf::sleep(sf::seconds(3));
         window.close();
         }
 
         if (bandera_oleada == true) {
-            fondo.update(1.0 / 60.0f); // Actualiza el fondo con deltaTime
+            fondo.update(1.0 / 60.0f);
         }
 
         if (bandera_oleada == true) {
@@ -355,20 +341,16 @@ void Game::iniciar_partida() {
         eliminarTodosLosVectoresDeDisparos();
         window.draw(textoGanaste);
         window.display();
-
-    // Pausa de 3 segundos antes de regresar al menú
         sf::sleep(sf::seconds(3));
         window.close();
-
-    // Regresar al menú
 
 
 }
 
-        // INICIO DE WINDOWSSSS
+
         window.clear();
 
-        fondo.draw(window); // Renderiza el fondo
+        fondo.draw(window);
 
         texPuntos.setPosition({ 800 - texPuntos.getGlobalBounds().width, 0 });
         texVidaJefe1.setPosition({ 400 - texVidaJefe1.getGlobalBounds().width / 2, 0 });
@@ -492,7 +474,7 @@ void Game::iniciar_partida() {
 }
 
 void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-    // Dibujar elementos adicionales si es necesario
+
 }
 
 void Game::eliminarTodosLosVectoresDeDisparos(){

@@ -12,15 +12,12 @@ Segundo_jefe::Segundo_jefe() {
     _sprite.setTexture(_texture);
     _sprite.setTextureRect({118, 205, 112, 130});
     _sprite.setOrigin(_sprite.getGlobalBounds().width / 2, _sprite.getGlobalBounds().height / 2);
-    // Establece la posición inicial en una coordenada aleatoria en la parte superior de la pantalla
     _sprite.setPosition(400, -_sprite.getGlobalBounds().height);
-
-    // Velocidades iniciales aleatorias en X y Y
     _velocidadX = (std::rand() % 2 == 0) ? 3.5 : -3.5;
     _velocidadY = 2;
 
     disparoTimer = 0;
-    intervaloDisparo = float(std::rand() % 2000 + 1000);  // entre 1 y 3 segundos
+    intervaloDisparo = float(std::rand() % 2000 + 1000);
     vida_jefe =2;
 
     audiodisparoJefe.loadFromFile("disparojefe1.wav");
@@ -54,9 +51,9 @@ void Segundo_jefe::update() {
     if (impacto_img) {
         tiempo_transcurrido_jefe = timerAparicion_jefe.getElapsedTime();
         if (tiempo_transcurrido_jefe.asSeconds() < 0.2) {
-            _sprite.setTextureRect({656, 219, 94, 124}); // Frame dañado
+            _sprite.setTextureRect({656, 219, 94, 124});
         } else {
-            _sprite.setTextureRect({118, 205, 112, 130}); // Restaurar textura original
+            _sprite.setTextureRect({118, 205, 112, 130});
             timerAparicion_jefe.restart();
             impacto_img = false;
         }
@@ -69,44 +66,40 @@ void Segundo_jefe::update() {
     if (vida_jefe <= 0) {
         explosionJefe.play();
         explosion();
-
-         // Detener la actualización si está explotando
          }
 
 
     if(_sprite.getPosition().y > _sprite.getGlobalBounds().height){
-
         bandera_pasoPantalla = true;
-
     }
 
-        // Ajuste aleatorio en la velocidad X para un movimiento más impredecible
-        if (std::rand() % 15 == 0) {  // 1 en 15 posibilidad de cambiar aleatoriamente cada ciclo
-            _velocidadX += (std::rand() % 5 - 2);  // Añade -2, -1, 0, 1 o 2 a _velocidadX
 
-            // Limita _velocidadX entre -7.0 y 7.0
+        if (std::rand() % 15 == 0) {
+            _velocidadX += (std::rand() % 5 - 2);
+
+
             if (_velocidadX > 7.0) _velocidadX = 7.0;
             if (_velocidadX < -7.0) _velocidadX = -7.0;
         }
 
-        // Movimiento en oleada en Y para patrón vertical adicional
-        if (std::rand() % 100 == 0 && bandera_pasoPantalla == true) {  // Cada cierto tiempo cambia la dirección Y
-            _velocidadY = (std::rand() % 3 - 1) * 2;  // Cambia a -2, 0 o 2
+
+        if (std::rand() % 100 == 0 && bandera_pasoPantalla == true) {
+            _velocidadY = (std::rand() % 3 - 1) * 2;
         }
 
-        // Movimiento del jefe2
+
         _sprite.move(_velocidadX, _velocidadY + std::sin(_sprite.getPosition().x / 30.0) * 5);
 
-        // Cambia dirección en X e Y si el jefe toca los bordes de la pantalla
+
         if (_sprite.getPosition().x <= 0 || _sprite.getPosition().x >= 800 - _sprite.getGlobalBounds().width) {
-            _velocidadX = -_velocidadX; // Invierte la dirección en X
+            _velocidadX = -_velocidadX;
         }
 
 
 
-        // Condición para que el jefe2 vuelva a la velocidad inicial en Y tras pasar cierto límite
+
         if (_sprite.getPosition().y > 600 - _sprite.getGlobalBounds().height) {
-            _velocidadY = -1.5f; // Velocidad constante hacia arriba si alcanza el límite inferior
+            _velocidadY = -1.5f;
         }
 
 
@@ -120,7 +113,7 @@ void Segundo_jefe::update() {
 
 
 
-        // Elimina proyectiles que salen de la pantalla
+
         tiroJ.erase(std::remove_if(tiroJ.begin(), tiroJ.end(), [](disparo_segundo_jefe& d) {
             return d.sprite.getPosition().y > 600;
         }), tiroJ.end());
@@ -129,7 +122,7 @@ void Segundo_jefe::update() {
 
     cantidad_de_disparos = tiroJ.size();
 
-    // Control de disparo
+
     if (disparoTimer <= 0 && vida_jefe >= 1 && bandera_pasoPantalla == true) {
         disparar();
         disparoJefe.play();
@@ -139,7 +132,7 @@ void Segundo_jefe::update() {
         disparoTimer -= 10;
     }
 
-    // Actualización de disparos
+
     for (auto& disparo_segundo_jefe :tiroJ) {
         disparo_segundo_jefe.update();
     }
@@ -158,7 +151,7 @@ const std::vector<disparo_segundo_jefe>& Segundo_jefe::getDisparos() const {
 void Segundo_jefe::explosion() {
     _frame += 0.2;
 
-    // Cambia el rectángulo de textura para la animación de explosión
+
     _sprite.setTextureRect({232 + int(_frame) * 57, 943, 57, 87});
 
     if (_frame > 6 && _contador <= 3) {

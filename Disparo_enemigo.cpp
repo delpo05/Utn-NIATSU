@@ -8,14 +8,14 @@ Disparo_enemigo::Disparo_enemigo(float x, float y) {
     sprite.setTextureRect({50,360,15,30});
     sprite.setOrigin(sprite.getGlobalBounds().width/2, sprite.getGlobalBounds().height-10);
     sprite.setPosition(x, y);
-    velocidad = 5.0; // Velocidad de movimiento del disparo
+    velocidad = 5.0;
 }
 
 
 
-// Actualizar posición del disparo
+
 void Disparo_enemigo::update() {
-    sprite.move(0, velocidad); // Movimiento hacia arriba
+    sprite.move(0, velocidad);
 }
 
 
