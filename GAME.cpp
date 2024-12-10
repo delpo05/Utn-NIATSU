@@ -466,11 +466,6 @@ void Game::iniciar_partida() {
     }
 
 
-
-
-
-
-
 }
 
 void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {

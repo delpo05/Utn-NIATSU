@@ -9,16 +9,10 @@ private:
     int puntos;
 
 public:
-    // Constructor por defecto
     Jugador();
 
-    // Constructor con parámetros
     Jugador(char* nombre, int puntos);
 
-
-
-
-    // Getters
     const char* getNombre() const;
     int getPuntos() const;
 };

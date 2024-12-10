@@ -20,15 +20,12 @@
 
 
 class Game : public sf::Drawable {
-    Nave niatsu;   // Instancia de la nave
+    Nave niatsu;
     primer_jefe jefe1;
     Segundo_jefe jefe2;
-    std::vector<Colis> colis;  // Vector para almacenar enemigos
+    std::vector<Colis> colis;
 
-
-     // Ventana del juego
-    //sf::Sprite fondo;       // Fondo del juego
-    sf::Texture tex;        // Textura del fondo
+    sf::Texture tex;
     sf::Music Musica;
     sf::Font Letra;
     sf::Text texvidas;
@@ -91,10 +88,10 @@ class Game : public sf::Drawable {
 public:
     Game();  // Constructor
 
-    void inicializacion_ventana();   // Inicializa la ventana y elementos
-    void iniciar_partida();          // Ciclo principal del juego
-    void pausar_partida();           // Pausar el juego (por implementar)
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;  // Dibuja en pantalla
+    void inicializacion_ventana();
+    void iniciar_partida();
+    void pausar_partida();
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     void eliminarTodosLosVectoresDeDisparos();
 
 };
