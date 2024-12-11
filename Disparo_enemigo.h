@@ -8,6 +8,6 @@ class Disparo_enemigo: public disparo_padre
 public:
     Disparo_enemigo (float x, float y);
     void update();
-    void disparo2do () const;
+    void disparo2do() const;
 };
 

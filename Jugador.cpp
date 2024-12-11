@@ -3,7 +3,7 @@
 
 
 Jugador::Jugador() {
-    std::strncpy(nombre, "", sizeof(nombre) - 1);
+    std::strncpy(nombre, "", sizeof(nombre));
     puntos = 0;
 }
 

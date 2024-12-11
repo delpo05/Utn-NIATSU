@@ -14,7 +14,7 @@ Colis::Colis() {
     _sprite.setPosition(std::rand() % 700 + _sprite.getGlobalBounds().width, -_sprite.getGlobalBounds().height);
 
     _velocidadX = (std::rand() % 2 == 0) ? 3.5 : -3.5;
-    _velocidadY = 1.5 + float(std::rand() % 200) / 100.0;
+    _velocidadY = 1.5 + float(std::rand() % 2);
 
     disparoTimer = 0;
     vida_coli = 1;
@@ -27,6 +27,7 @@ Colis::Colis() {
     banderaSegundoNivel = false;
     banderaAparicionSegundosColis = false;
     cant=0;
+    bandera_termino_juego = false;
 }
 
 void Colis::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -60,14 +61,14 @@ void Colis::update() {
         if (disparoTimer <= 0 && vida_coli >= 1) {
             disparar();
             tiroColi.play();
-            intervaloDisparo = float(std::rand() % 700 + 100);
+            intervaloDisparo = float(std::rand() % 70 + 10);
             disparoTimer = intervaloDisparo;
         } else {
-            disparoTimer -= 10;
+            disparoTimer -= 1  ;
         }
 
-        for (auto& disparo : tiroC) {
-            disparo.update();
+        for (auto& alias : tiroC) {
+            alias.update();
         }
     } else {
         if(banderaAparicionSegundosColis == false){
@@ -97,10 +98,10 @@ void Colis::update() {
                 disparar();
                 tiroColi.play();
 
-            intervaloDisparo = 500;
+            intervaloDisparo = 50;
             disparoTimer = intervaloDisparo;
         } else {
-            disparoTimer -= 10;
+            disparoTimer -= 1;
         }
 
         for (auto& disparo : tiroC) {
@@ -120,7 +121,7 @@ void Colis::update() {
 void Colis::respawn() {
     _sprite.setPosition(std::rand() % 700 + _sprite.getGlobalBounds().width, -_sprite.getGlobalBounds().height);
     _velocidadX = (std::rand() % 2 == 0) ? 3.5 : -3.5;
-    _velocidadY = 1.5 + float(std::rand() % 200) / 100.0;
+    _velocidadY = 1.5 + float(std::rand() % 2);
     _sprite.setTextureRect({145, 382, 55, 45});
     vida_coli = 1;
 }
@@ -157,3 +158,12 @@ void Colis::borrarDisparos(){
     tiroC.clear();
     cant=tiroC.size();
 }
+
+
+Colis::~Colis(){
+if(bandera_termino_juego){
+delete _texture;
+}
+}
+
+

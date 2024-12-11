@@ -7,7 +7,7 @@ disparo_segundo_jefe::disparo_segundo_jefe(float x, float y) {
     sprite.setTextureRect({7,182,97,48});
     sprite.setOrigin(sprite.getGlobalBounds().width/2, sprite.getGlobalBounds().height-10);
     sprite.setPosition(x, y);
-    velocidad = 10.0;
+    velocidad = 10;
 }
 
 

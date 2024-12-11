@@ -11,7 +11,7 @@ public:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     sf::FloatRect getBounds() const;
     virtual ~disparo_padre();
-    int limpiezatotal();
+
 
 
 };

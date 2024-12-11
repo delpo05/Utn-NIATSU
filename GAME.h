@@ -1,4 +1,3 @@
-// game.h
 #include <SFML/Graphics.hpp>
 #include "Nave.h"
 #include "Colis.h"
@@ -86,8 +85,7 @@ class Game : public sf::Drawable {
 
 
 public:
-    Game();  // Constructor
-
+    Game();
     void inicializacion_ventana();
     void iniciar_partida();
     void pausar_partida();

@@ -27,10 +27,10 @@ void Game::iniciar_partida() {
     tiempoDeGracia = 60 * 0.3;
     tiempoDeGracia2 = 60 * 0.5;
     tiempoDeGracia3 = 60 * 0.4;
-    tiempoUltimoDisparo = 0.0f;
-    tiempoOleada = 5;
-    tiempoOleada2 = 5;
-    intervaloDisparo = 0.2f;
+    tiempoUltimoDisparo = 0;
+    tiempoOleada = 30;
+    tiempoOleada2 = 40;
+    intervaloDisparo = 0.2;
     puntos = 0;
 
 
@@ -145,7 +145,7 @@ void Game::iniciar_partida() {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
             if (tiempoUltimoDisparo >= intervaloDisparo) {
                 niatsu.disparar();
-                tiempoUltimoDisparo = 0.0f;
+                tiempoUltimoDisparo = 0;
                 shoot.play();
             }
         }
@@ -317,7 +317,7 @@ void Game::iniciar_partida() {
         }
 
         if (bandera_oleada == true) {
-            fondo.update(1.0 / 60.0f);
+            fondo.update(1.0 / 60.0);
         }
 
         if (bandera_oleada == true) {
@@ -334,6 +334,14 @@ void Game::iniciar_partida() {
         }
 
             if (jefe2.getbandera_jefe_muerto2() == true) {
+
+
+        for (auto& coli : colis){
+            coli.setBandera_termino_juego(true);
+         }
+
+
+
         Jugador jugadorFinal(menui.getNombreJugador(), puntos);
         ArchivoJugadores archivoJugadores("jugadores.dat");
         archivoJugadores.grabarRegistro(jugadorFinal);
@@ -366,8 +374,8 @@ void Game::iniciar_partida() {
 
         ///CHEQUEO DE MEMORY LEAK
 
-        /*
-        textcant_disparo_nave.setPosition({5, 585});
+
+        /*textcant_disparo_nave.setPosition({5, 585});
         textcant_disparo_nave.setString("NAVE: " + std::to_string(niatsu.Getcantidad_de_disparos()));
         window.draw(textcant_disparo_nave);
         textcant_disparo_colis.setPosition({5, 570});
@@ -378,8 +386,8 @@ void Game::iniciar_partida() {
         window.draw(textcant_disparos_primer_jefe);
         textcant_disparos_segundo_jefe.setPosition({5, 540});
         textcant_disparos_segundo_jefe.setString("JEFE 2: " + std::to_string(jefe2.getCantidad_de_disparos()));
-        window.draw(textcant_disparos_segundo_jefe);
-        */
+        window.draw(textcant_disparos_segundo_jefe);*/
+
 
 
         if (bandera_oleada == false && jefe1.getbandera_jefe_muerto() == false) {
@@ -421,7 +429,7 @@ void Game::iniciar_partida() {
 
         if (bandera_oleada == false && jefe1.getVida() > 0) {
             for (auto& disparo : jefe1.getDisparos()) {
-                disparo.draw(window, sf::RenderStates::Default);
+                window.draw(disparo);
             }
         }
 

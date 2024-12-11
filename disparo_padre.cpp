@@ -12,10 +12,8 @@ sf::FloatRect disparo_padre::getBounds() const {
 }
 
 disparo_padre::~disparo_padre() {
-    if(sprite.getPosition().y>600){
+    if(sprite.getPosition().y>600 || sprite.getPosition().y< -100){
     delete texture;}
 }
 
-disparo_padre::limpiezatotal(){
-delete texture;
-}
+

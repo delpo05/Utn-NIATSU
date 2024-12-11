@@ -1,13 +1,12 @@
 #include "Menu.h"
 
-Menu::Menu(sf::RenderWindow& window) : window(window) {
+Menu::Menu(sf::RenderWindow& window) : ventana(window) {
     font.loadFromFile("Letra.ttf");
     inicializarOpciones();
     texturaFondoMenu.loadFromFile("fondomenu.jpg");
     spriteFondoMenu.setTexture(texturaFondoMenu);
     opcionSeleccionada = 0;
     ingresarNombre=true;
-
     nombreText.setFont(font);
     nombreText.setCharacterSize(24);
     nombreText.setFillColor(sf::Color::Yellow);
@@ -28,11 +27,11 @@ void Menu::inicializarOpciones() {
 }
 
 void Menu::mostrarMenuPrincipal() {
-    while (window.isOpen()) {
+    while (ventana.isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event)) {
+        while (ventana.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
-                window.close();
+                ventana.close();
             }
 
 
@@ -54,17 +53,17 @@ void Menu::mostrarMenuPrincipal() {
 }
 
 void Menu::draw() {
-    window.clear();
-    window.draw(spriteFondoMenu);
+    ventana.clear();
+    ventana.draw(spriteFondoMenu);
 
 
         for (size_t i = 0; i < opcionesMenu.size(); ++i) {
             opcionesMenu[i].setFillColor(i == opcionSeleccionada ? sf::Color::Yellow : sf::Color::White);
-            window.draw(opcionesMenu[i]);
+            ventana.draw(opcionesMenu[i]);
         }
 
 
-    window.display();
+    ventana.display();
 }
 
 size_t Menu::getOpcionSeleccionada() const {

@@ -1,4 +1,3 @@
-/// colis.h
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
@@ -24,6 +23,7 @@ class Colis : public sf::Drawable, public collisionable {
     int TimerRespawn;
     float _frame;
     size_t cant;
+    bool bandera_termino_juego;
 
 
 
@@ -34,7 +34,7 @@ public:
     const std::vector<Disparo_enemigo>& getDisparos() const;
     sf::FloatRect getBounds() const;
     void disparar();
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     void setVida_coli(int vida){vida_coli=vida;}
     int getVida(){return vida_coli;}
     int getCantidadColis(){return _CantidadColis;}
@@ -46,6 +46,10 @@ public:
     void setBanderaSegundoNivel(bool b){banderaSegundoNivel = b;}
     size_t getCant(){return cant;}
     void borrarDisparos();
+    ~Colis();
+    void setBandera_termino_juego(bool t){bandera_termino_juego = t;}
+
+
 
 
 };

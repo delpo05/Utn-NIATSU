@@ -1,19 +1,19 @@
 #include "menuIntermedio.h"
 #include <cstring>
 
-MenuIntermedio::MenuIntermedio(sf::RenderWindow& window) : window(window), opcionSeleccionada(0), ingresarNombre(true) {
+MenuIntermedio::MenuIntermedio(sf::RenderWindow& window) : ventana(window) {
     font.loadFromFile("Letra.ttf");
     inicializarOpciones();
     texturaFondoMenu.loadFromFile("fondomenu.jpg");
     spriteFondoMenu.setTexture(texturaFondoMenu);
-
 
     nombreText.setFont(font);
     nombreText.setCharacterSize(24);
     nombreText.setFillColor(sf::Color::Yellow);
     nombreText.setPosition(10, 0);
 
-    memset(nombreJugador, 0, sizeof(nombreJugador));
+    opcionSeleccionada = 0;
+    ingresarNombre = true;
 }
 
 void MenuIntermedio::inicializarOpciones() {
@@ -32,19 +32,19 @@ void MenuIntermedio::capturarNombreJugador() {
     int indice = 0;
     nombreText.setString("Ingrese su nombre: ");
 
-    while (window.isOpen()) {
+    while (ventana.isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event)) {
+        while (ventana.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
-                window.close();
+                ventana.close();
             }
 
             if (event.type == sf::Event::TextEntered) {
                 if (event.text.unicode == '\b' && indice > 0) {
                     nombreJugador[--indice] = '\0';
-                } else if (event.text.unicode < 128 && event.text.unicode != '\b' && indice < 49) {  // Solo caracteres ASCII y límite de 49 caracteres
+                } else if (event.text.unicode < 128 && event.text.unicode != '\b' && indice < 49) {
                     nombreJugador[indice++] = static_cast<char>(event.text.unicode);
-                    nombreJugador[indice] = '\0';  // Mantiene el final nulo de la cadena
+                    nombreJugador[indice] = '\0';
                 }
                 nombreText.setString("Ingrese su nombre: " + std::string(nombreJugador));
             }
@@ -56,19 +56,19 @@ void MenuIntermedio::capturarNombreJugador() {
         }
 
 
-        window.clear();
-        window.draw(spriteFondoMenu);
-        window.draw(nombreText);
-        window.display();
+        ventana.clear();
+        ventana.draw(spriteFondoMenu);
+        ventana.draw(nombreText);
+        ventana.display();
     }
 }
 
 void MenuIntermedio::mostrarMenuPrincipal() {
-    while (window.isOpen()) {
+    while (ventana.isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event)) {
+        while (ventana.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
-                window.close();
+                ventana.close();
             }
 
 
@@ -89,14 +89,14 @@ void MenuIntermedio::mostrarMenuPrincipal() {
 }
 
 void MenuIntermedio::draw() {
-    window.clear();
-    window.draw(spriteFondoMenu);
+    ventana.clear();
+    ventana.draw(spriteFondoMenu);
 
     for (size_t i = 0; i < opcionesMenu.size(); ++i) {
         opcionesMenu[i].setFillColor(i == opcionSeleccionada ? sf::Color::Yellow : sf::Color::White);
-        window.draw(opcionesMenu[i]);
+        ventana.draw(opcionesMenu[i]);
     }
 
-    window.display();
+    ventana.display();
 }
 

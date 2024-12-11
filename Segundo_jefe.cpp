@@ -18,7 +18,7 @@ Segundo_jefe::Segundo_jefe() {
 
     disparoTimer = 0;
     intervaloDisparo = float(std::rand() % 2000 + 1000);
-    vida_jefe =2;
+    vida_jefe =15;
 
     audiodisparoJefe.loadFromFile("disparojefe1.wav");
     disparoJefe.setBuffer(audiodisparoJefe);

@@ -15,7 +15,7 @@ primer_jefe::primer_jefe() {
     _velocidadX = (std::rand() % 2 == 0) ? 3.5 : -3.5;
     _velocidadY = 2;
     disparoTimer = 0;
-    vida_jefe =1;
+    vida_jefe =20;
     audiodisparoJefe.loadFromFile("disparojefe1.wav");
     disparoJefe.setBuffer(audiodisparoJefe);
     disparoJefe.setVolume(10);

@@ -5,7 +5,6 @@ bonus::bonus()
 {
     _texture.loadFromFile("bonus.png");
     _sprite.setTexture(_texture);
-
 }
 
 

@@ -13,14 +13,14 @@ public:
 
 private:
     void inicializarOpciones();
-    sf::RenderWindow& window;
+    sf::RenderWindow& ventana;
     sf::Font font;
     std::vector<sf::Text> opcionesMenu;
     sf::Texture texturaFondoMenu;
     sf::Sprite spriteFondoMenu;
     size_t opcionSeleccionada;
 
-    sf::Text nombreText;  // Texto para mostrar el nombre ingresado
-    char nombreJugador[50];  // Array de char para almacenar el nombre
-    bool ingresarNombre;  // Bandera para determinar si se está ingresando el nombre
+    sf::Text nombreText;
+    char nombreJugador[50];
+    bool ingresarNombre;
 };
